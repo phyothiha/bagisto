@@ -9,7 +9,7 @@
 @endphp
 
 <div class="gap-[15px] flex-wrap px-[15px] pt-[25px] hidden max-lg:flex max-lg:mb-[15px]">
-    <div class="w-full flex justify-between items-center">
+    <div class="flex items-center justify-between w-full">
         <!-- Left Navigation -->
         <div class="flex items-center gap-x-[5px]">
             <x-shop::drawer
@@ -21,7 +21,7 @@
                 </x-slot:toggle>
 
                 <x-slot:header>
-                    <div class="flex justify-between items-center">
+                    <div class="flex items-center justify-between">
                         <a href="{{ route('shop.home.index') }}">
                             <img
                                 src="{{ bagisto_asset('images/logo.svg') }}"
@@ -64,7 +64,7 @@
                     </div>
 
                     <!-- Mobile category view -->
-                    <v-mobile-category></v-mobile-category>
+                    {{-- <v-mobile-category></v-mobile-category> --}}
 
                     <!-- Localization & Currency Section -->
                     <div class="absolute w-full flex bottom-0 left-0 bg-white shadow-lg p-4 gap-x-[20px] justify-between items-center mb-[15px]">
@@ -259,8 +259,8 @@
 
     <!-- Serach Catalog Form -->
     <form action="{{ route('shop.search.index') }}" class="flex items-center w-full">
-        <label 
-            for="organic-search" 
+        <label
+            for="organic-search"
             class="sr-only"
         >
             @lang('shop::app.components.layouts.header.search')
@@ -378,7 +378,7 @@
             },
 
             mounted() {
-                this.get();
+                // this.get();
             },
 
             methods: {

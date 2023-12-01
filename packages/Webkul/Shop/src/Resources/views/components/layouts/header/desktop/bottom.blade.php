@@ -17,13 +17,13 @@
             >
         </a>
 
-        <v-desktop-category>
+        {{-- <v-desktop-category>
             <div class="flex gap-[20px] items-center">
                 <span class="shimmer w-[80px] h-[24px] rounded-[4px]"></span>
                 <span class="shimmer w-[80px] h-[24px] rounded-[4px]"></span>
                 <span class="shimmer w-[80px] h-[24px] rounded-[4px]"></span>
             </div>
-        </v-desktop-category>
+        </v-desktop-category> --}}
     </div>
 
     <!-- Right Nagivation Section -->
@@ -228,7 +228,7 @@
                             v-for="pairCategoryChildren in pairCategoryChildren(category)"
                         >
                             <template v-for="secondLevelCategory in pairCategoryChildren">
-                                <p class="text-navyBlue font-medium">
+                                <p class="font-medium text-navyBlue">
                                     <a
                                         :href="secondLevelCategory.url"
                                         v-text="secondLevelCategory.name"
@@ -272,7 +272,7 @@
             },
 
             mounted() {
-                this.get();
+                // this.get();
             },
 
             methods: {
