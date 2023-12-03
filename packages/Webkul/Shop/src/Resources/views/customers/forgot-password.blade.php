@@ -24,10 +24,9 @@
                 aria-label="@lang('shop::app.customers.forgot-password.bagisto')"
             >
                 <img
-                    src="{{ bagisto_asset('images/logo.svg') }}"
-                    alt="Bagisto "
-                    width="131"
-                    height="29"
+                    src="{{ bagisto_asset('images/logo.png') }}"
+                    alt="ME Myanmar Foods & Products"
+                    width="100"
                 >
             </a>
         </div>

@@ -7,10 +7,10 @@
     <div class="flex justify-center items-center h-[100vh]">
         <div class="flex flex-col gap-[20px] items-center">
             <!-- Logo -->
-            <img 
-                class="w-max" 
-                src="{{ bagisto_asset('images/logo.svg') }}" 
-                alt="Bagisto Logo"
+            <img
+                src="{{ bagisto_asset('images/logo.png') }}"
+                alt="ME Myanmar Foods & Products"
+                width="100"
             >
 
             <div class="flex flex-col min-w-[300px] bg-white dark:bg-gray-900 rounded-[6px] box-shadow">
@@ -27,18 +27,18 @@
                                 @lang('admin::app.users.sessions.email')
                             </x-admin::form.control-group.label>
 
-                            <x-admin::form.control-group.control 
-                                type="email" 
-                                name="email" 
+                            <x-admin::form.control-group.control
+                                type="email"
+                                name="email"
                                 id="email"
-                                class="w-[254px] max-w-full" 
-                                rules="required|email" 
+                                class="w-[254px] max-w-full"
+                                rules="required|email"
                                 :label="trans('admin::app.users.sessions.email')"
                                 :placeholder="trans('admin::app.users.sessions.email')"
                                 >
                             </x-admin::form.control-group.control>
 
-                            <x-admin::form.control-group.error 
+                            <x-admin::form.control-group.error
                                 control-name="email"
                             >
                             </x-admin::form.control-group.error>
@@ -49,19 +49,19 @@
                             <x-admin::form.control-group.label class="required">
                                 @lang('admin::app.users.sessions.password')
                             </x-admin::form.control-group.label>
-                    
-                            <x-admin::form.control-group.control 
-                                type="password" 
-                                name="password" 
+
+                            <x-admin::form.control-group.control
+                                type="password"
+                                name="password"
                                 id="password"
-                                class="w-[254px] max-w-full ltr:pr-10 rtl:pl-10" 
-                                rules="required|min:6" 
+                                class="w-[254px] max-w-full ltr:pr-10 rtl:pl-10"
+                                rules="required|min:6"
                                 :label="trans('admin::app.users.sessions.password')"
                                 :placeholder="trans('admin::app.users.sessions.password')"
                             >
                             </x-admin::form.control-group.control>
-                    
-                            <span 
+
+                            <span
                                 class="icon-view text-[22px] cursor-pointer absolute top-[42px] transform -translate-y-1/2 ltr:right-2 rtl:left-2"
                                 onclick="switchVisibility()"
                                 id="visibilityIcon"
@@ -69,8 +69,8 @@
                                 tabindex="0"
                             >
                             </span>
-                    
-                            <x-admin::form.control-group.error 
+
+                            <x-admin::form.control-group.error
                                 control-name="password"
                             >
                             </x-admin::form.control-group.error>
@@ -79,7 +79,7 @@
 
                     <div class="flex justify-between items-center p-[16px]">
                         <!-- Forgot Password Link -->
-                        <a 
+                        <a
                             class="text-[12px] text-blue-600 font-semibold leading-[24px] cursor-pointer"
                             href="{{ route('admin.forget_password.create') }}"
                         >

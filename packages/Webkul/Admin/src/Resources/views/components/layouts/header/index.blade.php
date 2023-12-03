@@ -13,20 +13,20 @@
 
         <!-- Logo -->
         <a
-            href="{{ route('admin.dashboard.index') }}" 
-            class="place-self-start -mt-[4px]"            
+            href="{{ route('admin.dashboard.index') }}"
+            class="place-self-start -mt-[4px]"
         >
             @if (core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode()))
                 <img
-                    class="w-[110px] h-[40px]"
                     src="{{ Storage::url(core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode())) }}"
-                    alt="{{ config('app.name') }}"
+                    alt="ME Myanmar Foods & Products"
+                    width="50"
                 />
             @else
                 <img
                     src="{{ request()->cookie('dark_mode') ? bagisto_asset('images/dark-logo.svg') : bagisto_asset('images/logo.svg') }}"
                     id="logo-image"
-                    alt="{{ config('app.name') }}"
+                    alt="ME Myanmar Foods & Products"
                 />
             @endif
         </a>
@@ -36,10 +36,10 @@
             <div class="flex items-center relative w-[525px] max-w-[525px] ltr:ml-[10px] rtl:mr-[10px]">
                 <i class="icon-search text-[22px] flex items-center absolute ltr:left-[12px] rtl:right-[12px] top-[6px]"></i>
 
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     class="bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-lg block w-full px-[40px] py-[5px] leading-6 text-gray-600 dark:text-gray-300 transition-all hover:border-gray-400"
-                    placeholder="@lang('admin::app.components.layouts.header.mega-search.title')" 
+                    placeholder="@lang('admin::app.components.layouts.header.mega-search.title')"
                 >
             </div>
         </v-mega-search>
@@ -55,12 +55,12 @@
             </div>
         </v-dark>
 
-        <a 
-            href="{{ route('shop.home.index') }}" 
+        <a
+            href="{{ route('shop.home.index') }}"
             target="_blank"
             class="flex"
         >
-            <span 
+            <span
                 class="icon-store p-[6px] rounded-[6px] text-[24px] cursor-pointer transition-all hover:bg-gray-100 dark:hover:bg-gray-950"
                 title="@lang('admin::app.components.layouts.header.visit-shop')"
             >
@@ -69,9 +69,9 @@
 
        <!-- Notification Component -->
         <v-notifications {{ $attributes }}>
-            <span class="flex relative">
-                <span 
-                    class="icon-notification p-[6px] rounded-[6px] text-[24px] cursor-pointer transition-all hover:bg-gray-100 dark:hover:bg-gray-950" 
+            <span class="relative flex">
+                <span
+                    class="icon-notification p-[6px] rounded-[6px] text-[24px] cursor-pointer transition-all hover:bg-gray-100 dark:hover:bg-gray-950"
                     title="@lang('admin::app.components.layouts.header.notifications')"
                 >
                 </span>
@@ -147,18 +147,18 @@
 >
     <!-- Drawer Header -->
     <x-slot:header>
-        <div class="flex justify-between items-center">
+        <div class="flex items-center justify-between">
             @if (core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode()))
                 <img
-                    class="w-[110px] h-[40px]"
                     src="{{ Storage::url(core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode())) }}"
-                    alt="{{ config('app.name') }}"
+                    alt="ME Myanmar Foods & Products"
+                    width="50"
                 />
             @else
                 <img
                     src="{{ request()->cookie('dark_mode') ? bagisto_asset('images/dark-logo.svg') : bagisto_asset('images/logo.svg') }}"
                     id="logo-image"
-                    alt="{{ config('app.name') }}"
+                    alt="ME Myanmar Foods & Products"
                 />
             @endif
         </div>
@@ -176,7 +176,7 @@
                             class="flex gap-[10px] p-[6px] items-center cursor-pointer {{ $menu->getActive($menuItem) == 'active' ? 'bg-blue-600 rounded-[8px]' : ' hover:bg-gray-100 dark:hover:bg-gray-950 ' }} peer"
                         >
                             <span class="{{ $menuItem['icon'] }} text-[24px] {{ $menu->getActive($menuItem) ? 'text-white' : ''}}"></span>
-                            
+
                             <p class="text-gray-600 dark:text-gray-300 font-semibold whitespace-nowrap {{ $menu->getActive($menuItem) ? 'text-white' : ''}}">
                                 @lang($menuItem['name'])
                             </p>
@@ -206,7 +206,7 @@
         <div class="flex items-center relative w-[525px] max-w-[525px] ltr:ml-[10px] rtl:mr-[10px]">
             <i class="icon-search text-[22px] flex items-center absolute ltr:left-[12px] rtl:right-[12px] top-[6px]"></i>
 
-            <input 
+            <input
                 type="text"
                 class="bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-lg block w-full px-[40px] py-[5px] leading-6 text-gray-600 dark:text-gray-300 transition-all hover:border-gray-400 dark:hover:border-gray-400 focus:border-gray-400 dark:focus:border-gray-400 peer"
                 :class="{'border-gray-400': isDropdownOpen}"
@@ -254,7 +254,7 @@
                                     >
                                         <template v-if="! product.images.length">
                                             <img src="{{ bagisto_asset('images/product-placeholders/front.svg') }}">
-                                        
+
                                             <p class="w-full absolute bottom-[5px] text-[6px] text-gray-400 text-center font-semibold">
                                                 @lang('admin::app.catalog.products.edit.types.grouped.image-placeholder')
                                             </p>
@@ -282,7 +282,7 @@
                                 <!-- Right Information -->
                                 <div class="grid gap-[4px] place-content-center text-right">
                                     <p
-                                        class="text-gray-600 dark:text-gray-300 font-semibold"
+                                        class="font-semibold text-gray-600 dark:text-gray-300"
                                         v-text="product.formatted_price"
                                     >
                                     </p>
@@ -450,19 +450,19 @@
                             is_active: true,
                             endpoint: "{{ route('admin.catalog.products.search') }}"
                         },
-                        
+
                         orders: {
                             key: 'orders',
                             title: "@lang('admin::app.components.layouts.header.mega-search.orders')",
                             endpoint: "{{ route('admin.sales.orders.search') }}"
                         },
-                        
+
                         categories: {
                             key: 'categories',
                             title: "@lang('admin::app.components.layouts.header.mega-search.categories')",
                             endpoint: "{{ route('admin.catalog.categories.search') }}"
                         },
-                        
+
                         customers: {
                             key: 'customers',
                             title: "@lang('admin::app.components.layouts.header.mega-search.customers')",
@@ -512,7 +512,7 @@
                     let self = this;
 
                     this.isLoading = true;
-                    
+
                     this.$axios.get(this.tabs[this.activeTab].endpoint, {
                             params: {query: this.searchTerm}
                         })
@@ -534,20 +534,20 @@
         });
     </script>
 
-    <script 
+    <script
         type="text/x-template"
         id="v-notifications-template"
     >
         <x-admin::dropdown position="bottom-{{ core()->getCurrentLocale()->direction === 'ltr' ? 'right' : 'left' }}">
             <!-- Notification Toggle -->
             <x-slot:toggle>
-                <span class="flex relative">
+                <span class="relative flex">
                     <span
-                        class="icon-notification p-[6px] rounded-[6px] text-[24px] text-red cursor-pointer transition-all hover:bg-gray-100 dark:hover:bg-gray-950" 
+                        class="icon-notification p-[6px] rounded-[6px] text-[24px] text-red cursor-pointer transition-all hover:bg-gray-100 dark:hover:bg-gray-950"
                         title="@lang('admin::app.components.layouts.header.notifications')"
                     >
                     </span>
-                
+
                     <span
                         class="flex justify-center items-center min-w-[20px] h-[20px] absolute top-[-8px] p-[5px] ltr:left-[18px] rtl:right-[18px] bg-blue-600 rounded-[44px] text-white text-[10px] font-semibold leading-[9px] cursor-pointer"
                         v-text="totalUnRead"
