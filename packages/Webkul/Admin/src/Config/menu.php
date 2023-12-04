@@ -120,103 +120,103 @@ return [
     /**
      * CMS.
      */
-    [
-        'key'        => 'cms',
-        'name'       => 'admin::app.components.layouts.sidebar.cms',
-        'route'      => 'admin.cms.index',
-        'sort'       => 5,
-        'icon'       => 'icon-cms',
-    ],
+    // [
+    //     'key'        => 'cms',
+    //     'name'       => 'admin::app.components.layouts.sidebar.cms',
+    //     'route'      => 'admin.cms.index',
+    //     'sort'       => 5,
+    //     'icon'       => 'icon-cms',
+    // ],
 
     /**
      * Marketing.
      */
-    [
-        'key'        => 'marketing',
-        'name'       => 'admin::app.components.layouts.sidebar.marketing',
-        'route'      => 'admin.marketing.promotions.catalog_rules.index',
-        'sort'       => 6,
-        'icon'       => 'icon-promotion',
-        'icon-class' => 'promotion-icon',
-    ], [
-        'key'        => 'marketing.promotions',
-        'name'       => 'admin::app.components.layouts.sidebar.promotions',
-        'route'      => 'admin.marketing.promotions.catalog_rules.index',
-        'sort'       => 1,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.promotions.catalog-rules',
-        'name'       => 'admin::app.marketing.promotions.index.catalog-rule-title',
-        'route'      => 'admin.marketing.promotions.catalog_rules.index',
-        'sort'       => 1,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.promotions.cart-rules',
-        'name'       => 'admin::app.marketing.promotions.index.cart-rule-title',
-        'route'      => 'admin.marketing.promotions.cart_rules.index',
-        'sort'       => 2,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.communications',
-        'name'       => 'admin::app.components.layouts.sidebar.communications',
-        'route'      => 'admin.marketing.communications.email_templates.index',
-        'sort'       => 2,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.communications.email-templates',
-        'name'       => 'admin::app.components.layouts.sidebar.email-templates',
-        'route'      => 'admin.marketing.communications.email_templates.index',
-        'sort'       => 1,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.communications.events',
-        'name'       => 'admin::app.components.layouts.sidebar.events',
-        'route'      => 'admin.marketing.communications.events.index',
-        'sort'       => 2,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.communications.campaigns',
-        'name'       => 'admin::app.components.layouts.sidebar.campaigns',
-        'route'      => 'admin.marketing.communications.campaigns.index',
-        'sort'       => 2,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.communications.subscribers',
-        'name'       => 'admin::app.components.layouts.sidebar.newsletter-subscriptions',
-        'route'      => 'admin.marketing.communications.subscribers.index',
-        'sort'       => 3,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.search_seo',
-        'name'       => 'admin::app.components.layouts.sidebar.search-seo',
-        'route'      => 'admin.marketing.search_seo.url_rewrites.index',
-        'sort'       => 3,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.search_seo.url_rewrites',
-        'name'       => 'admin::app.components.layouts.sidebar.url-rewrites',
-        'route'      => 'admin.marketing.search_seo.url_rewrites.index',
-        'sort'       => 1,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.search_seo.search_terms',
-        'name'       => 'admin::app.components.layouts.sidebar.search-terms',
-        'route'      => 'admin.marketing.search_seo.search_terms.index',
-        'sort'       => 2,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.search_seo.search_synonyms',
-        'name'       => 'admin::app.components.layouts.sidebar.search-synonyms',
-        'route'      => 'admin.marketing.search_seo.search_synonyms.index',
-        'sort'       => 3,
-        'icon'       => '',
-    ], [
-        'key'        => 'marketing.search_seo.sitemaps',
-        'name'       => 'admin::app.components.layouts.sidebar.sitemaps',
-        'route'      => 'admin.marketing.search_seo.sitemaps.index',
-        'sort'       => 4,
-        'icon'       => '',
-    ],
+    // [
+    //     'key'        => 'marketing',
+    //     'name'       => 'admin::app.components.layouts.sidebar.marketing',
+    //     'route'      => 'admin.marketing.promotions.catalog_rules.index',
+    //     'sort'       => 6,
+    //     'icon'       => 'icon-promotion',
+    //     'icon-class' => 'promotion-icon',
+    // ], [
+    //     'key'        => 'marketing.promotions',
+    //     'name'       => 'admin::app.components.layouts.sidebar.promotions',
+    //     'route'      => 'admin.marketing.promotions.catalog_rules.index',
+    //     'sort'       => 1,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.promotions.catalog-rules',
+    //     'name'       => 'admin::app.marketing.promotions.index.catalog-rule-title',
+    //     'route'      => 'admin.marketing.promotions.catalog_rules.index',
+    //     'sort'       => 1,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.promotions.cart-rules',
+    //     'name'       => 'admin::app.marketing.promotions.index.cart-rule-title',
+    //     'route'      => 'admin.marketing.promotions.cart_rules.index',
+    //     'sort'       => 2,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.communications',
+    //     'name'       => 'admin::app.components.layouts.sidebar.communications',
+    //     'route'      => 'admin.marketing.communications.email_templates.index',
+    //     'sort'       => 2,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.communications.email-templates',
+    //     'name'       => 'admin::app.components.layouts.sidebar.email-templates',
+    //     'route'      => 'admin.marketing.communications.email_templates.index',
+    //     'sort'       => 1,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.communications.events',
+    //     'name'       => 'admin::app.components.layouts.sidebar.events',
+    //     'route'      => 'admin.marketing.communications.events.index',
+    //     'sort'       => 2,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.communications.campaigns',
+    //     'name'       => 'admin::app.components.layouts.sidebar.campaigns',
+    //     'route'      => 'admin.marketing.communications.campaigns.index',
+    //     'sort'       => 2,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.communications.subscribers',
+    //     'name'       => 'admin::app.components.layouts.sidebar.newsletter-subscriptions',
+    //     'route'      => 'admin.marketing.communications.subscribers.index',
+    //     'sort'       => 3,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.search_seo',
+    //     'name'       => 'admin::app.components.layouts.sidebar.search-seo',
+    //     'route'      => 'admin.marketing.search_seo.url_rewrites.index',
+    //     'sort'       => 3,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.search_seo.url_rewrites',
+    //     'name'       => 'admin::app.components.layouts.sidebar.url-rewrites',
+    //     'route'      => 'admin.marketing.search_seo.url_rewrites.index',
+    //     'sort'       => 1,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.search_seo.search_terms',
+    //     'name'       => 'admin::app.components.layouts.sidebar.search-terms',
+    //     'route'      => 'admin.marketing.search_seo.search_terms.index',
+    //     'sort'       => 2,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.search_seo.search_synonyms',
+    //     'name'       => 'admin::app.components.layouts.sidebar.search-synonyms',
+    //     'route'      => 'admin.marketing.search_seo.search_synonyms.index',
+    //     'sort'       => 3,
+    //     'icon'       => '',
+    // ], [
+    //     'key'        => 'marketing.search_seo.sitemaps',
+    //     'name'       => 'admin::app.components.layouts.sidebar.sitemaps',
+    //     'route'      => 'admin.marketing.search_seo.sitemaps.index',
+    //     'sort'       => 4,
+    //     'icon'       => '',
+    // ],
 
     /**
      * Reporting.

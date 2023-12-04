@@ -20,7 +20,7 @@
                 <img
                     src="{{ Storage::url(core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode())) }}"
                     alt="ME Myanmar Foods & Products"
-                    width="50"
+                    width="40"
                 />
             @else
                 <img
@@ -97,7 +97,7 @@
 
             <!-- Admin Dropdown -->
             <x-slot:content class="!p-[0px]">
-                <div class="flex gap-[5px] items-center px-[20px] py-[10px] border border-b-gray-300 dark:border-gray-800">
+                {{-- <div class="flex gap-[5px] items-center px-[20px] py-[10px] border border-b-gray-300 dark:border-gray-800">
                     <img
                         src="{{ url('cache/logo/bagisto.png') }}"
                         width="24"
@@ -108,7 +108,7 @@
                     <p class="text-gray-400">
                         @lang('admin::app.components.layouts.header.app-version', ['version' => 'v' . core()->version()])
                     </p>
-                </div>
+                </div> --}}
 
                 <div class="grid gap-[4px] pb-[10px]">
                     <a
@@ -152,7 +152,7 @@
                 <img
                     src="{{ Storage::url(core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode())) }}"
                     alt="ME Myanmar Foods & Products"
-                    width="50"
+                    width="40"
                 />
             @else
                 <img
