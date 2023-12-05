@@ -24,10 +24,9 @@
                     <div class="flex items-center justify-between">
                         <a href="{{ route('shop.home.index') }}">
                             <img
-                                src="{{ bagisto_asset('images/logo.svg') }}"
-                                alt="Bagisto"
-                                width="131"
-                                height="29"
+                                src="{{ bagisto_asset('images/logo.png') }}"
+                                alt="ME Myanmar Foods & Products"
+                                width="55"
                             >
                         </a>
                     </div>
@@ -67,7 +66,7 @@
                     {{-- <v-mobile-category></v-mobile-category> --}}
 
                     <!-- Localization & Currency Section -->
-                    <div class="absolute w-full flex bottom-0 left-0 bg-white shadow-lg p-4 gap-x-[20px] justify-between items-center mb-[15px]">
+                    {{-- <div class="absolute w-full flex bottom-0 left-0 bg-white shadow-lg p-4 gap-x-[20px] justify-between items-center mb-[15px]">
                         <x-shop::dropdown position="top-left">
                             <!-- Dropdown Toggler -->
                             <x-slot:toggle>
@@ -120,7 +119,7 @@
                                 <v-locale-switcher></v-locale-switcher>
                             </x-slot:content>
                         </x-shop::dropdown>
-                    </div>
+                    </div> --}}
                 </x-slot:content>
 
                 <x-slot:footer></x-slot:footer>
@@ -128,14 +127,13 @@
 
             <a
                 href="{{ route('shop.home.index') }}"
-                class="max-h-[30px]"
+                class=""
                 aria-label="@lang('shop::app.components.layouts.header.bagisto')"
             >
                 <img
-                    src="{{ bagisto_asset('images/logo.svg') }}"
-                    alt="Bagisto"
-                    width="131"
-                    height="29"
+                    src="{{ bagisto_asset('images/logo.png') }}"
+                    alt="ME Myanmar Foods & Products"
+                    width="55"
                 >
             </a>
         </div>
