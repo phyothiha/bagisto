@@ -1,6 +1,6 @@
 {!! view_render_event('bagisto.shop.checkout.addresses.before') !!}
 
-<v-checkout-addresses 
+<v-checkout-addresses
     ref="vCheckoutAddress"
     :have-stockable-items="cart.haveStockableItems"
 >
@@ -14,7 +14,7 @@
             <!-- Onepage Shimmer Effect -->
             <x-shop::shimmer.checkout.onepage.address/>
         </template>
-        
+
         <template v-else>
             <div class="mt-[30px]">
                 @include('shop::checkout.onepage.addresses.billing')
@@ -38,9 +38,13 @@
                                 address1: [''],
 
                                 isSaved: false,
+
+                                country: 'AE',
+
                             },
 
-                            isNew: false,
+
+                            isNew: true,
 
                             isUsedForShipping: true,
                         },
@@ -58,7 +62,13 @@
 
                     addresses: [],
 
-                    countries: [],
+                    countries: [
+                        {
+                            "id":241,
+                            "code":"AE",
+                            "name":"United Arab Emirates"
+                        },
+                    ],
 
                     states: [],
 
@@ -67,15 +77,18 @@
                     isCustomer: "{{ auth()->guard('customer')->check() }}",
 
                     isTempAddress: false,
+
+                    isProcessing: false,
+
                 };
-            }, 
-            
+            },
+
             created() {
                 this.getCustomerAddresses();
 
                 this.getCountryStates();
 
-                this.getCountries();
+                // this.getCountries();
             },
 
             methods: {
@@ -103,9 +116,21 @@
 
                 getCustomerAddresses() {
                     if (this.isCustomer) {
+                        console.log('hit')
                         this.$axios.get("{{ route('api.shop.customers.account.addresses.index') }}")
                             .then(response => {
                                 this.addresses = response.data.data.map((address, index, row) => {
+                                    if (address.default_address) {
+                                        // assign
+
+                                        this.forms.billing.address.first_name = address.first_name
+                                        this.forms.billing.address.last_name = address.last_name
+                                        this.forms.billing.address.email = "{{ auth()?->user()?->email }}"
+                                        this.forms.billing.address.address1[0] = address.address1
+                                        this.forms.billing.address.phone = address.phone
+                                        this.forms.billing.address.city = address.city
+                                    }
+
                                     if (! this.forms.billing.address.address_id) {
                                         let isDefault = address.default_address ? address.default_address : index === 0;
 
@@ -175,11 +200,11 @@
                                 this.forms.billing.isNew = false;
 
                                 this.resetBillingAddressForm();
-                                
+
                                 this.getCustomerAddresses();
                             })
-                            .catch(error => {                 
-                                console.log(error);
+                            .catch(error => {
+                                // console.log(error);
                             });
                     }
                 },
@@ -197,7 +222,7 @@
                         this.forms.shipping.isNew = false;
 
                         this.isTempAddress = true;
-                        
+
                         this.addresses.push({
                             ...this.forms.shipping.address,
                             isSaved: false,
@@ -208,23 +233,25 @@
                                 this.forms.shipping.isNew = false;
 
                                 this.resetShippingAddressForm();
-                                
+
                                 this.getCustomerAddresses();
                             })
-                            .catch(error => {                 
-                                console.log(error);
+                            .catch(error => {
+                                // console.log(error);
                             });
                     }
                 },
 
                 store() {
+                    this.isProcessing = true;
+
                     if (this.haveStockableItems) {
                         this.$parent.$refs.vShippingMethod.isShowShippingMethod = false;
-                        
+
                         this.$parent.$refs.vShippingMethod.isShippingMethodLoading = true;
                     } else {
                         this.$parent.$refs.vPaymentMethod.isShowPaymentMethod = false;
-    
+
                         this.$parent.$refs.vPaymentMethod.isPaymentMethodLoading = true;
                     }
 
@@ -242,28 +269,24 @@
                         .then(response => {
                             if (response.data.data.payment_methods) {
                                 this.$parent.$refs.vPaymentMethod.payment_methods = response.data.data.payment_methods;
-                                
+
                                 this.$parent.$refs.vPaymentMethod.isShowPaymentMethod = true;
-    
+
                                 this.$parent.$refs.vPaymentMethod.isPaymentMethodLoading = false;
-                            } else {
-                                this.$parent.$refs.vShippingMethod.shippingMethods = response.data.data.shippingMethods;
-
-                                this.$parent.$refs.vShippingMethod.isShowShippingMethod = true;
-
-                                this.$parent.$refs.vShippingMethod.isShippingMethodLoading = false;
                             }
-                            
-                            this.$parent.getOrderSummary();
-                            
-                            if (this.forms.billing.isUsedForShipping
-                                && this.forms.billing.address_id
-                            ) {
-                                this.getCustomerAddresses();
-                            }
+
+                            this.$parent.$refs.vPaymentMethod.store(
+                                this.$parent.$refs.vPaymentMethod.payment_methods[0]
+                            );
+
+                            this.$parent.$refs.vCartSummary.placeOrder();
+
                         })
-                        .catch(error => {                 
-                            console.log(error);
+                        .catch(error => {
+                            this.isProcessing = false;
+                            this.$parent.$refs.vPaymentMethod.isPaymentMethodLoading = false;
+
+                            // console.log(error);
                         });
                 },
 

@@ -9,49 +9,46 @@
 @pushOnce('scripts')
     <script type="text/x-template" id="v-payment-method-template">
         <div class="mt-[30px] mb-[30px]">
-            <template v-if="! isShowPaymentMethod && isPaymentMethodLoading">
-                <!-- Payment Method shimmer Effect -->
-                <x-shop::shimmer.checkout.onepage.payment-method/>
-            </template>
-    
-            <template v-if="isShowPaymentMethod">
+
                 <div>
                     <x-shop::accordion>
                         <x-slot:header>
-                            <div class="flex justify-between items-center">
+                            <div class="flex items-center justify-between">
                                 <h2 class="text-[26px] font-medium max-sm:text-[20px]">
                                     @lang('shop::app.checkout.onepage.payment.payment-method')
                                 </h2>
                             </div>
                         </x-slot:header>
-        
+
                         <x-slot:content>
-                            <div class="flex flex-wrap gap-[29px] mt-[30px]">
-                                <div 
-                                    class="relative max-sm:max-w-full max-sm:flex-auto cursor-pointer"
+                            <div class="flex flex-wrap gap-[29px] mt-[30px] mb-[30px]">
+                                <div
+                                    class="relative cursor-pointer max-sm:max-w-full max-sm:flex-auto"
                                     v-for="(payment, index) in payment_methods"
+                                    style="width: 100%"
                                 >
 
                                     {!! view_render_event('bagisto.shop.checkout.payment-method.before') !!}
 
-                                    <input 
-                                        type="radio" 
-                                        name="payment[method]" 
+                                    <input
+                                        type="radio"
+                                        name="payment[method]"
                                         :value="payment.payment"
                                         :id="payment.method"
-                                        class="hidden peer"    
+                                        class="hidden peer"
                                         @change="store(payment)"
+                                        checked
                                     >
-        
-                                    <label 
-                                        :for="payment.method" 
+
+                                    <label
+                                        :for="payment.method"
                                         class="absolute ltr:right-[20px] rtl:left-[20px] top-[20px] icon-radio-unselect text-[24px] text-navyBlue peer-checked:icon-radio-select cursor-pointer"
                                     >
                                     </label>
 
-                                    <label 
-                                        :for="payment.method" 
-                                        class="w-[190px] p-[20px] block border border-[#E9E9E9] rounded-[12px] max-sm:w-full cursor-pointer"
+                                    <label
+                                        :for="payment.method"
+                                        class="w-full p-[20px] block border border-[#E9E9E9] rounded-[12px] max-sm:w-full cursor-pointer"
                                     >
 
                                         <img
@@ -66,10 +63,10 @@
                                         <p class="text-[14px] font-semibold mt-[5px]">
                                             @{{ payment.method_title }}
                                         </p>
-                                        
-                                        <p class="text-[12px] font-medium mt-[10px]">
+
+                                        <p class="text-[12px] font-medium mt-[10px]" style="white-space: break-spaces;">
                                             @{{ payment.description }}
-                                        </p> 
+                                        </p>
                                     </label>
 
                                     {!! view_render_event('bagisto.shop.checkout.payment-method.after') !!}
@@ -81,7 +78,7 @@
                         </x-slot:content>
                     </x-shop::accordion>
                 </div>
-            </template>
+
         </div>
     </script>
 
@@ -91,15 +88,29 @@
 
             data() {
                 return {
+                    payment_methods: [],
+
                     paymentMethods: [],
 
-                    isShowPaymentMethod: false,
+                    isShowPaymentMethod: true,
 
                     isPaymentMethodLoading: false,
                 }
             },
 
+            created() {
+                this.getPaymentMethods();
+            },
+
             methods: {
+                getPaymentMethods() {
+                    this.$axios.get("{{ route('shop.api.core.payments') }}")
+                        .then(response => {
+                            this.payment_methods = response.data.data.payment_methods;
+                        })
+                        .catch(function (error) {});
+                },
+
                 store(selectedPaymentMethod) {
                     this.$axios.post("{{ route('shop.checkout.onepage.payment_methods.store') }}", {
                             payment: selectedPaymentMethod

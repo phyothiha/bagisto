@@ -17,7 +17,7 @@
 
     <!-- Page Header -->
     <div class="flex flex-wrap">
-        <div class="w-full flex justify-between px-[60px] border border-t-0 border-b-[1px] border-l-0 border-r-0 py-[17px] max-lg:px-[30px] max-sm:px-[15px]">
+        <div class="w-full flex justify-between px-[60px] border border-t-0 border-b-[1px] border-l-0 border-r-0 py-[11px] max-lg:px-[30px] max-sm:px-[15px]">
             <div class="flex items-center gap-x-[54px] max-[1180px]:gap-x-[35px]">
                 <a
                     href="{{ route('shop.home.index') }}"
@@ -26,9 +26,8 @@
                 >
                     <img
                         src="{{ bagisto_asset('images/logo.svg') }}"
-                        alt="Bagisto "
-                        width="131"
-                        height="29"
+                        alt="ME Myanmar Foods & Products"
+                        width="55"
                     >
                 </a>
             </div>
@@ -48,11 +47,11 @@
     </div>
 
     <!-- Cross-sell Product Carousal -->
-    <x-shop::products.carousel
+    {{-- <x-shop::products.carousel
         :title="trans('shop::app.checkout.cart.index.cross-sell.title')"
         :src="route('shop.api.checkout.cart.cross-sell.index')"
     >
-    </x-shop::products.carousel>
+    </x-shop::products.carousel> --}}
 
     @pushOnce('scripts')
         <script type="text/x-template" id="v-cart-template">
@@ -64,14 +63,14 @@
 
                 <!-- Cart Information -->
                 <template v-else>
-                    <div 
+                    <div
                         class="flex flex-wrap gap-[75px] mt-[30px] pb-[30px] max-1060:flex-col"
                         v-if="cart?.items?.length"
                     >
                         <div class="grid gap-[25px] flex-1">
                             <!-- Cart Mass Action Container -->
                             <div class="flex justify-between items-center pb-[10px] border-b-[1px] border-[#E9E9E9] max-sm:block">
-                                <div class="flex select-none items-center">
+                                <div class="flex items-center select-none">
                                     <input
                                         type="checkbox"
                                         id="select-all"
@@ -97,12 +96,12 @@
                                     </span>
                                 </div>
 
-                                <div 
+                                <div
                                     class="max-sm:ml-[35px] max-sm:mt-[10px]"
                                     v-if="selectedItemsCount"
                                 >
                                     <span
-                                        class="text-[16px] text-[#0A49A7] cursor-pointer" 
+                                        class="text-[16px] text-[#0A49A7] cursor-pointer"
                                         role="button"
                                         tabindex="0"
                                         @click="removeSelectedItems"
@@ -114,20 +113,20 @@
                                         <span class="mx-[10px] border-r-[2px] border-[#E9E9E9]"></span>
 
                                         <span
-                                            class="text-[16px] text-[#0A49A7] cursor-pointer" 
+                                            class="text-[16px] text-[#0A49A7] cursor-pointer"
                                             role="button"
                                             tabindex="0"
                                             @click="moveToWishlistSelectedItems"
                                         >
                                             @lang('shop::app.checkout.cart.index.move-to-wishlist')
-                                        </span>    
+                                        </span>
                                     @endif
                                 </div>
                             </div>
-                        
+
                             <!-- Cart Item Listing Container -->
-                            <div 
-                                class="grid gap-y-[25px]" 
+                            <div
+                                class="grid gap-y-[25px]"
                                 v-for="item in cart?.items"
                             >
                                 <div class="flex gap-x-[10px] justify-between flex-wrap pb-[18px] border-b-[1px] border-[#E9E9E9]">
@@ -167,13 +166,13 @@
                                         <!-- Cart Item Options Container -->
                                         <div class="grid place-content-start gap-y-[10px]">
                                             <a :href="`{{ route('shop.product_or_category.index', '') }}/${item.product_url_key}`">
-                                                <p 
-                                                    class="text-[16px] font-medium" 
+                                                <p
+                                                    class="text-[16px] font-medium"
                                                     v-text="item.name"
                                                 >
                                                 </p>
                                             </a>
-                                            
+
                                             <!-- Cart Item Options Container -->
                                             <div
                                                 class="grid gap-x-[10px] gap-y-[6px] select-none"
@@ -209,12 +208,12 @@
                                             </div>
 
                                             <div class="sm:hidden">
-                                                <p 
-                                                    class="text-[18px] font-semibold" 
+                                                <p
+                                                    class="text-[18px] font-semibold"
                                                     v-text="item.formatted_total"
                                                 >
                                                 </p>
-                                                
+
                                                 <span
                                                     class="text-[16px] text-[#0A49A7] cursor-pointer"
                                                     role="button"
@@ -235,16 +234,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="max-sm:hidden text-right">
-                                        <p 
-                                            class="text-[18px] font-semibold" 
+                                    <div class="text-right max-sm:hidden">
+                                        <p
+                                            class="text-[18px] font-semibold"
                                             v-text="item.formatted_total"
                                         >
                                         </p>
-                                        
+
                                         <!-- Cart Item Remove Button -->
                                         <span
-                                            class="text-[16px] text-[#0A49A7] cursor-pointer" 
+                                            class="text-[16px] text-[#0A49A7] cursor-pointer"
                                             role="button"
                                             tabindex="0"
                                             @click="removeItem(item.id)"
@@ -256,7 +255,7 @@
                             </div>
 
                             {!! view_render_event('bagisto.shop.checkout.cart.controls.before') !!}
-        
+
                             <!-- Cart Item Actions -->
                             <div class="flex flex-wrap gap-[30px] justify-end">
                                 <a
@@ -264,7 +263,7 @@
                                     href="{{ route('shop.home.index') }}"
                                 >
                                     @lang('shop::app.checkout.cart.index.continue-shopping')
-                                </a> 
+                                </a>
 
                                 <button
                                     class="secondary-button max-h-[55px] rounded-[18px]"
@@ -275,7 +274,7 @@
                             </div>
 
                             {!! view_render_event('bagisto.shop.checkout.cart.controls.after') !!}
-                            
+
                         </div>
 
                         {!! view_render_event('bagisto.shop.checkout.cart.summary.before') !!}
@@ -296,7 +295,7 @@
                             src="{{ bagisto_asset('images/thank-you.png') }}"
                             alt="@lang('shop::app.checkout.cart.index.empty-product')"
                         />
-                        
+
                         <p
                             class="text-[20px]"
                             role="heading"

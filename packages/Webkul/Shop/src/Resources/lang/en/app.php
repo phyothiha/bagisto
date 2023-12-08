@@ -124,7 +124,7 @@ return [
                 'state'            => 'State',
                 'set-as-default'   => 'Set as Default',
                 'select-country'   => 'Select Country',
-                'street-address'   => 'Street Address',
+                'street-address'   => 'Address',
                 'save'             => 'Save',
                 'security-warning' => 'Suspicious activity found!!!',
                 'title'            => 'Address',
@@ -156,7 +156,7 @@ return [
                 ],
 
                 'view' => [
-                    'billing-address'    => 'Billing Address',
+                    'billing-address'    => 'Billing Details',
                     'cancel-btn-title'   => 'Cancel',
                     'cancel-confirm-msg' => 'Are you sure you want to cancel this order ?',
                     'cancel-success'     => 'Your order has been canceled',
@@ -698,22 +698,22 @@ return [
             'addresses' => [
                 'billing' => [
                     'add-new-address'      => 'Add new address',
-                    'billing-address'      => 'Billing Address',
+                    'billing-address'      => 'Billing Details',
                     'back'                 => 'Back',
                     'company-name'         => 'Company Name',
                     'country'              => 'Country',
                     'city'                 => 'City',
-                    'confirm'              => 'Confirm',
+                    'confirm'              => 'Place Order',
                     'email'                => 'Email',
                     'first-name'           => 'First Name',
                     'last-name'            => 'Last Name',
                     'postcode'             => 'Zip/Postcode',
                     'same-billing-address' => 'Address is the same as my billing address',
-                    'street-address'       => 'Street Address',
+                    'street-address'       => 'Address',
                     'state'                => 'State',
                     'select-state'         => 'Select State',
                     'save-address'         => 'Save this address',
-                    'telephone'            => 'Telephone',
+                    'telephone'            => 'Phone',
                 ],
 
                 'index' => [
@@ -738,7 +738,7 @@ return [
                     'select-country'   => 'Select Country',
                     'save-address'     => 'Save this address',
                     'shipping-address' => 'Shipping Address',
-                    'telephone'        => 'Telephone',
+                    'telephone'        => 'Phone',
                 ],
             ],
 
@@ -925,7 +925,7 @@ return [
                 'title'   => 'New comment added to your order :order_id placed on :created_at',
             ],
 
-            'billing-address'   => 'Billing Address',
+            'billing-address'   => 'Billing Details',
             'contact'           => 'Contact',
             'carrier'           => 'Carrier',
             'discount'          => 'Discount',

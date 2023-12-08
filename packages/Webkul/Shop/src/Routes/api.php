@@ -16,6 +16,8 @@ Route::group(['middleware' => ['locale', 'theme', 'currency'], 'prefix' => 'api'
         Route::get('countries', 'getCountries')->name('shop.api.core.countries');
 
         Route::get('states', 'getStates')->name('shop.api.core.states');
+
+        Route::get('payments', 'getPayments')->name('shop.api.core.payments');
     });
 
     Route::controller(CategoryController::class)->prefix('categories')->group(function () {

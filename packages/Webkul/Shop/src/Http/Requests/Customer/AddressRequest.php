@@ -33,10 +33,10 @@ class AddressRequest extends FormRequest
             'last_name'    => ['required', new AlphaNumericSpace],
             'address1'     => ['required', 'array'],
             'address1.*'   => ['required', new Address],
-            'country'      => core()->isCountryRequired() ? ['required', new AlphaNumericSpace] : [new AlphaNumericSpace],
-            'state'        => core()->isStateRequired() ? ['required', new AlphaNumericSpace] : [new AlphaNumericSpace],
+            'country'      => [new AlphaNumericSpace],
+            'state'        => [new AlphaNumericSpace],
             'city'         => ['required', 'string'],
-            'postcode'     => core()->isPostCodeRequired() ? ['required', 'numeric'] : ['numeric'],
+            'postcode'     => ['numeric'],
             'phone'        => ['required', new PhoneNumber],
             'vat_id'       => [new VatIdRule()],
         ];

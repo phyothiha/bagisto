@@ -2,7 +2,7 @@
     <!-- Page Title -->
     <x-slot:title>
         @lang('shop::app.customers.account.addresses.edit')
-        @lang('shop::app.customers.account.addresses.title') 
+        @lang('shop::app.customers.account.addresses.title')
     </x-slot>
 
     <!-- Breadcrumbs -->
@@ -26,7 +26,7 @@
 
         {!! view_render_event('bagisto.shop.customers.account.address.edit_form_controls.before', ['address' => $address]) !!}
 
-        <x-shop::form.control-group class="mb-4">
+        {{-- <x-shop::form.control-group class="mb-4">
             <x-shop::form.control-group.label>
                 @lang('shop::app.customers.account.addresses.company-name')
             </x-shop::form.control-group.label>
@@ -46,12 +46,14 @@
             </x-shop::form.control-group.error>
         </x-shop::form.control-group>
 
-        {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.company_name.after', ['address' => $address]) !!}
+        {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.company_name.after', ['address' => $address]) !!} --}}
 
         <x-shop::form.control-group class="mb-4">
             <x-shop::form.control-group.label class="required">
                 @lang('shop::app.customers.account.addresses.first-name')
             </x-shop::form.control-group.label>
+
+            <input type="hidden" name="first_name" value="{{ auth()->user()->first_name }}" />
 
             <x-shop::form.control-group.control
                 type="text"
@@ -60,6 +62,7 @@
                 rules="required"
                 :label="trans('shop::app.customers.account.addresses.first-name')"
                 :placeholder="trans('shop::app.customers.account.addresses.first-name')"
+                disabled
             >
             </x-shop::form.control-group.control>
 
@@ -76,6 +79,8 @@
                 @lang('shop::app.customers.account.addresses.last-name')
             </x-shop::form.control-group.label>
 
+            <input type="hidden" name="last_name" value="{{ auth()->user()->last_name }}" />
+
             <x-shop::form.control-group.control
                 type="text"
                 name="last_name"
@@ -83,6 +88,7 @@
                 rules="required"
                 :label="trans('shop::app.customers.account.addresses.last-name')"
                 :placeholder="trans('shop::app.customers.account.addresses.last-name')"
+                disabled
             >
             </x-shop::form.control-group.control>
 
@@ -94,7 +100,7 @@
 
         {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.last_name.after', ['address' => $address]) !!}
 
-        <x-shop::form.control-group class="mb-4">
+        {{-- <x-shop::form.control-group class="mb-4">
             <x-shop::form.control-group.label>
                 @lang('shop::app.customers.account.addresses.vat-id')
             </x-shop::form.control-group.label>
@@ -114,7 +120,7 @@
             </x-shop::form.control-group.error>
         </x-shop::form.control-group>
 
-        {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.vat_id.after', ['address' => $address]) !!}
+        {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.vat_id.after', ['address' => $address]) !!} --}}
 
         <x-shop::form.control-group class="mb-4">
             <x-shop::form.control-group.label class="required">
@@ -125,7 +131,7 @@
                 type="text"
                 name="address1[]"
                 :value="old('address1') ?? $address->address1"
-                rules="required|address"
+                rules="required"
                 :label="trans('shop::app.customers.account.addresses.street-address')"
                 :placeholder="trans('shop::app.customers.account.addresses.street-address')"
             >
@@ -163,19 +169,19 @@
             <x-shop::form.control-group.control
                 type="select"
                 name="country"
-                :value="old('gender') ?? $address->country"
+                :value="old('country') ?? $address->country"
                 class="mb-4"
                 rules="{{ core()->isCountryRequired() ? 'required' : '' }}"
                 :aria-label="trans('shop::app.customers.account.addresses.country')"
                 :label="trans('shop::app.customers.account.addresses.country')"
             >
-                <option value="">
+                {{-- <option value="">
                     @lang('shop::app.customers.account.addresses.select-country')
-                </option>
+                </option> --}}
 
                 @foreach (core()->countries() as $country)
-                    <option 
-                        {{ $country->code === config('app.default_country') ? 'selected' : '' }}  
+                    <option
+                        {{ $country->code === config('app.default_country') ? 'selected' : '' }}
                         value="{{ $country->code }}"
                     >
                         {{ $country->name }}
@@ -191,7 +197,7 @@
 
         {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.country.after', ['address' => $address]) !!}
 
-        <x-shop::form.control-group class="mb-4">
+        {{-- <x-shop::form.control-group class="mb-4">
             <x-shop::form.control-group.label class="{{ core()->isStateRequired() ? 'required' : '' }}">
                 @lang('shop::app.customers.account.addresses.state')
             </x-shop::form.control-group.label>
@@ -212,14 +218,14 @@
             </x-shop::form.control-group.error>
         </x-shop::form.control-group>
 
-        {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.state.after', ['address' => $address]) !!}
+        {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.state.after', ['address' => $address]) !!} --}}
 
         <x-shop::form.control-group class="mb-4">
             <x-shop::form.control-group.label class="required">
                 @lang('shop::app.customers.account.addresses.city')
             </x-shop::form.control-group.label>
 
-            <x-shop::form.control-group.control
+            {{-- <x-shop::form.control-group.control
                 type="text"
                 name="city"
                 :value="old('city') ?? $address->city"
@@ -227,6 +233,25 @@
                 :label="trans('shop::app.customers.account.addresses.city')"
                 :placeholder="trans('shop::app.customers.account.addresses.city')"
             >
+            </x-shop::form.control-group.control> --}}
+
+            <x-shop::form.control-group.control
+                type="select"
+                name="city"
+                :value="old('city', $address->city)"
+                class="mb-4"
+                rules="required"
+                aria-label="trans('shop::app.customers.account.addresses.city')"
+                :label="trans('shop::app.customers.account.addresses.city')"
+            >
+                @foreach (core()->states('AE') as $state)
+                    <option
+                        {{ $state->code == $address->city ? 'selected' : '' }}
+                        value="{{ $state->code }}"
+                    >
+                        {{ $state->default_name }}
+                    </option>
+                @endforeach
             </x-shop::form.control-group.control>
 
             <x-shop::form.control-group.error
@@ -237,7 +262,7 @@
 
         {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.city.after', ['address' => $address]) !!}
 
-        <x-shop::form.control-group class="mb-4">
+        {{-- <x-shop::form.control-group class="mb-4">
             <x-shop::form.control-group.label class="{{ core()->isPostCodeRequired() ? 'required' : '' }}">
                 @lang('shop::app.customers.account.addresses.post-code')
             </x-shop::form.control-group.label>
@@ -258,7 +283,7 @@
             </x-shop::form.control-group.error>
         </x-shop::form.control-group>
 
-        {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.postcode.after', ['address' => $address]) !!}
+        {!! view_render_event('bagisto.shop.customers.account.addresses.edit_form_controls.postcode.after', ['address' => $address]) !!} --}}
 
         <x-shop::form.control-group class="mb-4">
             <x-shop::form.control-group.label class="required">
@@ -269,9 +294,9 @@
                 type="text"
                 name="phone"
                 :value="old('phone') ?? $address->phone"
-                rules="required|integer"
+                rules="required"
                 :label="trans('shop::app.customers.account.addresses.phone')"
-                :placeholder="trans('shop::app.customers.account.addresses.phone')"
+                placeholder="+971xxxxxxxxx"
             >
             </x-shop::form.control-group.control>
 
@@ -289,7 +314,7 @@
         >
             @lang('shop::app.customers.account.addresses.save')
         </button>
-        
+
         {!! view_render_event('bagisto.shop.customers.account.address.edit_form_controls.after', ['address' => $address]) !!}
 
     </x-shop::form>

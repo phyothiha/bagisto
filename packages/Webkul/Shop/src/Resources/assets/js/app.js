@@ -37,7 +37,7 @@ defineRule("phone", (value) => {
         return true;
     }
 
-    if (! /^\+?\d+$/.test(value)) {
+    if (! /^\+971\d{9}$/.test(value)) {
         return false;
     }
 
@@ -110,16 +110,16 @@ window.app = createApp({
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         let lazyImage = entry.target;
-    
+
                         lazyImage.src = lazyImage.dataset.src;
-                        
+
                         lazyImage.classList.remove('lazy');
-    
+
                         lazyImageObserver.unobserve(lazyImage);
                     }
                 });
             });
-    
+
             lazyImages.forEach(function(lazyImage) {
                 lazyImageObserver.observe(lazyImage);
             });
@@ -142,7 +142,7 @@ window.app = createApp({
                         }
                     });
                 });
-        
+
                 animateBoxObserver.observe(animateBox);
             });
         }

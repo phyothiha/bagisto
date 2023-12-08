@@ -3,12 +3,12 @@
     <x-slot:title>
         @lang('shop::app.customers.account.addresses.add-address')
     </x-slot>
-    
+
     <!-- Breadcrumbs -->
     @section('breadcrumbs')
         <x-shop::breadcrumbs name="addresses"></x-shop::breadcrumbs>
     @endSection
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
         <div class="">
             <h2 class="text-[26px] font-medium">
                 @lang('shop::app.customers.account.addresses.title')
@@ -21,7 +21,7 @@
         >
             <span class="icon-location text-[24px]"></span>
 
-            @lang('shop::app.customers.account.addresses.add-address') 
+            @lang('shop::app.customers.account.addresses.add-address')
         </a>
     </div>
 
@@ -33,18 +33,18 @@
         <div class="grid grid-cols-2 gap-[20px] mt-[60px] max-1060:grid-cols-[1fr]">
             @foreach ($addresses as $address)
                 <div class="p-[20px] border border-[#e5e5e5] rounded-[12px] max-sm:flex-wrap">
-                    <div class="flex justify-between items-center">
+                    <div class="flex items-center justify-between">
                         <p class="text-[16px] font-medium">
-                            {{ $address->company_name }}
+                            {{ $address->address1 }}
                         </p>
 
                         <div class="flex gap-[25px] items-center">
 
                             @if ($address->default_address)
-                                <div 
+                                <div
                                     class="block w-max m-0 ml-[0px] mx-auto p-[5px] rounded-[10px] bg-navyBlue text-[12px] text-white font-medium text-center"
                                 >
-                                    @lang('shop::app.customers.account.addresses.default-address') 
+                                    @lang('shop::app.customers.account.addresses.default-address')
                                 </div>
                             @endif
 
@@ -60,7 +60,7 @@
                                             <p class="w-full">
                                                 @lang('shop::app.customers.account.addresses.edit')
                                             </p>
-                                        </a>    
+                                        </a>
                                     </x-shop::dropdown.menu.item>
 
                                     <x-shop::dropdown.menu.item>
@@ -69,7 +69,7 @@
                                             method="DELETE"
                                             id="addressDelete"
                                         >
-                                            <a 
+                                            <a
                                                 onclick="event.preventDefault(); document.getElementById('addressDelete').submit();"
                                                 href="{{ route('shop.customers.account.addresses.delete', $address->id) }}"
                                             >
@@ -96,17 +96,15 @@
                     </div>
 
                     <p class="text-[#6E6E6E] mt-[25px]">
-                        {{ $address->address1 }},
 
                         @if ($address->address2)
                             {{ $address->address2 }},
                         @endif
 
-                        {{ $address->city }}, 
-                        {{ $address->state }}, {{ $address->country }}, 
-                        {{ $address->postcode }}
+                        City: {{ $address->city }},
+                        Country: {{ $address->country }}
                     </p>
-                </div>    
+                </div>
             @endforeach
         </div>
 
@@ -115,16 +113,16 @@
     @else
         <!-- Address Empty Page -->
         <div class="grid items-center justify-items-center place-content-center w-[100%] m-auto h-[476px] text-center">
-            <img 
-                class="" 
-                src="{{ bagisto_asset('images/no-address.png') }}" 
-                alt="" 
+            <img
+                class=""
+                src="{{ bagisto_asset('images/no-address.png') }}"
+                alt=""
                 title=""
             >
-            
+
             <p class="text-[20px]">
                 @lang('shop::app.customers.account.addresses.empty-address')
             </p>
-        </div>    
+        </div>
     @endif
 </x-shop::layouts.account>

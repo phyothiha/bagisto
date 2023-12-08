@@ -2,6 +2,8 @@
 
 namespace Webkul\Shop\Http\Controllers\API;
 
+use Webkul\Payment\Facades\Payment;
+
 class CoreController extends APIController
 {
     /**
@@ -29,6 +31,18 @@ class CoreController extends APIController
     {
         return response()->json([
             'data' => core()->groupedStatesByCountries(),
+        ]);
+    }
+
+    /**
+     * Get payments.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getPayments()
+    {
+        return response()->json([
+            'data'     => Payment::getSupportedPaymentMethods(),
         ]);
     }
 }

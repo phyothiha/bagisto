@@ -16,8 +16,8 @@
     </x-slot>
 
     <!-- Page Header -->
-    <div class="lex flex-wrap">
-        <div class="w-full flex justify-between px-[60px] py-[17px] border border-t-0 border-b-[1px] border-l-0 border-r-0 max-lg:px-[30px] max-sm:px-[15px]">
+    <div class="flex-wrap lex">
+        <div class="w-full flex justify-between px-[60px] py-[11px] border border-t-0 border-b-[1px] border-l-0 border-r-0 max-lg:px-[30px] max-sm:px-[15px]">
             <div class="flex items-center gap-x-[54px] max-[1180px]:gap-x-[35px]">
                 <a
                     href="{{ route('shop.home.index') }}"
@@ -26,9 +26,8 @@
                 >
                     <img
                         src="{{ bagisto_asset('images/logo.svg') }}"
-                        alt="Bagisto "
-                        width="131"
-                        height="29"
+                        alt="ME Myanmar Foods & Products"
+                        width="55"
                     >
                 </a>
             </div>
@@ -48,18 +47,20 @@
     @pushOnce('scripts')
         <script type="text/x-template" id="v-checkout-template">
             <div class="grid grid-cols-[1fr_auto] gap-[30px] max-lg:grid-cols-[1fr]">
-                <div    
+                <div
                     class="overflow-y-auto"
                     ref="scrollBottom"
                 >
+                    @include('shop::checkout.onepage.payment')
+
                     @include('shop::checkout.onepage.addresses.index')
 
                     @include('shop::checkout.onepage.shipping')
 
-                    @include('shop::checkout.onepage.payment')
+
 
                 </div>
-                
+
                 @include('shop::checkout.onepage.summary')
             </div>
         </script>
@@ -78,7 +79,7 @@
 
                 created() {
                     this.getOrderSummary();
-                }, 
+                },
 
                 methods: {
                     getOrderSummary() {
