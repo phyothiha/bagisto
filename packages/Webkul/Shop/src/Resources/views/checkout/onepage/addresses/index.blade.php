@@ -116,7 +116,6 @@
 
                 getCustomerAddresses() {
                     if (this.isCustomer) {
-                        console.log('hit')
                         this.$axios.get("{{ route('api.shop.customers.account.addresses.index') }}")
                             .then(response => {
                                 this.addresses = response.data.data.map((address, index, row) => {

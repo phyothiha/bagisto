@@ -303,7 +303,7 @@
                 type="text"
                 name="phone"
                 :value="old('phone')"
-                rules="required"
+                rules="required|phone_uae"
                 :label="trans('shop::app.customers.account.addresses.phone')"
                 placeholder="+971xxxxxxxxx"
             >

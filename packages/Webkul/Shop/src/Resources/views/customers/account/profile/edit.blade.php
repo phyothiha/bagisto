@@ -122,9 +122,9 @@
                 type="text"
                 name="phone"
                 :value="old('phone') ?? $customer->phone"
-                rules="required|phone"
+                rules="required|phone_uae"
                 :label="trans('shop::app.customers.account.profile.phone')"
-                :placeholder="trans('shop::app.customers.account.profile.phone')"
+                placeholder="+971xxxxxxxxx"
             >
             </x-shop::form.control-group.control>
 
@@ -252,7 +252,7 @@
 
         {!! view_render_event('bagisto.shop.customers.account.profile.edit_form_controls.new_password_confirmation.after') !!}
 
-        <div class="select-none items-center flex gap-[6px] mb-4">
+        {{-- <div class="select-none items-center flex gap-[6px] mb-4">
             <input
                 type="checkbox"
                 name="subscribed_to_news_letter"
@@ -272,7 +272,7 @@
             >
                 @lang('shop::app.customers.account.profile.subscribe-to-newsletter')
             </label>
-        </div>
+        </div> --}}
 
         <button
             type="submit"
@@ -286,5 +286,5 @@
     </x-shop::form>
 
     {!! view_render_event('bagisto.shop.customers.account.profile.edit.after', ['customer' => $customer]) !!}
-    
+
 </x-shop::layouts.account>

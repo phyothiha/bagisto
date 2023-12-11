@@ -754,7 +754,7 @@ class Core
      */
     public function countries()
     {
-        return DB::table('countries')->get();
+        return DB::table('countries')->where('code', 'AE')->get();
     }
 
     /**

@@ -37,20 +37,20 @@
                     </p>
                 </div>
 
-                <p class="text-[16px]">
+                {{-- <p class="text-[16px]">
                     @lang('shop::app.checkout.cart.mini-cart.offer-on-orders')
-                </p>
+                </p> --}}
             </x-slot:header>
 
             <!-- Drawer Content -->
             <x-slot:content>
                 <!-- Cart Item Listing -->
-                <div 
-                    class="grid gap-[50px] mt-[35px]" 
+                <div
+                    class="grid gap-[50px] mt-[35px]"
                     v-if="cart?.items?.length"
                 >
-                    <div 
-                        class="flex gap-x-[20px]" 
+                    <div
+                        class="flex gap-x-[20px]"
                         v-for="item in cart?.items"
                     >
                         <!-- Cart Item Image -->

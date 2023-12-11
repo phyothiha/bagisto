@@ -276,7 +276,7 @@
                             <x-shop::form.control-group.control
                                 type="text"
                                 name="billing[phone]"
-                                rules="required"
+                                rules="required|phone_uae"
                                 :label="trans('shop::app.checkout.onepage.addresses.billing.telephone')"
                                 placeholder="+971xxxxxxxxx"
                                 v-model="forms.billing.address.phone"

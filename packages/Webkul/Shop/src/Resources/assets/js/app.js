@@ -32,12 +32,24 @@ Object.keys(AllRules).forEach(rule => {
  * This validation is sufficient for global-level phone number validation. If
  * someone wants to customize it, they can override this rule.
  */
-defineRule("phone", (value) => {
+defineRule("phone_uae", (value) => {
     if (! value || ! value.length) {
         return true;
     }
 
     if (! /^\+971\d{9}$/.test(value)) {
+        return false;
+    }
+
+    return true;
+});
+
+defineRule("phone", (value) => {
+    if (! value || ! value.length) {
+        return true;
+    }
+
+    if (! /^\+?\d+$/.test(value)) {
         return false;
     }
 
@@ -75,6 +87,14 @@ configure({
             messages: {
                 ...en.messages,
                 address: "This {field} must be a valid address",
+            },
+        },
+
+        en: {
+            ...en,
+            messages: {
+                ...en.messages,
+                phone_uae: "This phone number must be +971xxxxxxxxx",
             },
         },
     }),
