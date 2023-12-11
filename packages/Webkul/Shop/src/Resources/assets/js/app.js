@@ -37,7 +37,7 @@ defineRule("phone_uae", (value) => {
         return true;
     }
 
-    if (! /^\+971\d{9}$/.test(value)) {
+    if (! /^\d{8,12}$/.test(value)) {
         return false;
     }
 
@@ -94,7 +94,7 @@ configure({
             ...en,
             messages: {
                 ...en.messages,
-                phone_uae: "This phone number must be +971xxxxxxxxx",
+                phone: "This {field} must be a valid phone number",
             },
         },
     }),

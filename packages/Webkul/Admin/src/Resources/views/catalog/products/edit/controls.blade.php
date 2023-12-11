@@ -24,9 +24,9 @@
 
     @case('price')
         <div class="relative">
-            <span class="absolute ltr:left-[15px] rtl:right-[15px] top-[50%] -translate-y-[50%] text-gray-500 dark:text-gray-300 {{ $attribute->code == 'price' ? 'text-[20px]' : '' }}">
+            {{-- <span class="absolute ltr:left-[15px] rtl:right-[15px] top-[50%] -translate-y-[50%] text-gray-500 dark:text-gray-300 {{ $attribute->code == 'price' ? 'text-[20px]' : '' }}">
                 {{ core()->currencySymbol(core()->getBaseCurrencyCode()) }}
-            </span>
+            </span> --}}
 
             <x-admin::form.control-group.control
                 type="text"
@@ -35,7 +35,7 @@
                 ::rules="{{ $attribute->validations }}"
                 :label="$attribute->admin_name"
                 value="{{ old($attribute->code) ?: $product[$attribute->code] }}"
-                :class="'ltr:pl-[30px] rtl:pr-[30px] ' . ($attribute->code == 'price' ? 'py-2 bg-gray-50 text-[20px] font-bold' : '')"
+                :class="'rtl:pr-[30px] ' . ($attribute->code == 'price' ? 'py-2 bg-gray-50 text-[20px] font-bold' : '')"
             >
             </x-admin::form.control-group.control>
         </div>
@@ -156,7 +156,7 @@
                 >
                 </x-admin::form.control-group.control>
 
-                <p class="text-gray-600 dark:text-gray-300 font-semibold">
+                <p class="font-semibold text-gray-600 dark:text-gray-300">
                     {{ $option->admin_name }}
                 </p>
             </div>

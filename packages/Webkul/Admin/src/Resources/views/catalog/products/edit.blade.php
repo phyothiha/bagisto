@@ -71,7 +71,7 @@
                             class="transparent-button px-[4px] py-[6px] hover:bg-gray-200 dark:hover:bg-gray-800 focus:bg-gray-200 dark:focus:bg-gray-800 dark:text-white"
                         >
                             <span class="icon-store text-[24px] "></span>
-                            
+
                             {{ $currentChannel->name }}
 
                             <input type="hidden" name="channel" value="{{ $currentChannel->code }}"/>
@@ -104,7 +104,7 @@
                             <span class="icon-language text-[24px] "></span>
 
                             {{ $currentLocale->name }}
-                            
+
                             <input type="hidden" name="locale" value="{{ $currentLocale->code }}"/>
 
                             <span class="icon-sort-down text-[24px]"></span>
@@ -181,7 +181,7 @@
                                             'attribute' => $attribute,
                                             'product'   => $product,
                                         ])
-            
+
                                         <x-admin::form.control-group.error :control-name="$attribute->code"></x-admin::form.control-group.error>
                                     </x-admin::form.control-group>
 

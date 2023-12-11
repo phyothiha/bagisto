@@ -305,7 +305,7 @@
                 :value="old('phone')"
                 rules="required|phone_uae"
                 :label="trans('shop::app.customers.account.addresses.phone')"
-                placeholder="+971xxxxxxxxx"
+                :placeholder="trans('shop::app.customers.account.addresses.phone')"
             >
             </x-shop::form.control-group.control>
 
