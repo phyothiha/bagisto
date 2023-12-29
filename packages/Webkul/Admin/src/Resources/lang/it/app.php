@@ -680,16 +680,28 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'add-images'        => 'Aggiungi Immagini',
-                            'apply-to-all-sku'  => 'Applica un prezzo a tutti gli SKU.',
-                            'apply-to-all-btn'  => 'Applica a Tutti',
-                            'edit-prices'       => 'Modifica Prezzi',
-                            'edit-inventories'  => 'Modifica Inventari',
-                            'price'             => 'Prezzo',
-                            'remove-images'     => 'Rimuovi Immagini',
-                            'remove-variants'   => 'Rimuovi Varianti',
-                            'select-variants'   => 'Seleziona Varianti',
-                            'select-action'     => 'Seleziona Azione',
+                            'add-images'          => 'Aggiungi Immagini',
+                            'apply-to-all-btn'    => 'Applica a Tutti',
+                            'apply-to-all-name'   => 'Applica un nome a tutte le varianti.',
+                            'apply-to-all-sku'    => 'Applica un prezzo a tutte le SKU.',
+                            'apply-to-all-status' => 'Applica uno stato a tutte le varianti.',
+                            'apply-to-all-weight' => 'Applica un peso a tutte le varianti.',
+                            'edit-inventories'    => 'Modifica Inventari',
+                            'edit-names'          => 'Modifica Nomi',
+                            'edit-prices'         => 'Modifica Prezzi',
+                            'edit-sku'            => 'Modifica SKU',
+                            'edit-status'         => 'Modifica Stato',
+                            'edit-weight'         => 'Modifica Peso',
+                            'name'                => 'Nome',
+                            'price'               => 'Prezzo',
+                            'remove-images'       => 'Rimuovi Immagini',
+                            'remove-variants'     => 'Rimuovi Varianti',
+                            'select-action'       => 'Seleziona Azione',
+                            'select-variants'     => 'Seleziona Varianti',
+                            'status'              => 'Stato',
+                            'variant-name'        => 'Nome Variante',
+                            'variant-sku'         => 'SKU Variante',
+                            'weight'              => 'Peso',
                         ],
                     ],
 
@@ -876,6 +888,7 @@ return [
                 'multiselect'           => 'Selezione Multipla',
                 'no'                    => 'No',
                 'number'                => 'Numero',
+                'options'               => 'Opzioni',
                 'price'                 => 'Prezzo',
                 'position'              => 'Posizione',
                 'regex'                 => 'Espressione Regolare',
@@ -938,6 +951,7 @@ return [
                 'multiselect'           => 'Selezione Multipla',
                 'no'                    => 'No',
                 'number'                => 'Numero',
+                'options'               => 'Opzioni',
                 'price'                 => 'Prezzo',
                 'position'              => 'Posizione',
                 'regex'                 => 'Espressione Regolare',
@@ -2274,8 +2288,8 @@ return [
 
         'inventory-sources' => [
             'index'  => [
+                'create-btn' => 'Crea fonte inventario',
                 'title'      => 'Sorgenti di Inventario',
-                'create-btn' => 'Crea Sorgenti di Inventario',
 
                 'datagrid' => [
                     'id'       => 'ID',
@@ -2396,9 +2410,9 @@ return [
 
             'rates'   => [
                 'index' => [
-                    'title'        => 'Aliquote Fiscali',
+                    'button-title' => 'Crea aliquota fiscale',
                     'tax-rate'     => 'Aliquota Fiscale',
-                    'button-title' => 'Crea Aliquote Fiscali',
+                    'title'        => 'Aliquote Fiscali',
 
                     'datagrid' => [
                         'id'         => 'ID',
@@ -3550,12 +3564,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => 'Aggiungi Prodotto Selezionato',
-                'empty-title' => 'Nessun prodotto trovato',
-                'empty-info'  => 'Nessun prodotto disponibile per il termine di ricerca.',
-                'qty'         => ':qty Disponibile',
-                'sku'         => 'SKU - :sku',
-                'title'       => 'Seleziona Prodotti',
+                'add-btn'       => 'Aggiungi prodotto selezionato',
+                'empty-info'    => 'Nessun prodotto disponibile per il termine di ricerca.',
+                'empty-title'   => 'Nessun prodotto trovato',
+                'product-image' => 'Immagine del prodotto',
+                'qty'           => ':qty disponibile',
+                'sku'           => 'SKU - :sku',
+                'title'         => 'Seleziona i prodotti',
             ],
         ],
 
@@ -3744,6 +3759,14 @@ return [
                 'greeting'       => 'Password dimenticata!',
                 'reset-password' => 'Resetta Password',
                 'subject'        => 'Email di Reset della Password',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => 'Un nuovo account cliente è stato creato con successo. Ora possono accedere utilizzando il proprio indirizzo e-mail e le credenziali della password. Una volta effettuato l`accesso, avranno accesso a vari servizi, inclusa la possibilità di rivedere gli ordini passati, gestire le liste dei desideri e aggiornare le informazioni del proprio account.',
+                'greeting'    => 'Diamo un caloroso benvenuto al nuovo cliente, :customer_name che si è appena registrato con noi!',
+                'subject'     => 'Nuova registrazione cliente',
             ],
         ],
 

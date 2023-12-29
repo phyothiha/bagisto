@@ -680,16 +680,28 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'select-variants'  => 'バリアントを選択',
-                            'select-action'    => 'アクションを選択',
-                            'edit-prices'      => '価格を編集',
-                            'edit-inventories' => '在庫を編集',
-                            'add-images'       => '画像を追加',
-                            'remove-images'    => '画像を削除',
-                            'remove-variants'  => 'バリアントを削除',
-                            'price'            => '価格',
-                            'apply-to-all-sku' => 'すべてのSKUに価格を適用する。',
-                            'apply-to-all-btn' => 'すべてに適用',
+                            'add-images'          => '画像を追加',
+                            'apply-to-all-btn'    => 'すべてに適用',
+                            'apply-to-all-name'   => 'すべてのバリアントに名前を適用',
+                            'apply-to-all-sku'    => 'すべてのSKUに価格を適用',
+                            'apply-to-all-status' => 'すべてのバリアントにステータスを適用',
+                            'apply-to-all-weight' => 'すべてのバリエーションに重みを適用する。',
+                            'edit-inventories'    => '在庫を編集',
+                            'edit-names'          => '名前を編集',
+                            'edit-prices'         => '価格を編集',
+                            'edit-sku'            => 'SKUを編集',
+                            'edit-status'         => 'ステータスを編集',
+                            'edit-weight'         => '重さを編集',
+                            'name'                => '名前',
+                            'price'               => '価格',
+                            'remove-images'       => '画像を削除',
+                            'remove-variants'     => 'バリアントを削除',
+                            'select-action'       => 'アクションを選択',
+                            'select-variants'     => 'バリアントを選択',
+                            'status'              => 'ステータス',
+                            'variant-name'        => 'バリアント名',
+                            'variant-sku'         => 'バリアントSKU',
+                            'weight'              => '重さ',
                         ],
                     ],
 
@@ -876,6 +888,7 @@ return [
                 'multiselect'           => 'マルチセレクト',
                 'no'                    => 'いいえ',
                 'number'                => '数値',
+                'options'               => 'オプション',
                 'price'                 => '価格',
                 'position'              => '位置',
                 'regex'                 => '正規表現',
@@ -938,6 +951,7 @@ return [
                 'multiselect'           => 'マルチセレクト',
                 'no'                    => 'いいえ',
                 'number'                => '数値',
+                'options'               => 'オプション',
                 'price'                 => '価格',
                 'position'              => '位置',
                 'regex'                 => '正規表現',
@@ -2274,8 +2288,8 @@ return [
 
         'inventory-sources' => [
             'index'  => [
+                'create-btn' => '在庫ソースを作成する',
                 'title'      => '在庫ソース',
-                'create-btn' => '在庫ソースを作成',
 
                 'datagrid' => [
                     'id'       => 'ID',
@@ -2396,9 +2410,9 @@ return [
 
             'rates'   => [
                 'index' => [
-                    'title'        => '税率',
+                    'button-title' => '税率を作成する',
                     'tax-rate'     => '税率',
-                    'button-title' => '税率を作成',
+                    'title'        => '税率',
 
                     'datagrid' => [
                         'id'         => 'ID',
@@ -3550,12 +3564,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => '選択した製品を追加',
-                'empty-title' => '製品が見つかりません',
-                'empty-info'  => '検索語句に一致する製品はありません。',
-                'qty'         => ':qty 個利用可能',
-                'sku'         => 'SKU - :sku',
-                'title'       => '製品を選択',
+                'add-btn'       => '選択した製品を追加',
+                'empty-info'    => '検索語に該当する製品はありません。',
+                'empty-title'   => '製品が見つかりませんでした',
+                'product-image' => '製品画像',
+                'qty'           => ':qty 利用可能',
+                'sku'           => 'SKU - :sku',
+                'title'         => '製品を選択',
             ],
         ],
 
@@ -3744,6 +3759,14 @@ return [
                 'greeting'       => 'パスワードを忘れました！',
                 'reset-password' => 'パスワードをリセット',
                 'subject'        => 'パスワードリセットメール',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => '新しい顧客アカウントが正常に作成されました。 これで、電子メール アドレスとパスワードの資格情報を使用してログインできるようになります。 ログインすると、過去の注文の確認、ウィッシュリストの管理、アカウント情報の更新など、さまざまなサービスにアクセスできるようになります。',
+                'greeting'    => '私たちに登録したばかりの新しい顧客、:customer_name を温かく歓迎します。',
+                'subject'     => '新規顧客登録',
             ],
         ],
 

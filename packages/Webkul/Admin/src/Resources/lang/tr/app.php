@@ -680,16 +680,28 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'select-variants'  => 'Varyantları Seç',
-                            'select-action'    => 'Eylemi Seç',
-                            'edit-prices'      => 'Fiyatları Düzenle',
-                            'edit-inventories' => 'Stokları Düzenle',
-                            'add-images'       => 'Resimleri Ekle',
-                            'remove-images'    => 'Resimleri Kaldır',
-                            'remove-variants'  => 'Varyantları Kaldır',
-                            'price'            => 'Fiyat',
-                            'apply-to-all-sku' => 'Tüm SKU\'lara fiyat uygula.',
-                            'apply-to-all-btn' => 'Tümüne Uygula',
+                            'add-images'          => 'Resim Ekle',
+                            'apply-to-all-btn'    => 'Hepsine Uygula',
+                            'apply-to-all-name'   => 'Adı tüm varyantlara uygula.',
+                            'apply-to-all-sku'    => 'Fiyatı tüm SKU\'lara uygula.',
+                            'apply-to-all-status' => 'Durumu tüm varyantlara uygula.',
+                            'apply-to-all-weight' => 'Tüm varyantlara ağırlık uygula.',
+                            'edit-inventories'    => 'Envanterleri Düzenle',
+                            'edit-names'          => 'İsimleri Düzenle',
+                            'edit-prices'         => 'Fiyatları Düzenle',
+                            'edit-sku'            => 'SKU\'ları Düzenle',
+                            'edit-status'         => 'Durumu Düzenle',
+                            'edit-weight'         => 'Ağırlığı Düzenle',
+                            'name'                => 'Ad',
+                            'price'               => 'Fiyat',
+                            'remove-images'       => 'Resimleri Kaldır',
+                            'remove-variants'     => 'Varyantları Kaldır',
+                            'select-action'       => 'Eylemi Seç',
+                            'select-variants'     => 'Varyantları Seç',
+                            'status'              => 'Durum',
+                            'variant-name'        => 'Varyant Adı',
+                            'variant-sku'         => 'Varyant SKU',
+                            'weight'              => 'Ağırlık',
                         ],
                     ],
 
@@ -876,6 +888,7 @@ return [
                 'multiselect'           => 'Çoklu Seçim',
                 'no'                    => 'Hayır',
                 'number'                => 'Sayı',
+                'options'               => 'Seçenekler',
                 'price'                 => 'Fiyat',
                 'position'              => 'Konum',
                 'regex'                 => 'Regex',
@@ -938,6 +951,7 @@ return [
                 'multiselect'           => 'Çoklu Seçim',
                 'no'                    => 'Hayır',
                 'number'                => 'Sayı',
+                'options'               => 'Seçenekler',
                 'price'                 => 'Fiyat',
                 'position'              => 'Konum',
                 'regex'                 => 'Regex',
@@ -2275,8 +2289,8 @@ return [
 
         'inventory-sources' => [
             'index'  => [
-                'title'      => 'Envanter Kaynakları',
                 'create-btn' => 'Envanter Kaynağı Oluştur',
+                'title'      => 'Envanter Kaynakları',
 
                 'datagrid' => [
                     'id'       => 'ID',
@@ -2397,9 +2411,9 @@ return [
 
             'rates'   => [
                 'index' => [
-                    'title'        => 'Vergi Oranları',
-                    'tax-rate'     => 'Vergi Oranı',
                     'button-title' => 'Vergi Oranı Oluştur',
+                    'tax-rate'     => 'Vergi Oranı',
+                    'title'        => 'Vergi Oranları',
 
                     'datagrid' => [
                         'id'         => 'ID',
@@ -3550,12 +3564,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => 'Seçilen Ürünü Ekle',
-                'empty-title' => 'Ürün bulunamadı',
-                'empty-info'  => 'Arama terimi için uygun ürün bulunmuyor.',
-                'qty'         => ':qty Mevcut',
-                'sku'         => 'Stok Kodu - :sku',
-                'title'       => 'Ürünleri Seç',
+                'add-btn'       => 'Seçilen Ürünü Ekle',
+                'empty-info'    => 'Arama terimi için hiçbir ürün bulunamadı.',
+                'empty-title'   => 'Hiçbir ürün bulunamadı',
+                'product-image' => 'Ürün Resmi',
+                'qty'           => ':qty Mevcut',
+                'sku'           => 'Stok Kodu - :sku',
+                'title'         => 'Ürünleri Seç',
             ],
         ],
 
@@ -3744,6 +3759,14 @@ return [
                 'greeting'       => 'Şifrenizi mi unuttunuz!',
                 'reset-password' => 'Şifreyi Sıfırla',
                 'subject'        => 'Şifre Sıfırlama E-postası',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => 'Yeni bir müşteri hesabı başarıyla oluşturuldu. Artık e-posta adreslerini ve şifre bilgilerini kullanarak giriş yapabilirler. Giriş yaptıktan sonra geçmiş siparişleri inceleme, istek listelerini yönetme ve hesap bilgilerini güncelleme dahil olmak üzere çeşitli hizmetlere erişebilecekler.',
+                'greeting'    => 'Aramıza yeni kaydolan yeni müşterimiz :customer_name `e sıcak bir karşılama dileriz!',
+                'subject'     => 'Yeni Müşteri Kaydı',
             ],
         ],
 

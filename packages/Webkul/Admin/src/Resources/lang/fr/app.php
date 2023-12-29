@@ -680,16 +680,28 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'add-images'        => 'Ajouter des images',
-                            'apply-to-all-sku'  => 'Appliquer un prix à tous les SKU.',
-                            'apply-to-all-btn'  => 'Appliquer à tous',
-                            'edit-prices'       => 'Modifier les prix',
-                            'edit-inventories'  => 'Modifier les inventaires',
-                            'price'             => 'Prix',
-                            'remove-images'     => 'Supprimer les images',
-                            'remove-variants'   => 'Supprimer les variantes',
-                            'select-variants'   => 'Sélectionner les variantes',
-                            'select-action'     => 'Sélectionner une action',
+                            'add-images'          => 'Ajouter des images',
+                            'apply-to-all-btn'    => 'Appliquer à tous',
+                            'apply-to-all-name'   => 'Appliquer un nom à toutes les variantes.',
+                            'apply-to-all-sku'    => 'Appliquer un prix à toutes les références.',
+                            'apply-to-all-status' => 'Appliquer un statut à toutes les variantes.',
+                            'apply-to-all-weight' => 'Appliquer un poids à toutes les variantes.',
+                            'edit-inventories'    => 'Modifier les inventaires',
+                            'edit-names'          => 'Modifier les noms',
+                            'edit-prices'         => 'Modifier les prix',
+                            'edit-sku'            => 'Modifier la référence',
+                            'edit-status'         => 'Modifier le statut',
+                            'edit-weight'         => 'Modifier le poids',
+                            'name'                => 'Nom',
+                            'price'               => 'Prix',
+                            'remove-images'       => 'Supprimer les images',
+                            'remove-variants'     => 'Supprimer les variantes',
+                            'select-action'       => 'Sélectionner une action',
+                            'select-variants'     => 'Sélectionner les variantes',
+                            'status'              => 'Statut',
+                            'variant-name'        => 'Nom de la variante',
+                            'variant-sku'         => 'Référence de la variante',
+                            'weight'              => 'Poids',
                         ],
                     ],
 
@@ -876,6 +888,7 @@ return [
                 'multiselect'           => 'Sélection multiple',
                 'no'                    => 'Non',
                 'number'                => 'Nombre',
+                'options'               => 'Possibilités',
                 'price'                 => 'Prix',
                 'position'              => 'Position',
                 'regex'                 => 'Regex',
@@ -938,6 +951,7 @@ return [
                 'multiselect'           => 'Sélection multiple',
                 'no'                    => 'Non',
                 'number'                => 'Nombre',
+                'options'               => 'Possibilités',
                 'price'                 => 'Prix',
                 'position'              => 'Position',
                 'regex'                 => 'Regex',
@@ -2274,8 +2288,8 @@ return [
 
         'inventory-sources' => [
             'index'  => [
+                'create-btn' => 'Créer une source d\'inventaire',
                 'title'      => 'Sources d’inventaire',
-                'create-btn' => 'Créer une source d’inventaire',
 
                 'datagrid' => [
                     'id'       => 'ID',
@@ -2396,9 +2410,9 @@ return [
 
             'rates'   => [
                 'index' => [
-                    'title'        => 'Taux de taxe',
+                    'button-title' => 'Créer un taux de taxe',
                     'tax-rate'     => 'Taux de taxe',
-                    'button-title' => 'Créer des taux de taxe',
+                    'title'        => 'Taux de taxe',
 
                     'datagrid' => [
                         'id'         => 'ID',
@@ -3550,12 +3564,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => 'Ajouter le produit sélectionné',
-                'empty-title' => 'Aucun produit trouvé',
-                'empty-info'  => 'Aucun produit disponible pour ce terme de recherche.',
-                'qty'         => ':qty disponibles',
-                'sku'         => 'SKU - :sku',
-                'title'       => 'Sélectionner des produits',
+                'add-btn'       => 'Ajouter le produit sélectionné',
+                'empty-info'    => 'Aucun produit disponible pour le terme de recherche.',
+                'empty-title'   => 'Aucun produit trouvé',
+                'product-image' => 'Image du produit',
+                'qty'           => ':qty disponible',
+                'sku'           => 'SKU - :sku',
+                'title'         => 'Sélectionner des produits',
             ],
         ],
 
@@ -3744,6 +3759,14 @@ return [
                 'description'    => 'Vous recevez cet e-mail car nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.',
                 'reset-password' => 'Réinitialiser le mot de passe',
                 'subject'        => 'E-mail de réinitialisation de mot de passe',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => 'Un nouveau compte client a été créé avec succès. Ils peuvent désormais se connecter en utilisant leur adresse e-mail et leur mot de passe. Une fois connectés, ils auront accès à divers services, notamment la possibilité de consulter les commandes passées, de gérer les listes de souhaits et de mettre à jour les informations de leur compte.',
+                'greeting'    => 'Nous souhaitons la bienvenue au nouveau client, :customer_name qui vient de s`inscrire chez nous !',
+                'subject'     => 'Enregistrement d`un nouveau client',
             ],
         ],
 

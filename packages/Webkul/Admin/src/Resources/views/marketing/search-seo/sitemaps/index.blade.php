@@ -8,8 +8,8 @@
 
     <!-- Create Sitemap Vue Component -->
     <v-create-sitemaps>
-        <div class="flex gap-[16px] justify-between items-center max-sm:flex-wrap">
-            <p class="text-[20px] text-gray-800 dark:text-white font-bold">
+        <div class="flex gap-4 justify-between items-center max-sm:flex-wrap">
+            <p class="text-xl text-gray-800 dark:text-white font-bold">
                 @lang('admin::app.marketing.search-seo.sitemaps.index.title')
             </p>
 
@@ -32,8 +32,8 @@
             type="text/x-template"
             id="v-create-sitemaps-template"
         >
-            <div class="flex gap-[16px] justify-between items-center max-sm:flex-wrap">
-                <p class="text-[20px] text-gray-800 dark:text-white font-bold">
+            <div class="flex gap-4 justify-between items-center max-sm:flex-wrap">
+                <p class="text-xl text-gray-800 dark:text-white font-bold">
                     @lang('admin::app.marketing.search-seo.sitemaps.index.title')
                 </p>
 
@@ -58,7 +58,7 @@
                 <template #body="{ columns, records, performAction }">
                     <div
                         v-for="record in records"
-                        class="row grid gap-[10px] items-center px-[16px] py-[16px] border-b-[1px] dark:border-gray-800 break-all text-gray-600 dark:text-gray-300 transition-all hover:bg-gray-50 dark:hover:bg-gray-950"
+                        class="row grid gap-2.5 items-center px-4 py-4 border-b dark:border-gray-800 break-all text-gray-600 dark:text-gray-300 transition-all hover:bg-gray-50 dark:hover:bg-gray-950"
                         :style="`grid-template-columns: repeat(${gridsCount}, minmax(0, 1fr))`"
                     >
                         <!-- Id -->
@@ -78,32 +78,27 @@
                         </p>
 
                         <!-- Actions -->
-                        @if (
-                            bouncer()->hasPermission('marketing.search_seo.sitemaps.edit') 
-                            || bouncer()->hasPermission('marketing.search_seo.sitemaps.delete')
-                        )
-                            <div class="flex justify-end">
-                                @if (bouncer()->hasPermission('marketing.search_seo.sitemaps.edit'))
-                                    <a @click="selectedSitemap=1; editModal(record)">
-                                        <span
-                                            :class="record.actions.find(action => action.title === 'Edit')?.icon"
-                                            class="cursor-pointer rounded-[6px] p-[6px] text-[24px] transition-all hover:bg-gray-100 dark:hover:bg-gray-950 max-sm:place-self-center"
-                                        >
-                                        </span>
-                                    </a>
-                                @endif
+                        <div class="flex justify-end">
+                            @if (bouncer()->hasPermission('marketing.search_seo.sitemaps.edit'))
+                                <a @click="selectedSitemap=1; editModal(record)">
+                                    <span
+                                        :class="record.actions.find(action => action.index === 'action_1')?.icon"
+                                        class="cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-gray-100 dark:hover:bg-gray-950 max-sm:place-self-center"
+                                    >
+                                    </span>
+                                </a>
+                            @endif
 
-                                @if (bouncer()->hasPermission('marketing.search_seo.sitemaps.delete'))
-                                    <a @click="performAction(record.actions.find(action => action.method === 'DELETE'))">
-                                        <span
-                                            :class="record.actions.find(action => action.method === 'DELETE')?.icon"
-                                            class="cursor-pointer rounded-[6px] p-[6px] text-[24px] transition-all hover:bg-gray-100 dark:hover:bg-gray-950 max-sm:place-self-center"
-                                        >
-                                        </span>
-                                    </a>
-                                @endif
-                            </div>
-                        @endif
+                            @if (bouncer()->hasPermission('marketing.search_seo.sitemaps.delete'))
+                                <a @click="performAction(record.actions.find(action => action.index === 'action_2'))">
+                                    <span
+                                        :class="record.actions.find(action => action.index === 'action_2')?.icon"
+                                        class="cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-gray-100 dark:hover:bg-gray-950 max-sm:place-self-center"
+                                    >
+                                    </span>
+                                </a>
+                            @endif
+                        </div>
                     </div>
                 </template>
             </x-admin::datagrid>
@@ -126,7 +121,7 @@
                         <x-slot:header>
                             <!-- Create Modal title -->
                             <p
-                                class="text-[18px] text-gray-800 dark:text-white font-bold"
+                                class="text-lg text-gray-800 dark:text-white font-bold"
                                 v-if="selectedSitemap"
                             >
                                 @lang('admin::app.marketing.search-seo.sitemaps.index.edit.title')
@@ -134,7 +129,7 @@
 
                             <!-- Edit Modal title -->
                             <p
-                                class="text-[18px] text-gray-800 dark:text-white font-bold"
+                                class="text-lg text-gray-800 dark:text-white font-bold"
                                 v-else
                             >
                                 @lang('admin::app.marketing.search-seo.sitemaps.index.create.title')
@@ -143,71 +138,69 @@
 
                         <!-- Modal Content -->
                         <x-slot:content>
-                            <div class="px-[16px] py-[10px] border-b-[1px] dark:border-gray-800">
-                                <!-- Id -->
+                            <!-- Id -->
+                            <x-admin::form.control-group.control
+                                type="hidden"
+                                name="id"
+                            >
+                            </x-admin::form.control-group.control>
+
+                            <!-- File Name -->
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label class="required">
+                                    @lang('admin::app.marketing.search-seo.sitemaps.index.create.file-name')
+                                </x-admin::form.control-group.label>
+
                                 <x-admin::form.control-group.control
-                                    type="hidden"
-                                    name="id"
+                                    type="text"
+                                    name="file_name"
+                                    :value="old('file_name')"
+                                    rules="required"
+                                    :label="trans('admin::app.marketing.search-seo.sitemaps.index.create.file-name')"
+                                    :placeholder="trans('admin::app.marketing.search-seo.sitemaps.index.create.file-name')"
                                 >
                                 </x-admin::form.control-group.control>
 
-                                <!-- File Name -->
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label class="required">
-                                        @lang('admin::app.marketing.search-seo.sitemaps.index.create.file-name')
-                                    </x-admin::form.control-group.label>
+                                <x-admin::form.control-group.error
+                                    control-name="file_name"
+                                >
+                                </x-admin::form.control-group.error>
 
-                                    <x-admin::form.control-group.control
-                                        type="text"
-                                        name="file_name"
-                                        :value="old('file_name')"
-                                        rules="required"
-                                        :label="trans('admin::app.marketing.search-seo.sitemaps.index.create.file-name')"
-                                        :placeholder="trans('admin::app.marketing.search-seo.sitemaps.index.create.file-name')"
-                                    >
-                                    </x-admin::form.control-group.control>
+                                <p class="mt-2 ltr:ml-1 rtl:mr-1 text-xs text-gray-600 dark:text-gray-300 font-medium">
+                                    @lang('admin::app.marketing.search-seo.sitemaps.index.create.file-name-info')
+                                </p>
 
-                                    <x-admin::form.control-group.error
-                                        control-name="file_name"
-                                    >
-                                    </x-admin::form.control-group.error>
+                            </x-admin::form.control-group>
 
-                                    <p class="mt-[8px] ltr:ml-[4px] rtl:mr-[4px] text-[12px] text-gray-600 dark:text-gray-300 font-medium">
-                                        @lang('admin::app.marketing.search-seo.sitemaps.index.create.file-name-info')
-                                    </p>
+                            <!-- File Path -->
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label class="required">
+                                    @lang('admin::app.marketing.search-seo.sitemaps.index.create.path')
+                                </x-admin::form.control-group.label>
 
-                                </x-admin::form.control-group>
+                                <x-admin::form.control-group.control
+                                    type="text"
+                                    name="path"
+                                    :value="old('path')"
+                                    rules="required"
+                                    :label="trans('admin::app.marketing.search-seo.sitemaps.index.create.path')"
+                                    :placeholder="trans('admin::app.marketing.search-seo.sitemaps.index.create.path')"
+                                >
+                                </x-admin::form.control-group.control>
 
-                                <!-- File Path -->
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label class="required">
-                                        @lang('admin::app.marketing.search-seo.sitemaps.index.create.path')
-                                    </x-admin::form.control-group.label>
+                                <x-admin::form.control-group.error
+                                    control-name="path"
+                                >
+                                </x-admin::form.control-group.error>
 
-                                    <x-admin::form.control-group.control
-                                        type="text"
-                                        name="path"
-                                        :value="old('path')"
-                                        rules="required"
-                                        :label="trans('admin::app.marketing.search-seo.sitemaps.index.create.path')"
-                                        :placeholder="trans('admin::app.marketing.search-seo.sitemaps.index.create.path')"
-                                    >
-                                    </x-admin::form.control-group.control>
-
-                                    <x-admin::form.control-group.error
-                                        control-name="path"
-                                    >
-                                    </x-admin::form.control-group.error>
-
-                                    <p class="mt-[8px] ltr:ml-[4px] rtl:mr-[4px] text-[12px] text-gray-600 dark:text-gray-300 font-medium">
-                                        @lang('admin::app.marketing.search-seo.sitemaps.index.create.path-info')
-                                    </p>
-                                </x-admin::form.control-group>
-                            </div>
+                                <p class="mt-2 ltr:ml-1 rtl:mr-1 text-xs text-gray-600 dark:text-gray-300 font-medium">
+                                    @lang('admin::app.marketing.search-seo.sitemaps.index.create.path-info')
+                                </p>
+                            </x-admin::form.control-group>
                         </x-slot:content>
 
+                        <!-- Modal Footer -->
                         <x-slot:footer>
-                            <!-- Save Button -->
                             <button class="primary-button">
                                 @lang('admin::app.marketing.search-seo.sitemaps.index.create.save-btn')
                             </button>

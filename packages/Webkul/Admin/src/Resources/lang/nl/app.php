@@ -680,16 +680,28 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'select-variants'  => 'Selecteer Varianten',
-                            'select-action'    => 'Selecteer Actie',
-                            'edit-prices'      => 'Bewerk Prijzen',
-                            'edit-inventories' => 'Bewerk Voorraden',
-                            'add-images'       => 'Afbeeldingen Toevoegen',
-                            'remove-images'    => 'Afbeeldingen Verwijderen',
-                            'remove-variants'  => 'Varianten Verwijderen',
-                            'price'            => 'Prijs',
-                            'apply-to-all-sku' => 'Pas een prijs toe op alle SKU\'s.',
-                            'apply-to-all-btn' => 'Toepassen op Alles',
+                            'add-images'          => 'Afbeeldingen Toevoegen',
+                            'apply-to-all-btn'    => 'Toepassen op Alles',
+                            'apply-to-all-name'   => 'Pas een naam toe op alle varianten.',
+                            'apply-to-all-sku'    => 'Pas een prijs toe op alle SKU\'s.',
+                            'apply-to-all-status' => 'Pas een status toe op alle varianten.',
+                            'apply-to-all-weight' => 'Gewicht toepassen op alle varianten.',
+                            'edit-inventories'    => 'Voorraden Bewerken',
+                            'edit-names'          => 'Namen Bewerken',
+                            'edit-prices'         => 'Prijzen Bewerken',
+                            'edit-sku'            => 'SKU Bewerken',
+                            'edit-status'         => 'Status Bewerken',
+                            'edit-weight'         => 'Gewicht Bewerken',
+                            'name'                => 'Namen',
+                            'price'               => 'Prijs',
+                            'remove-images'       => 'Afbeeldingen Verwijderen',
+                            'remove-variants'     => 'Varianten Verwijderen',
+                            'select-action'       => 'Actie Selecteren',
+                            'select-variants'     => 'Varianten Selecteren',
+                            'status'              => 'Status',
+                            'variant-name'        => 'Variant Naam',
+                            'variant-sku'         => 'Variant SKU',
+                            'weight'              => 'Gewicht',
                         ],
                     ],
 
@@ -876,6 +888,7 @@ return [
                 'multiselect'             => 'Meerdere selectie',
                 'no'                      => 'Nee',
                 'number'                  => 'Nummer',
+                'options'                 => 'Opties',
                 'price'                   => 'Prijs',
                 'position'                => 'Positie',
                 'regex'                   => 'Regex',
@@ -938,6 +951,7 @@ return [
                 'multiselect'           => 'Meerdere selectie',
                 'no'                    => 'Nee',
                 'number'                => 'Nummer',
+                'options'               => 'Opties',
                 'price'                 => 'Prijs',
                 'position'              => 'Positie',
                 'regex'                 => 'Regex',
@@ -2274,8 +2288,8 @@ return [
 
         'inventory-sources' => [
             'index' => [
+                'create-btn' => 'Voorraadbron aanmaken',
                 'title'      => 'Voorraadbronnen',
-                'create-btn' => 'Voorraadbronnen Aanmaken',
 
                 'datagrid' => [
                     'id'       => 'ID',
@@ -2396,9 +2410,9 @@ return [
 
             'rates' => [
                 'index' => [
-                    'title'        => 'Belastingtarieven',
+                    'button-title' => 'Belastingtarief maken',
                     'tax-rate'     => 'Belastingtarief',
-                    'button-title' => 'Belastingtarieven Aanmaken',
+                    'title'        => 'Belastingtarieven',
 
                     'datagrid' => [
                         'id'         => 'ID',
@@ -3550,12 +3564,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => 'Geselecteerd Product Toevoegen',
-                'empty-title' => 'Geen producten gevonden',
-                'empty-info'  => 'Geen producten beschikbaar voor zoekterm.',
-                'qty'         => ':qty Beschikbaar',
-                'sku'         => 'SKU - :sku',
-                'title'       => 'Selecteer Producten',
+                'add-btn'       => 'Geselecteerd product toevoegen',
+                'empty-info'    => 'Geen producten beschikbaar voor zoekterm.',
+                'empty-title'   => 'Geen producten gevonden',
+                'product-image' => 'Productafbeelding',
+                'qty'           => ':qty beschikbaar',
+                'sku'           => 'SKU - :sku',
+                'title'         => 'Producten selecteren',
             ],
         ],
 
@@ -3744,6 +3759,14 @@ return [
                 'greeting'       => 'Wachtwoord vergeten!',
                 'reset-password' => 'Wachtwoord opnieuw instellen',
                 'subject'        => 'E-mail wachtwoord resetten',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => 'Er is succesvol een nieuw klantaccount aangemaakt. Ze kunnen nu inloggen met hun e-mailadres en wachtwoord. Eenmaal ingelogd hebben ze toegang tot verschillende diensten, waaronder de mogelijkheid om eerdere bestellingen te bekijken, verlanglijstjes te beheren en hun accountgegevens bij te werken.',
+                'greeting'    => 'Wij heten de nieuwe klant, :customer_name, die zich zojuist bij ons heeft geregistreerd, van harte welkom!',
+                'subject'     => 'Nieuwe klantregistratie',
             ],
         ],
 

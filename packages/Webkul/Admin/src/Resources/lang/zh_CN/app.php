@@ -680,16 +680,27 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'select-variants'  => '选择变体',
-                            'select-action'    => '选择操作',
-                            'edit-prices'      => '编辑价格',
-                            'edit-inventories' => '编辑库存',
-                            'add-images'       => '添加图片',
-                            'remove-images'    => '移除图片',
-                            'remove-variants'  => '移除变体',
-                            'price'            => '价格',
-                            'apply-to-all-sku' => '将价格应用于所有SKU。',
-                            'apply-to-all-btn' => '应用于全部',
+                            'add-images'          => '添加图片',
+                            'apply-to-all-btn'    => '应用于所有',
+                            'apply-to-all-name'   => '将名称应用于所有变体。',
+                            'apply-to-all-sku'    => '将价格应用于所有 SKU。',
+                            'apply-to-all-status' => '将状态应用于所有变体。',
+                            'edit-inventories'    => '编辑库存',
+                            'edit-names'          => '编辑名称',
+                            'edit-prices'         => '编辑价格',
+                            'edit-sku'            => '编辑 SKU',
+                            'edit-status'         => '编辑状态',
+                            'edit-weight'         => '编辑重量',
+                            'name'                => '名称',
+                            'price'               => '价格',
+                            'remove-images'       => '移除图片',
+                            'remove-variants'     => '移除变体',
+                            'select-action'       => '选择操作',
+                            'select-variants'     => '选择变体',
+                            'status'              => '状态',
+                            'variant-name'        => '变体名称',
+                            'variant-sku'         => '变体 SKU',
+                            'weight'              => '重量',
                         ],
                     ],
 
@@ -876,6 +887,7 @@ return [
                 'multiselect'           => '多选',
                 'no'                    => '否',
                 'number'                => '数字',
+                'options'               => '选项',
                 'price'                 => '价格',
                 'position'              => '位置',
                 'regex'                 => '正则表达式',
@@ -938,6 +950,7 @@ return [
                 'multiselect'           => '多选',
                 'no'                    => '否',
                 'number'                => '数字',
+                'options'               => '选项',
                 'price'                 => '价格',
                 'position'              => '位置',
                 'regex'                 => '正则表达式',
@@ -2274,8 +2287,8 @@ return [
 
         'inventory-sources' => [
             'index'  => [
+                'create-btn' => '创建库存源',
                 'title'      => '库存来源',
-                'create-btn' => '创建库存来源',
 
                 'datagrid' => [
                     'id'       => 'ID',
@@ -2396,9 +2409,9 @@ return [
 
             'rates'   => [
                 'index' => [
-                    'title'        => '税率',
-                    'tax-rate'     => '税率',
                     'button-title' => '创建税率',
+                    'tax-rate'     => '税率',
+                    'title'        => '税率',
 
                     'datagrid' => [
                         'id'         => 'ID',
@@ -3550,12 +3563,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => '添加已选择的产品',
-                'empty-title' => '未找到产品',
-                'empty-info'  => '未找到符合搜索条件的产品。',
-                'qty'         => ':qty 可用',
-                'sku'         => 'SKU - :sku',
-                'title'       => '选择产品',
+                'add-btn'       => '添加所选产品',
+                'empty-info'    => '没有找到与搜索词匹配的产品。',
+                'empty-title'   => '未找到任何产品',
+                'product-image' => '产品图片',
+                'qty'           => ':qty 可用',
+                'sku'           => 'SKU - :sku',
+                'title'         => '选择产品',
             ],
         ],
 
@@ -3744,6 +3758,14 @@ return [
                 'greeting'       => '忘记密码！',
                 'reset-password' => '重置密码',
                 'subject'        => '重置密码电子邮件',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => '新的客户帐户已成功创建。 他们现在可以使用电子邮件地址和密码凭据登录。 登录后，他们将可以访问各种服务，包括查看过去的订单、管理愿望清单和更新帐户信息的能力。',
+                'greeting'    => '我们热烈欢迎刚刚在我们这里注册的新客户：customer_name！',
+                'subject'     => '新客户注册',
             ],
         ],
 

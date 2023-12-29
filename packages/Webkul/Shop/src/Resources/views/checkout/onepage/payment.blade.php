@@ -50,7 +50,6 @@
                                         :for="payment.method"
                                         class="w-full p-[20px] block border border-[#E9E9E9] rounded-[12px] max-sm:w-full cursor-pointer"
                                     >
-
                                         <img
                                             class="max-w-[55px] max-h-[45px]"
                                             :src="payment.image"
@@ -60,7 +59,7 @@
                                             :title="payment.method_title"
                                         />
 
-                                        <p class="text-[14px] font-semibold mt-[5px]">
+                                        <p class="text-sm font-semibold mt-1.5">
                                             @{{ payment.method_title }}
                                         </p>
 

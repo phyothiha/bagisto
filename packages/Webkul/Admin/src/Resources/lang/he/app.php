@@ -680,16 +680,28 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'select-variants'  => 'בחר וריאנטים',
-                            'select-action'    => 'בחר פעולה',
-                            'edit-prices'      => 'ערוך מחירים',
-                            'edit-inventories' => 'ערוך מלאי',
-                            'add-images'       => 'הוסף תמונות',
-                            'remove-images'    => 'הסר תמונות',
-                            'remove-variants'  => 'הסר וריאנטים',
-                            'price'            => 'מחיר',
-                            'apply-to-all-sku' => 'החל מחיר לכל ה-SKU.',
-                            'apply-to-all-btn' => 'החל לכל',
+                            'add-images'          => 'הוסף תמונות',
+                            'apply-to-all-btn'    => 'החל לכל',
+                            'apply-to-all-name'   => 'החל שם לכל ההבחרות.',
+                            'apply-to-all-sku'    => 'החל מחיר לכל SKU.',
+                            'apply-to-all-status' => 'החל סטטוס לכל ההבחרות.',
+                            'apply-to-all-weight' => 'להחיל משקל לכל ההפעלות.',
+                            'edit-inventories'    => 'ערוך מלאי',
+                            'edit-names'          => 'ערוך שמות',
+                            'edit-prices'         => 'ערוך מחירים',
+                            'edit-sku'            => 'ערוך SKU',
+                            'edit-status'         => 'ערוך סטטוס',
+                            'edit-weight'         => 'ערוך משקל',
+                            'name'                => 'שם',
+                            'price'               => 'מחיר',
+                            'remove-images'       => 'הסר תמונות',
+                            'remove-variants'     => 'הסר הבחרות',
+                            'select-action'       => 'בחר פעולה',
+                            'select-variants'     => 'בחר הבחרות',
+                            'status'              => 'סטטוס',
+                            'variant-name'        => 'שם הבחירה',
+                            'variant-sku'         => 'SKU של הבחרה',
+                            'weight'              => 'משקל',
                         ],
                     ],
 
@@ -876,6 +888,7 @@ return [
                 'multiselect'           => 'בחירה מרובה',
                 'no'                    => 'לא',
                 'number'                => 'מספר',
+                'options'               => 'אפשרויות',
                 'price'                 => 'מחיר',
                 'position'              => 'מיקום',
                 'regex'                 => 'Regex',
@@ -938,6 +951,7 @@ return [
                 'multiselect'           => 'בחירה מרובה',
                 'no'                    => 'לא',
                 'number'                => 'מספר',
+                'options'               => 'אפשרויות',
                 'price'                 => 'מחיר',
                 'position'              => 'מיקום',
                 'regex'                 => 'Regex',
@@ -2274,8 +2288,8 @@ return [
 
         'inventory-sources' => [
             'index'  => [
+                'create-btn' => 'צור מקור אחסון',
                 'title'      => 'מקורות מלאי',
-                'create-btn' => 'צור מקורי מלאי',
 
                 'datagrid' => [
                     'id'       => 'מזהה',
@@ -2396,9 +2410,9 @@ return [
 
             'rates'   => [
                 'index' => [
-                    'title'        => 'שערי מס',
+                    'button-title' => 'צור שיעור מס',
                     'tax-rate'     => 'שער מס',
-                    'button-title' => 'צור שערי מס',
+                    'title'        => 'שערי מס',
 
                     'datagrid' => [
                         'id'         => 'מזהה',
@@ -3550,12 +3564,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => 'הוסף מוצר שנבחר',
-                'empty-title' => 'לא נמצאו מוצרים',
-                'empty-info'  => 'אין מוצרים זמינים עבור מונח החיפוש.',
-                'qty'         => ':qty זמין',
-                'sku'         => 'SKU - :sku',
-                'title'       => 'בחר מוצרים',
+                'add-btn'       => 'הוסף מוצר שנבחר',
+                'empty-info'    => 'אין מוצרים זמינים עבור מונח החיפוש.',
+                'empty-title'   => 'לא נמצאו מוצרים',
+                'product-image' => 'תמונת המוצר',
+                'qty'           => ':qty זמין',
+                'sku'           => 'SKU - :sku',
+                'title'         => 'בחר מוצרים',
             ],
         ],
 
@@ -3744,6 +3759,14 @@ return [
                 'greeting'       => 'שכחת סיסמה!',
                 'reset-password' => 'איפוס סיסמה',
                 'subject'        => 'איפוס סיסמה באמצעות אימייל',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => 'חשבון לקוח חדש נוצר בהצלחה. כעת הם יכולים להיכנס באמצעות כתובת הדוא"ל והסיסמה שלהם. לאחר הכניסה, תהיה להם גישה לשירותים שונים, כולל היכולת לסקור הזמנות קודמות, לנהל רשימות משאלות ולעדכן את פרטי החשבון שלהם.',
+                'greeting'    => 'אנו מקבלים בברכה את הלקוח החדש, :customer_name שזה עתה נרשם אלינו!',
+                'subject'     => 'רישום לקוח חדש',
             ],
         ],
 

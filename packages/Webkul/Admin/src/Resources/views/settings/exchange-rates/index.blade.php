@@ -8,11 +8,11 @@
 
     <v-exchange-rates>
         <div class="flex justify-between items-center">
-            <p class="text-[20px] text-gray-800 dark:text-white font-bold">
+            <p class="text-xl text-gray-800 dark:text-white font-bold">
                 @lang('admin::app.settings.exchange-rates.index.title')
             </p>
 
-            <div class="flex gap-x-[10px] items-center">
+            <div class="flex gap-x-2.5 items-center">
                 <!-- Update Exchange Rate Button -->
                 <a
                     href="{{ route('admin.settings.exchange_rates.update_rates') }}"
@@ -45,11 +45,11 @@
             id="v-exchange-rates-template"
         >
             <div class="flex justify-between items-center">
-                <p class="text-[20px] text-gray-800 dark:text-white font-bold">
+                <p class="text-xl text-gray-800 dark:text-white font-bold">
                     @lang('admin::app.settings.exchange-rates.index.title')
                 </p>
 
-                <div class="flex gap-x-[10px] items-center">
+                <div class="flex gap-x-2.5 items-center">
                     <!-- Update Exchange Rate Button -->
                     <a href="{{ route('admin.settings.exchange_rates.update_rates') }}" class="primary-button">
                         @lang('admin::app.settings.exchange-rates.index.update-rates')
@@ -76,7 +76,7 @@
                 <template #body="{ columns, records, performAction }">
                     <div
                         v-for="record in records"
-                        class="row grid gap-[10px] items-center px-[16px] py-[16px] border-b-[1px] dark:border-gray-800 text-gray-600 dark:text-gray-300 transition-all hover:bg-gray-50 dark:hover:bg-gray-950"
+                        class="row grid gap-2.5 items-center px-4 py-4 border-b dark:border-gray-800 text-gray-600 dark:text-gray-300 transition-all hover:bg-gray-50 dark:hover:bg-gray-950"
                         :style="`grid-template-columns: repeat(${gridsCount}, minmax(0, 1fr))`"
                     >
                         <!-- Id -->
@@ -89,32 +89,27 @@
                         <p v-text="record.currency_rate"></p>
 
                         <!-- Actions -->
-                        @if (
-                            bouncer()->hasPermission('settings.exchange_rates.edit') 
-                            || bouncer()->hasPermission('settings.exchange_rates.delete')
-                        )
-                            <div class="flex justify-end">
-                                @if (bouncer()->hasPermission('settings.exchange_rates.edit'))
-                                    <a @click="selectedExchangeRates=1; editModal(record.actions.find(action => action.title === 'Edit')?.url)">
-                                        <span
-                                            :class="record.actions.find(action => action.title === 'Edit')?.icon"
-                                            class="cursor-pointer rounded-[6px] p-[6px] text-[24px] transition-all hover:bg-gray-200 dark:hover:bg-gray-800 max-sm:place-self-center"
-                                        >
-                                        </span>
-                                    </a>
-                                @endif
+                        <div class="flex justify-end">
+                            @if (bouncer()->hasPermission('settings.exchange_rates.edit'))
+                                <a @click="selectedExchangeRates=1; editModal(record.actions.find(action => action.index === 'action_1')?.url)">
+                                    <span
+                                        :class="record.actions.find(action => action.index === 'action_1')?.icon"
+                                        class="cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-gray-200 dark:hover:bg-gray-800 max-sm:place-self-center"
+                                    >
+                                    </span>
+                                </a>
+                            @endif
 
-                                @if (bouncer()->hasPermission('settings.exchange_rates.delete'))
-                                    <a @click="performAction(record.actions.find(action => action.method === 'DELETE'))">
-                                        <span
-                                            :class="record.actions.find(action => action.method === 'DELETE')?.icon"
-                                            class="cursor-pointer rounded-[6px] p-[6px] text-[24px] transition-all hover:bg-gray-200 dark:hover:bg-gray-800 max-sm:place-self-center"
-                                        >
-                                        </span>
-                                    </a>
-                                @endif
-                            </div>
-                        @endif
+                            @if (bouncer()->hasPermission('settings.exchange_rates.delete'))
+                                <a @click="performAction(record.actions.find(action => action.index === 'action_2'))">
+                                    <span
+                                        :class="record.actions.find(action => action.index === 'action_2')?.icon"
+                                        class="cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-gray-200 dark:hover:bg-gray-800 max-sm:place-self-center"
+                                    >
+                                    </span>
+                                </a>
+                            @endif
+                        </div>
                     </div>
                 </template>
             </x-admin::datagrid>
@@ -131,9 +126,9 @@
                 >
                     <!-- Modal -->
                     <x-admin::modal ref="exchangeRateUpdateOrCreateModal">
+                        <!-- Modal Header -->
                         <x-slot:header>
-                            <!-- Modal Header -->
-                            <p class="text-[18px] text-gray-800 dark:text-white font-bold">
+                            <p class="text-lg text-gray-800 dark:text-white font-bold">
                                 <span v-if="selectedExchangeRates">
                                     @lang('admin::app.settings.exchange-rates.index.edit.title')
                                 </span>
@@ -144,95 +139,93 @@
                             </p>
                         </x-slot:header>
 
+                        <!-- Modal Content -->
                         <x-slot:content>
-                            <!-- Modal Content -->
-                            <div class="px-[16px] py-[10px] border-b-[1px] dark:border-gray-800">
-                                {!! view_render_event('bagisto.admin.settings.exchangerate.create.before') !!}
+                            {!! view_render_event('bagisto.admin.settings.exchangerate.create.before') !!}
+
+                            <x-admin::form.control-group.control
+                                type="hidden"
+                                name="id"
+                                v-model="selectedExchangeRate.id"
+                            >
+                            </x-admin::form.control-group.control>
+
+                            <!-- Currency Code -->
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label>
+                                    @lang('admin::app.settings.exchange-rates.index.create.source-currency')
+                                </x-admin::form.control-group.label>
 
                                 <x-admin::form.control-group.control
-                                    type="hidden"
-                                    name="id"
-                                    v-model="selectedExchangeRate.id"
+                                    type="text"
+                                    name="base_currency"
+                                    disabled
+                                    :value="core()->getBaseCurrencyCode()"
+                                >
+                                </x-admin::form.control-group.control>
+                            </x-admin::form.control-group>
+
+                            <!-- Target Currency -->
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label class="required">
+                                    @lang('admin::app.settings.exchange-rates.index.create.target-currency')
+                                </x-admin::form.control-group.label>
+
+                                <x-admin::form.control-group.control
+                                    type="select"
+                                    name="target_currency"
+                                    rules="required"
+                                    v-model="selectedExchangeRate.target_currency"
+                                    :label="trans('admin::app.settings.exchange-rates.index.create.target-currency')"
+                                >
+                                    <!-- Default Option -->
+                                    <option value="">
+                                        @lang('admin::app.settings.exchange-rates.index.create.select-target-currency')
+                                    </option>
+
+                                    <option
+                                        v-for="currency in currencies"
+                                        :value="currency.id"
+                                        :selected="currency.id == selectedExchangeRate.target_currency"
+                                    >
+                                        @{{ currency.name }}
+                                    </option>
+
+                                </x-admin::form.control-group.control>
+
+                                <x-admin::form.control-group.error
+                                    control-name="target_currency"
+                                >
+                                </x-admin::form.control-group.error>
+                            </x-admin::form.control-group>
+
+                            <!-- Rate -->
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label class="required">
+                                    @lang('admin::app.settings.exchange-rates.index.create.rate')
+                                </x-admin::form.control-group.label>
+
+                                <x-admin::form.control-group.control
+                                    type="text"
+                                    name="rate"
+                                    :value="old('rate')"
+                                    rules="required"
+                                    v-model="selectedExchangeRate.rate"
+                                    :label="trans('admin::app.settings.exchange-rates.index.create.rate')"
+                                    :placeholder="trans('admin::app.settings.exchange-rates.index.create.rate')"
                                 >
                                 </x-admin::form.control-group.control>
 
-                                <!-- Currency Code -->
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label>
-                                        @lang('admin::app.settings.exchange-rates.index.create.source-currency')
-                                    </x-admin::form.control-group.label>
-
-                                    <x-admin::form.control-group.control
-                                        type="text"
-                                        name="base_currency"
-                                        disabled
-                                        :value="core()->getBaseCurrencyCode()"
-                                    >
-                                    </x-admin::form.control-group.control>
-                                </x-admin::form.control-group>
-
-                                <!-- Target Currency -->
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label class="required">
-                                        @lang('admin::app.settings.exchange-rates.index.create.target-currency')
-                                    </x-admin::form.control-group.label>
-
-                                    <x-admin::form.control-group.control
-                                        type="select"
-                                        name="target_currency"
-                                        rules="required"
-                                        v-model="selectedExchangeRate.target_currency"
-                                        :label="trans('admin::app.settings.exchange-rates.index.create.target-currency')"
-                                    >
-                                        <!-- Default Option -->
-                                        <option value="">
-                                            @lang('admin::app.settings.exchange-rates.index.create.select-target-currency')
-                                        </option>
-
-                                        <option
-                                            v-for="currency in currencies"
-                                            :value="currency.id"
-                                            :selected="currency.id == selectedExchangeRate.target_currency"
-                                        >
-                                            @{{ currency.name }}
-                                        </option>
-
-                                    </x-admin::form.control-group.control>
-
-                                    <x-admin::form.control-group.error
-                                        control-name="target_currency"
-                                    >
-                                    </x-admin::form.control-group.error>
-                                </x-admin::form.control-group>
-
-                                <!-- Rate -->
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label class="required">
-                                        @lang('admin::app.settings.exchange-rates.index.create.rate')
-                                    </x-admin::form.control-group.label>
-
-                                    <x-admin::form.control-group.control
-                                        type="text"
-                                        name="rate"
-                                        :value="old('rate')"
-                                        rules="required"
-                                        v-model="selectedExchangeRate.rate"
-                                        :label="trans('admin::app.settings.exchange-rates.index.create.rate')"
-                                        :placeholder="trans('admin::app.settings.exchange-rates.index.create.rate')"
-                                    >
-                                    </x-admin::form.control-group.control>
-
-                                    <x-admin::form.control-group.error
-                                        control-name="rate"
-                                    >
-                                    </x-admin::form.control-group.error>
-                                </x-admin::form.control-group>
-                            </div>
+                                <x-admin::form.control-group.error
+                                    control-name="rate"
+                                >
+                                </x-admin::form.control-group.error>
+                            </x-admin::form.control-group>
                         </x-slot:content>
 
+                        <!-- Modal Footer -->
                         <x-slot:footer>
-                            <div class="flex gap-x-[10px] items-center">
-                                <!-- Save Button -->
+                            <div class="flex gap-x-2.5 items-center">
                                 <button
                                     type="submit"
                                     class="primary-button"

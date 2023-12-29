@@ -16,7 +16,7 @@
         </template>
 
         <template v-else>
-            <div class="mt-[30px]">
+            <div class="mt-8 mb-7">
                 @include('shop::checkout.onepage.addresses.billing')
 
                 @include('shop::checkout.onepage.addresses.shipping')
@@ -60,7 +60,10 @@
                         },
                     },
 
-                    addresses: [],
+                    addresses: {
+                        billing: [],
+                        shipping: [],
+                    },
 
                     countries: [
                         {
@@ -189,7 +192,7 @@
 
                         this.isTempAddress = true;
 
-                        this.addresses.push({
+                        this.addresses.billing.push({
                             ...this.forms.billing.address,
                             isSaved: false,
                         });

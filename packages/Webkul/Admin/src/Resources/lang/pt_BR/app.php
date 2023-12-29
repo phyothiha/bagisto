@@ -680,16 +680,28 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'select-variants'  => 'Selecionar Variantes',
-                            'select-action'    => 'Selecionar Ação',
-                            'edit-prices'      => 'Editar Preços',
-                            'edit-inventories' => 'Editar Inventários',
-                            'add-images'       => 'Adicionar Imagens',
-                            'remove-images'    => 'Remover Imagens',
-                            'remove-variants'  => 'Remover Variantes',
-                            'price'            => 'Preço',
-                            'apply-to-all-sku' => 'Aplicar um preço a todas as SKU.',
-                            'apply-to-all-btn' => 'Aplicar a Todos',
+                            'add-images'          => 'Adicionar Imagens',
+                            'apply-to-all-btn'    => 'Aplicar a Todos',
+                            'apply-to-all-name'   => 'Aplicar um nome a todas as variantes.',
+                            'apply-to-all-sku'    => 'Aplicar um preço a todas as SKU.',
+                            'apply-to-all-status' => 'Aplicar um status a todas as variantes.',
+                            'apply-to-all-weight' => 'Aplicar um peso a todas as variantes.',
+                            'edit-inventories'    => 'Editar Inventários',
+                            'edit-names'          => 'Editar Nomes',
+                            'edit-prices'         => 'Editar Preços',
+                            'edit-sku'            => 'Editar SKU',
+                            'edit-status'         => 'Editar Status',
+                            'edit-weight'         => 'Editar Peso',
+                            'name'                => 'Nome',
+                            'price'               => 'Preço',
+                            'remove-images'       => 'Remover Imagens',
+                            'remove-variants'     => 'Remover Variantes',
+                            'select-action'       => 'Selecionar Ação',
+                            'select-variants'     => 'Selecionar Variantes',
+                            'status'              => 'Status',
+                            'variant-name'        => 'Nome da Variante',
+                            'variant-sku'         => 'SKU da Variante',
+                            'weight'              => 'Peso',
                         ],
                     ],
 
@@ -876,6 +888,7 @@ return [
                 'multiselect'           => 'Seleção Múltipla',
                 'no'                    => 'Não',
                 'number'                => 'Número',
+                'options'               => 'Opções',
                 'price'                 => 'Preço',
                 'position'              => 'Posição',
                 'regex'                 => 'Expressão Regular (Regex)',
@@ -938,6 +951,7 @@ return [
                 'multiselect'           => 'Seleção Múltipla',
                 'no'                    => 'Não',
                 'number'                => 'Número',
+                'options'               => 'Opções',
                 'price'                 => 'Preço',
                 'position'              => 'Posição',
                 'regex'                 => 'Expressão Regular (Regex)',
@@ -2274,8 +2288,8 @@ return [
 
         'inventory-sources' => [
             'index' => [
+                'create-btn' => 'Criar fonte de inventário',
                 'title'      => 'Fontes de Inventário',
-                'create-btn' => 'Criar Fontes de Inventário',
 
                 'datagrid' => [
                     'id'       => 'ID',
@@ -2396,9 +2410,9 @@ return [
 
             'rates'   => [
                 'index' => [
-                    'title'        => 'Taxas de Imposto',
+                    'button-title' => 'Criar taxa de imposto',
                     'tax-rate'     => 'Taxa de Imposto',
-                    'button-title' => 'Criar Taxas de Imposto',
+                    'title'        => 'Taxas de Imposto',
 
                     'datagrid' => [
                         'id'         => 'ID',
@@ -3550,12 +3564,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => 'Ajouter le produit sélectionné',
-                'empty-title' => 'Aucun produit trouvé',
-                'empty-info'  => 'Aucun produit disponible pour ce terme de recherche.',
-                'qty'         => ':qty disponible(s)',
-                'sku'         => 'SKU - :sku',
-                'title'       => 'Sélectionner des produits',
+                'add-btn'       => 'Adicionar Produto Selecionado',
+                'empty-info'    => 'Não há produtos disponíveis para o termo de pesquisa.',
+                'empty-title'   => 'Nenhum produto encontrado',
+                'product-image' => 'Imagem do Produto',
+                'qty'           => ':qty disponível',
+                'sku'           => 'SKU - :sku',
+                'title'         => 'Selecionar Produtos',
             ],
         ],
 
@@ -3744,6 +3759,14 @@ return [
                 'greeting'       => 'Esqueceu a Senha!',
                 'reset-password' => 'Redefinir Senha',
                 'subject'        => 'Email de Redefinição de Senha',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => 'Uma nova conta de cliente foi criada com sucesso. Agora eles podem fazer login usando seu endereço de e-mail e credenciais de senha. Uma vez logados, eles terão acesso a vários serviços, incluindo a capacidade de revisar pedidos anteriores, gerenciar listas de desejos e atualizar as informações de sua conta.',
+                'greeting'    => 'Damos as boas-vindas ao novo cliente, :customer_name que acaba de se registrar conosco!',
+                'subject'     => 'Cadastro de Novo Cliente',
             ],
         ],
 

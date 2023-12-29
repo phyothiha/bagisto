@@ -6,12 +6,12 @@
     {!! view_render_event('bagisto.admin.settings.locales.create.before') !!}
 
     <v-locales>
-        <div class="flex  gap-[16px] justify-between items-center max-sm:flex-wrap">
-            <p class="text-[20px] text-gray-800 dark:text-white font-bold">
+        <div class="flex  gap-4 justify-between items-center max-sm:flex-wrap">
+            <p class="text-xl text-gray-800 dark:text-white font-bold">
                 @lang('admin::app.settings.locales.index.title')
             </p>
 
-            <div class="flex gap-x-[10px] items-center">
+            <div class="flex gap-x-2.5 items-center">
                 @if (bouncer()->hasPermission('settings.locales.create'))
                     <button
                         type="button"
@@ -31,12 +31,12 @@
 
     @pushOnce('scripts')
         <script type="text/x-template" id="v-locales-template">
-            <div class="flex  gap-[16px] justify-between items-center max-sm:flex-wrap">
-                <p class="text-[20px] text-gray-800 dark:text-white font-bold">
+            <div class="flex  gap-4 justify-between items-center max-sm:flex-wrap">
+                <p class="text-xl text-gray-800 dark:text-white font-bold">
                     @lang('admin::app.settings.locales.index.title')
                 </p>
 
-                <div class="flex gap-x-[10px] items-center">
+                <div class="flex gap-x-2.5 items-center">
                     <!-- Locale Create Button -->
                     @if (bouncer()->hasPermission('settings.locales.create'))
                         <button
@@ -55,7 +55,7 @@
                 <template #body="{ columns, records, performAction }">
                     <div
                         v-for="record in records"
-                        class="row grid gap-[10px] items-center px-[16px] py-[16px] border-b-[1px] dark:border-gray-800 text-gray-600 dark:text-gray-300 transition-all hover:bg-gray-50 dark:hover:bg-gray-950"
+                        class="row grid gap-2.5 items-center px-4 py-4 border-b dark:border-gray-800 text-gray-600 dark:text-gray-300 transition-all hover:bg-gray-50 dark:hover:bg-gray-950"
                         :style="`grid-template-columns: repeat(${gridsCount}, minmax(0, 1fr))`"
                     >
                         <!-- Id -->
@@ -71,32 +71,27 @@
                         <p v-text="record.direction"></p>
 
                         <!-- Actions -->
-                        @if (
-                            bouncer()->hasPermission('settings.locales.edit') 
-                            || bouncer()->hasPermission('settings.locales.delete')
-                        )
-                            <div class="flex justify-end">
-                                @if (bouncer()->hasPermission('settings.locales.edit'))
-                                    <a @click="selectedLocales=1; editModal(record.actions.find(action => action.title === 'Edit')?.url)">
-                                        <span
-                                            :class="record.actions.find(action => action.title === 'Edit')?.icon"
-                                            class="cursor-pointer rounded-[6px] p-[6px] text-[24px] transition-all hover:bg-gray-200 dark:hover:bg-gray-800 max-sm:place-self-center"
-                                        >
-                                        </span>
-                                    </a>
-                                @endif
+                        <div class="flex justify-end">
+                            @if (bouncer()->hasPermission('settings.locales.edit'))
+                                <a @click="selectedLocales=1; editModal(record.actions.find(action => action.index === 'action_1')?.url)">
+                                    <span
+                                        :class="record.actions.find(action => action.index === 'action_1')?.icon"
+                                        class="cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-gray-200 dark:hover:bg-gray-800 max-sm:place-self-center"
+                                    >
+                                    </span>
+                                </a>
+                            @endif
 
-                                @if (bouncer()->hasPermission('settings.locales.delete'))
-                                    <a @click="performAction(record.actions.find(action => action.method === 'DELETE'))">
-                                        <span
-                                            :class="record.actions.find(action => action.method === 'DELETE')?.icon"
-                                            class="cursor-pointer rounded-[6px] p-[6px] text-[24px] transition-all hover:bg-gray-200 dark:hover:bg-gray-800 max-sm:place-self-center"
-                                        >
-                                        </span>
-                                    </a>
-                                @endif
-                            </div>
-                        @endif
+                            @if (bouncer()->hasPermission('settings.locales.delete'))
+                                <a @click="performAction(record.actions.find(action => action.index === 'action_2'))">
+                                    <span
+                                        :class="record.actions.find(action => action.index === 'action_2')?.icon"
+                                        class="cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-gray-200 dark:hover:bg-gray-800 max-sm:place-self-center"
+                                    >
+                                    </span>
+                                </a>
+                            @endif
+                        </div>
                     </div>
                 </template>
             </x-admin::datagrid>
@@ -114,8 +109,9 @@
                     {!! view_render_event('admin.settings.locales.create_form_controls.before') !!}
 
                     <x-admin::modal ref="localeUpdateOrCreateModal">
+                        <!-- Modal Header -->
                         <x-slot:header>
-                            <p class="text-[18px] text-gray-800 dark:text-white font-bold">
+                            <p class="text-lg text-gray-800 dark:text-white font-bold">
                                 <span v-if="selectedLocales">
                                     @lang('admin::app.settings.locales.index.edit.title')
                                 </span>
@@ -126,125 +122,125 @@
                             </p>
                         </x-slot:header>
 
+                        <!-- Modal Content -->
                         <x-slot:content>
-                            <div class="px-[16px] py-[10px] border-b-[1px] dark:border-gray-800">
-                                {!! view_render_event('bagisto.admin.settings.locale.create.before') !!}
+                            {!! view_render_event('bagisto.admin.settings.locale.create.before') !!}
+
+                            <x-admin::form.control-group.control
+                                type="hidden"
+                                name="id"
+                                v-model="locale.id"
+                            >
+                            </x-admin::form.control-group.control>
+
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label class="required">
+                                    @lang('admin::app.settings.locales.index.create.code')
+                                </x-admin::form.control-group.label>
 
                                 <x-admin::form.control-group.control
-                                    type="hidden"
-                                    name="id"
-                                    v-model="locale.id"
+                                    type="text"
+                                    name="code"
+                                    id="code"
+                                    rules="required"
+                                    :label="trans('admin::app.settings.locales.index.create.code')"
+                                    :placeholder="trans('admin::app.settings.locales.index.create.code')"
+                                    v-model="locale.code"
                                 >
                                 </x-admin::form.control-group.control>
 
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label class="required">
-                                        @lang('admin::app.settings.locales.index.create.code')
-                                    </x-admin::form.control-group.label>
+                                <x-admin::form.control-group.error
+                                    control-name="code"
+                                >
+                                </x-admin::form.control-group.error>
+                            </x-admin::form.control-group>
 
-                                    <x-admin::form.control-group.control
-                                        type="text"
-                                        name="code"
-                                        id="code"
-                                        rules="required"
-                                        :label="trans('admin::app.settings.locales.index.create.code')"
-                                        :placeholder="trans('admin::app.settings.locales.index.create.code')"
-                                        v-model="locale.code"
-                                    >
-                                    </x-admin::form.control-group.control>
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label class="required">
+                                    @lang('admin::app.settings.locales.index.create.name')
+                                </x-admin::form.control-group.label>
 
-                                    <x-admin::form.control-group.error
-                                        control-name="code"
-                                    >
-                                    </x-admin::form.control-group.error>
-                                </x-admin::form.control-group>
+                                <x-admin::form.control-group.control
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    rules="required"
+                                    :label="trans('admin::app.settings.locales.index.create.name')"
+                                    :placeholder="trans('admin::app.settings.locales.index.create.name')"
+                                    v-model="locale.name"
+                                >
+                                </x-admin::form.control-group.control>
 
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label class="required">
-                                        @lang('admin::app.settings.locales.index.create.name')
-                                    </x-admin::form.control-group.label>
+                                <x-admin::form.control-group.error
+                                    control-name="name"
+                                >
+                                </x-admin::form.control-group.error>
+                            </x-admin::form.control-group>
 
-                                    <x-admin::form.control-group.control
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        rules="required"
-                                        :label="trans('admin::app.settings.locales.index.create.name')"
-                                        :placeholder="trans('admin::app.settings.locales.index.create.name')"
-                                        v-model="locale.name"
-                                    >
-                                    </x-admin::form.control-group.control>
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label class="required">
+                                    @lang('admin::app.settings.locales.index.create.direction')
+                                </x-admin::form.control-group.label>
 
-                                    <x-admin::form.control-group.error
-                                        control-name="name"
-                                    >
-                                    </x-admin::form.control-group.error>
-                                </x-admin::form.control-group>
+                                <x-admin::form.control-group.control
+                                    type="select"
+                                    name="direction"
+                                    id="direction"
+                                    rules="required"
+                                    :label="trans('admin::app.settings.locales.index.create.direction')"
+                                    v-model="locale.direction"
+                                >
+                                    <!-- Default Option -->
+                                    <option value="">
+                                        @lang('admin::app.settings.locales.index.create.select-direction')
+                                    </option>
 
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label class="required">
-                                        @lang('admin::app.settings.locales.index.create.direction')
-                                    </x-admin::form.control-group.label>
+                                    <option value="ltr" selected title="Text direction left to right">LTR</option>
 
-                                    <x-admin::form.control-group.control
-                                        type="select"
-                                        name="direction"
-                                        id="direction"
-                                        rules="required"
-                                        :label="trans('admin::app.settings.locales.index.create.direction')"
-                                        v-model="locale.direction"
-                                    >
-                                        <!-- Default Option -->
-                                        <option value="">
-                                            @lang('admin::app.settings.locales.index.create.select-direction')
-                                        </option>
+                                    <option value="rtl" title="Text direction right to left">RTL</option>
+                                </x-admin::form.control-group.control>
 
-                                        <option value="ltr" selected title="Text direction left to right">LTR</option>
+                                <x-admin::form.control-group.error
+                                    control-name="direction"
+                                >
+                                </x-admin::form.control-group.error>
+                            </x-admin::form.control-group>
 
-                                        <option value="rtl" title="Text direction right to left">RTL</option>
-                                    </x-admin::form.control-group.control>
+                            <x-admin::form.control-group class="mb-2.5">
+                                <x-admin::form.control-group.label>
+                                    @lang('admin::app.settings.locales.index.create.locale-logo')
+                                </x-admin::form.control-group.label>
 
-                                    <x-admin::form.control-group.error
-                                        control-name="direction"
-                                    >
-                                    </x-admin::form.control-group.error>
-                                </x-admin::form.control-group>
-
-                                <x-admin::form.control-group class="mb-[10px]">
-                                    <x-admin::form.control-group.label>
-                                        @lang('admin::app.settings.locales.index.create.locale-logo')
-                                    </x-admin::form.control-group.label>
-
-                                    <div class="hidden">
-                                        <x-admin::media.images
-                                            name="logo_path"
-                                            ::uploaded-images='locale.image'
-                                        >
-                                        </x-admin::media.images>
-                                    </div>
-
-                                    <v-media-images
+                                <div class="hidden">
+                                    <x-admin::media.images
                                         name="logo_path"
-                                        :uploaded-images='locale.image'
+                                        ::uploaded-images='locale.image'
                                     >
-                                    </v-media-images>
+                                    </x-admin::media.images>
+                                </div>
 
-                                    <x-admin::form.control-group.error
-                                        control-name="logo_path"
-                                    >
-                                    </x-admin::form.control-group.error>
-                                </x-admin::form.control-group>
+                                <v-media-images
+                                    name="logo_path"
+                                    :uploaded-images='locale.image'
+                                >
+                                </v-media-images>
 
-                                <p class="text-[12px] text-gray-600 dark:text-gray-300">
-                                    @lang('admin::app.settings.locales.index.logo-size')
-                                </p>
+                                <x-admin::form.control-group.error
+                                    control-name="logo_path"
+                                >
+                                </x-admin::form.control-group.error>
+                            </x-admin::form.control-group>
 
-                                {!! view_render_event('bagisto.admin.settings.locale.create.after') !!}
-                            </div>
+                            <p class="text-xs text-gray-600 dark:text-gray-300">
+                                @lang('admin::app.settings.locales.index.logo-size')
+                            </p>
+
+                            {!! view_render_event('bagisto.admin.settings.locale.create.after') !!}
                         </x-slot:content>
 
+                        <!-- Modal Footer -->
                         <x-slot:footer>
-                            <div class="flex gap-x-[10px] items-center">
+                            <div class="flex gap-x-2.5 items-center">
                                 <button
                                     type="submit"
                                     class="primary-button"

@@ -680,16 +680,28 @@ return [
                         ],
 
                         'mass-edit' => [
-                            'add-images'        => 'Add Images',
-                            'apply-to-all-btn'  => 'Apply to All',
-                            'apply-to-all-sku'  => 'Apply a price to all SKU.',
-                            'edit-inventories'  => 'Edit Inventories',
-                            'edit-prices'       => 'Edit Prices',
-                            'price'             => 'Price',
-                            'remove-images'     => 'Remove Images',
-                            'remove-variants'   => 'Remove Variants',
-                            'select-action'     => 'Select Action',
-                            'select-variants'   => 'Select Variants',
+                            'add-images'          => 'Add Images',
+                            'apply-to-all-btn'    => 'Apply to All',
+                            'apply-to-all-name'   => 'Apply a name to all variants.',
+                            'apply-to-all-sku'    => 'Apply a price to all SKU.',
+                            'apply-to-all-status' => 'Apply a status to all variants.',
+                            'apply-to-all-weight' => 'Apply a weight to all variants.',
+                            'edit-inventories'    => 'Edit Inventories',
+                            'edit-names'          => 'Edit Names',
+                            'edit-prices'         => 'Edit Prices',
+                            'edit-sku'            => 'Edit SKU',
+                            'edit-status'         => 'Edit Status',
+                            'edit-weight'         => 'Edit Weight',
+                            'name'                => 'Name',
+                            'price'               => 'Price',
+                            'remove-images'       => 'Remove Images',
+                            'remove-variants'     => 'Remove Variants',
+                            'select-action'       => 'Select Action',
+                            'select-variants'     => 'Select Variants',
+                            'status'              => 'Status',
+                            'variant-name'        => 'Variant Name',
+                            'variant-sku'         => 'Variant SKU',
+                            'weight'              => 'Weight',
                         ],
                     ],
 
@@ -877,6 +889,7 @@ return [
                 'multiselect'           => 'Multiselect',
                 'no'                    => 'No',
                 'number'                => 'Number',
+                'options'               => 'Options',
                 'position'              => 'Position',
                 'price'                 => 'Price',
                 'regex'                 => 'Regex',
@@ -939,6 +952,7 @@ return [
                 'multiselect'           => 'Multiselect',
                 'no'                    => 'No',
                 'number'                => 'Number',
+                'options'               => 'Options',
                 'position'              => 'Position',
                 'price'                 => 'Price',
                 'regex'                 => 'Regex',
@@ -2274,7 +2288,7 @@ return [
 
         'inventory-sources' => [
             'index'  => [
-                'create-btn' => 'Create Inventory Sources',
+                'create-btn' => 'Create Inventory Source',
                 'title'      => 'Inventory Sources',
 
                 'datagrid' => [
@@ -2396,7 +2410,7 @@ return [
 
             'rates'   => [
                 'index' => [
-                    'button-title' => 'Create Tax Rates',
+                    'button-title' => 'Create Tax Rate',
                     'tax-rate'     => 'Tax Rate',
                     'title'        => 'Tax Rates',
 
@@ -3550,12 +3564,13 @@ return [
 
         'products' => [
             'search' => [
-                'add-btn'     => 'Add Selected Product',
-                'empty-info'  => 'No products available for search term.',
-                'empty-title' => 'No products found',
-                'qty'         => ':qty Available',
-                'sku'         => 'SKU - :sku',
-                'title'       => 'Select Products',
+                'add-btn'       => 'Add Selected Product',
+                'empty-info'    => 'No products available for search term.',
+                'empty-title'   => 'No products found',
+                'product-image' => 'Product Image',
+                'qty'           => ':qty Available',
+                'sku'           => 'SKU - :sku',
+                'title'         => 'Select Products',
             ],
         ],
 
@@ -3744,6 +3759,14 @@ return [
                 'greeting'       => 'Forgot Password!',
                 'reset-password' => 'Reset Password',
                 'subject'        => 'Reset Password Email',
+            ],
+        ],
+
+        'customers' => [
+            'registration' => [
+                'description' => 'A new customer account has been successfully created. They can now log in using their email address and password credentials. Once logged in, they will have access to various services, including the ability to review past orders, manage wishlists, and update their account information.',
+                'greeting'    => 'We extend a warm welcome to the new customer, :customer_name who has just registered with us!',
+                'subject'     => 'New Customer Registration',
             ],
         ],
 
