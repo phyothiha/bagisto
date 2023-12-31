@@ -89,7 +89,7 @@
                                     </label>
 
                                     <span
-                                        class="text-xl max-md:text-xl max-sm:text-lg ml-2.5"
+                                        class="text-xl max-md:text-xl max-sm:text-lg ltr:ml-2.5 rtl:mr-2.5"
                                         role="heading"
                                     >
                                         @{{ "@lang('shop::app.checkout.cart.index.items-selected')".replace(':count', selectedItemsCount) }}
@@ -97,7 +97,7 @@
                                 </div>
 
                                 <div
-                                    class="max-sm:ml-9 max-sm:mt-2.5"
+                                    class="max-sm:ltr:ml-9 max-sm:rtl:mr-9 max-sm:mt-2.5"
                                     v-if="selectedItemsCount"
                                 >
                                     <span

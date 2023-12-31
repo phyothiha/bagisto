@@ -1,6 +1,6 @@
 {
     "src/Resources/assets/css/app.css": {
-        "file": "assets/app-93889623.css",
+        "file": "assets/app-d43700c6.css",
         "isEntry": true,
         "src": "src/Resources/assets/css/app.css"
     },
@@ -35,10 +35,6 @@
     "src/Resources/assets/images/large-product-placeholder.webp": {
         "file": "assets/large-product-placeholder-13b8a96b.webp",
         "src": "src/Resources/assets/images/large-product-placeholder.webp"
-    },
-    "src/Resources/assets/images/logo.png": {
-        "file": "assets/logo-dfbb5929.png",
-        "src": "src/Resources/assets/images/logo.png"
     },
     "src/Resources/assets/images/logo.svg": {
         "file": "assets/logo-942157c2.svg",
@@ -90,7 +86,7 @@
     },
     "src/Resources/assets/js/app.js": {
         "css": ["assets/app-05f8acf7.css"],
-        "file": "assets/app-e5676f2b.js",
+        "file": "assets/app-5b62a8dc.js",
         "isEntry": true,
         "src": "src/Resources/assets/js/app.js"
     }

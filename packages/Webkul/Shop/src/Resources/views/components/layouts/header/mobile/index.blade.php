@@ -49,7 +49,7 @@
                             >
                                 @lang('Sign up or Login')
 
-                                <i class="icon-double-arrow text-2xl ml-2.5"></i>
+                                <i class="icon-double-arrow text-2xl ltr:ml-2.5 rtl:mr-2.5"></i>
                             </a>
                         @endguest
 
@@ -175,14 +175,14 @@
                             <div class="flex gap-4 mt-6">
                                 <a
                                     href="{{ route('shop.customer.session.create') }}"
-                                    class="block py-4 m-0 mx-auto ml-0 text-base font-medium text-center text-white cursor-pointer w-max px-7 bg-navyBlue rounded-2xl"
+                                    class="block w-max mx-auto m-0 ltr:ml-0 rtl:mr-0 py-4 px-7 bg-navyBlue rounded-2xl text-white text-base font-medium text-center cursor-pointer"
                                 >
                                     @lang('shop::app.components.layouts.header.sign-in')
                                 </a>
 
                                 <a
                                     href="{{ route('shop.customers.register.index') }}"
-                                    class="block w-max mx-auto m-0 ml-0 py-3.5 px-7 bg-white border-2 border-navyBlue rounded-2xl text-navyBlue text-base font-medium  text-center cursor-pointer"
+                                    class="block w-max mx-auto m-0 ltr:ml-0 rtl:mr-0 py-3.5 px-7 bg-white border-2 border-navyBlue rounded-2xl text-navyBlue text-base font-medium  text-center cursor-pointer"
                                 >
                                     @lang('shop::app.components.layouts.header.sign-up')
                                 </a>
@@ -311,7 +311,7 @@
                 >
                     <ul v-if="category.children.length">
                         <li v-for="secondLevelCategory in category.children">
-                            <div class="flex justify-between items-center ml-3 border border-b border-l-0 border-r-0 border-t-0 border-[#f3f3f5]">
+                            <div class="flex justify-between items-center ltr:ml-3 rtl:mr-3 border border-b border-l-0 border-r-0 border-t-0 border-[#f3f3f5]">
                                 <a
                                     :href="secondLevelCategory.url"
                                     class="flex items-center justify-between pb-5 mt-5"
@@ -333,10 +333,10 @@
                             <div v-if="secondLevelCategory.category_show">
                                 <ul v-if="secondLevelCategory.children.length">
                                     <li v-for="thirdLevelCategory in secondLevelCategory.children">
-                                        <div class="flex justify-between items-center ml-3 border border-b border-l-0 border-r-0 border-t-0 border-[#f3f3f5]">
+                                        <div class="flex justify-between items-center ltr:ml-3 rtl:mr-3 border border-b border-l-0 border-r-0 border-t-0 border-[#f3f3f5]">
                                             <a
                                                 :href="thirdLevelCategory.url"
-                                                class="flex items-center justify-between pb-5 mt-5 ml-3"
+                                                class="flex items-center justify-between mt-5 ltr:ml-3 rtl:mr-3 pb-5"
                                                 v-text="thirdLevelCategory.name"
                                             >
                                             </a>
@@ -345,7 +345,7 @@
                                 </ul>
 
                                 <span
-                                    class="ml-2"
+                                    class="ltr:ml-2 rtl:mr-2"
                                     v-else
                                 >
                                     @lang('shop::app.components.layouts.header.no-category-found')
@@ -355,7 +355,7 @@
                     </ul>
 
                     <span
-                        class="mt-2 ml-2"
+                        class="ltr:ml-2 rtl:mr-2 mt-2"
                         v-else
                     >
                         @lang('shop::app.components.layouts.header.no-category-found')
