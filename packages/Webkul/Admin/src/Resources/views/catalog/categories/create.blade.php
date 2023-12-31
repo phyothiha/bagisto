@@ -91,7 +91,7 @@
                         </x-admin::form.control-group.error>
                     </x-admin::form.control-group>
 
-                    <div>
+                    <div class="hidden">
                         <!-- Parent category -->
                         <label class="block mb-2.5 text-xs text-gray-800 dark:text-white font-medium leading-6">
                             @lang('admin::app.catalog.categories.create.parent-category')
@@ -106,6 +106,7 @@
                                 id-field="id"
                                 :items="json_encode($categories)"
                                 :fallback-locale="config('app.fallback_locale')"
+                                :value="1"
                             >
                             </x-admin::tree.view>
                         </div>
@@ -119,11 +120,12 @@
                 <!-- Description and images -->
                 <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow">
                     <p class="mb-4 text-base text-gray-800 dark:text-white font-semibold">
-                        @lang('admin::app.catalog.categories.create.description-and-images')
+                        {{-- @lang('admin::app.catalog.categories.create.description-and-images') --}}
+                        Images
                     </p>
 
                     <!-- Description -->
-                    <v-description v-slot="{ isDescriptionRequired }">
+                    {{-- <v-description v-slot="{ isDescriptionRequired }">
                         <x-admin::form.control-group>
                             <x-admin::form.control-group.label ::class="{ 'required' : isDescriptionRequired}">
                                 @lang('admin::app.catalog.categories.create.description')
@@ -147,7 +149,7 @@
                             >
                             </x-admin::form.control-group.error>
                         </x-admin::form.control-group>
-                    </v-description>
+                    </v-description> --}}
 
                     <div class="flex gap-12">
                         <!-- Add Logo -->
@@ -164,7 +166,7 @@
                         </div>
 
                         <!-- Add Banner -->
-                        <div class="flex flex-col gap-2 w-2/5 mt-5">
+                        {{-- <div class="flex flex-col gap-2 w-2/5 mt-5">
                             <p class="text-gray-800 dark:text-white font-medium">
                                 @lang('admin::app.catalog.categories.create.banner')
                             </p>
@@ -178,7 +180,7 @@
                                 width="220px"
                             >
                             </x-admin::media.images>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -187,7 +189,7 @@
                 {!! view_render_event('bagisto.admin.catalog.categories.create.card.seo.before') !!}
 
                 <!-- SEO Deatils -->
-                <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow">
+                <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow hidden">
                     <p class="text-base text-gray-800 dark:text-white font-semibold mb-4">
                         @lang('admin::app.catalog.categories.create.seo-details')
                     </p>
@@ -311,6 +313,7 @@
                                 rules="required"
                                 :label="trans('admin::app.catalog.categories.create.position')"
                                 :placeholder="trans('admin::app.catalog.categories.create.enter-position')"
+                                value="1"
                             >
                             </x-admin::form.control-group.control>
 
@@ -332,21 +335,21 @@
                                 id="display_mode"
                                 class="cursor-pointer"
                                 rules="required"
-                                value="products_and_description"
+                                value="products_only"
                                 :label="trans('admin::app.catalog.categories.create.display-mode')"
                             >
                                 <!-- Options -->
-                                <option value="products_and_description">
+                                {{-- <option value="products_and_description">
                                     @lang('admin::app.catalog.categories.create.products-and-description')
-                                </option>
+                                </option> --}}
 
                                 <option value="products_only">
                                     @lang('admin::app.catalog.categories.create.products-only')
                                 </option>
 
-                                <option value="description_only">
+                                {{-- <option value="description_only">
                                     @lang('admin::app.catalog.categories.create.description-only')
-                                </option>
+                                </option> --}}
                             </x-admin::form.control-group.control>
 
                             <x-admin::form.control-group.error
@@ -367,6 +370,7 @@
                                 class="cursor-pointer"
                                 value="1"
                                 :label="trans('admin::app.catalog.categories.create.visible-in-menu')"
+                                checked
                             >
                             </x-admin::form.control-group.control>
                         </x-admin::form.control-group>
@@ -396,6 +400,7 @@
                                     rules="required"
                                     :for="$attribute->name ?? $attribute->admin_name"
                                     :label="trans('admin::app.catalog.categories.create.filterable-attributes')"
+                                    :checked="$attribute->id == 11"
                                 >
                                 </x-admin::form.control-group.control>
 

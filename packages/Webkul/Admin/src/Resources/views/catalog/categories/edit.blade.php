@@ -126,7 +126,7 @@
                     </x-admin::form.control-group>
 
                     @if ($categories->count())
-                        <div>
+                        <div class="hidden">
                             <!-- Parent category -->
                             <label class="block mb-2.5 text-xs text-gray-800 dark:text-white font-medium leading-6">
                                 @lang('admin::app.catalog.categories.edit.select-parent-category')
@@ -156,11 +156,12 @@
                 <!-- Description and images -->
                 <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow">
                     <p class="mb-4 text-base text-gray-800 dark:text-white font-semibold">
-                        @lang('admin::app.catalog.categories.edit.description-and-images')
+                        {{-- @lang('admin::app.catalog.categories.edit.description-and-images') --}}
+                        Images
                     </p>
 
                     <!-- Description -->
-                    <v-description v-slot="{ isDescriptionRequired }">
+                    {{-- <v-description v-slot="{ isDescriptionRequired }">
                         <x-admin::form.control-group>
                             <x-admin::form.control-group.label ::class="{ 'required' : isDescriptionRequired}">
                                 @lang('admin::app.catalog.categories.edit.description')
@@ -184,7 +185,7 @@
                             >
                             </x-admin::form.control-group.error>
                         </x-admin::form.control-group>
-                    </v-description>
+                    </v-description> --}}
 
                     <div class="flex gap-12">
                         <!-- Add Logo -->
@@ -205,7 +206,7 @@
                         </div>
 
                         <!-- Add Banner -->
-                        <div class="flex flex-col gap-2 w-2/5 mt-5">
+                        {{-- <div class="flex flex-col gap-2 w-2/5 mt-5">
                             <p class="text-gray-800 dark:text-white font-medium">
                                 @lang('admin::app.catalog.categories.edit.banner')
                             </p>
@@ -220,7 +221,7 @@
                                 width="220px"
                             >
                             </x-admin::media.images>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -229,7 +230,7 @@
                 {!! view_render_event('bagisto.admin.catalog.categories.edit.card.seo.before', ['category' => $category]) !!}
 
                 <!-- SEO Deatils -->
-                <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow">
+                <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow hidden">
                     <p class=" mb-4 text-base text-gray-800 dark:text-white font-semibold">
                         @lang('admin::app.catalog.categories.edit.seo-details')
                     </p>
@@ -378,17 +379,17 @@
                                 :value="$selectedValue"
                                 :label="trans('admin::app.catalog.categories.edit.display-mode')"
                             >
-                                <option value="products_and_description" {{ $selectedValue == 'products_and_description' ? 'selected' : '' }}>
+                                {{-- <option value="products_and_description" {{ $selectedValue == 'products_and_description' ? 'selected' : '' }}>
                                     @lang('admin::app.catalog.categories.edit.products-and-description')
-                                </option>
+                                </option> --}}
 
                                 <option value="products_only" {{ $selectedValue == 'products_only' ? 'selected' : '' }}>
                                     @lang('admin::app.catalog.categories.edit.products-only')
                                 </option>
 
-                                <option value="description_only" {{ $selectedValue == 'description_only' ? 'selected' : '' }}>
+                                {{-- <option value="description_only" {{ $selectedValue == 'description_only' ? 'selected' : '' }}>
                                     @lang('admin::app.catalog.categories.edit.description-only')
-                                </option>
+                                </option> --}}
                             </x-admin::form.control-group.control>
 
                             <x-admin::form.control-group.error

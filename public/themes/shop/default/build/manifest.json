@@ -40,6 +40,10 @@
         "file": "assets/logo-942157c2.svg",
         "src": "src/Resources/assets/images/logo.svg"
     },
+    "src/Resources/assets/images/logo.png": {
+        "file": "assets/logo-dfbb5929.png",
+        "src": "src/Resources/assets/images/logo.png"
+    },
     "src/Resources/assets/images/medium-product-placeholder.webp": {
         "file": "assets/medium-product-placeholder-3b1a7b7d.webp",
         "src": "src/Resources/assets/images/medium-product-placeholder.webp"

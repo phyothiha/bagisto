@@ -21,7 +21,7 @@ class CurrencyTableSeeder extends Seeder
         'INR' => '₹',
         'CNY' => '¥',
         'JPY' => '¥',
-        'AED' => 'د.إ',
+        'AED' => 'AED',
         'SAR' => '﷼',
         'IRR' => '﷼',
         'AFN' => '؋',
