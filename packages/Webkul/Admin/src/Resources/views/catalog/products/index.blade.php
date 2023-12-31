@@ -241,7 +241,7 @@
                         </div>
 
                         <div class="flex gap-1.5 items-center">
-                            <a :href=`{{ route('admin.catalog.products.copy', '') }}/${record.product_id}`>
+                            <a :href=`{{ route('admin.catalog.products.copy', '') }}/${record.product_id}` class="hidden">
                                 <span class="icon-copy text-2xl ltr:ml-1 rtl:mr-1 p-1.5 rounded-md cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800"></span>
                             </a>
 

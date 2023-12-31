@@ -230,17 +230,18 @@
                 {!! view_render_event('bagisto.admin.catalog.categories.edit.card.seo.before', ['category' => $category]) !!}
 
                 <!-- SEO Deatils -->
-                <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow hidden">
+                <div class="p-4 bg-white dark:bg-gray-900 rounded box-shadow">
                     <p class=" mb-4 text-base text-gray-800 dark:text-white font-semibold">
-                        @lang('admin::app.catalog.categories.edit.seo-details')
+                        {{-- @lang('admin::app.catalog.categories.edit.seo-details') --}}
+                        Details
                     </p>
 
                     <!-- SEO Title & Description Blade Componnet -->
-                    <x-admin::seo/>
+                    <x-admin::seo class="hidden"/>
 
                     <div class="mt-8">
                         <!-- Meta Title -->
-                        <x-admin::form.control-group>
+                        <x-admin::form.control-group class="hidden">
                             <x-admin::form.control-group.label>
                                 @lang('admin::app.catalog.categories.edit.meta-title')
                             </x-admin::form.control-group.label>
@@ -279,6 +280,7 @@
                                     class="flex w-full min-h-[39px] py-2 px-3 border rounded-md text-sm text-gray-600 dark:text-gray-300 transition-all hover:border-gray-400 dark:hover:border-gray-400 focus:border-gray-400 dark:focus:border-gray-400 dark:bg-gray-900 dark:border-gray-800"
                                     placeholder="{{ trans('admin::app.catalog.categories.edit.slug') }}"
                                     v-slugify-target:slug
+                                    readonly
                                 >
                             </v-field>
 
@@ -289,7 +291,7 @@
                         </x-admin::form.control-group>
 
                         <!-- Meta Keywords -->
-                        <x-admin::form.control-group>
+                        <x-admin::form.control-group class="hidden">
                             <x-admin::form.control-group.label>
                                 @lang('admin::app.catalog.categories.edit.meta-keywords')
                             </x-admin::form.control-group.label>
@@ -305,7 +307,7 @@
                         </x-admin::form.control-group>
 
                         <!-- Meta Description -->
-                        <x-admin::form.control-group class="!mb-0">
+                        <x-admin::form.control-group class="!mb-0 hidden">
                             <x-admin::form.control-group.label>
                                 @lang('admin::app.catalog.categories.edit.meta-description')
                             </x-admin::form.control-group.label>
