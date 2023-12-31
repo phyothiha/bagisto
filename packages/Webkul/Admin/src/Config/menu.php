@@ -27,13 +27,15 @@ return [
         'route'      => 'admin.sales.orders.index',
         'sort'       => 1,
         'icon'       => '',
-    ], [
-        'key'        => 'sales.shipments',
-        'name'       => 'admin::app.components.layouts.sidebar.shipments',
-        'route'      => 'admin.sales.shipments.index',
-        'sort'       => 2,
-        'icon'       => '',
-    ], [
+    ],
+    // [
+    //     'key'        => 'sales.shipments',
+    //     'name'       => 'admin::app.components.layouts.sidebar.shipments',
+    //     'route'      => 'admin.sales.shipments.index',
+    //     'sort'       => 2,
+    //     'icon'       => '',
+    // ],
+    [
         'key'        => 'sales.invoices',
         'name'       => 'admin::app.components.layouts.sidebar.invoices',
         'route'      => 'admin.sales.invoices.index',
@@ -45,13 +47,14 @@ return [
         'route'      => 'admin.sales.refunds.index',
         'sort'       => 4,
         'icon'       => '',
-    ], [
-        'key'        => 'sales.transactions',
-        'name'       => 'admin::app.components.layouts.sidebar.transactions',
-        'route'      => 'admin.sales.transactions.index',
-        'sort'       => 5,
-        'icon'       => '',
     ],
+    // [
+    //     'key'        => 'sales.transactions',
+    //     'name'       => 'admin::app.components.layouts.sidebar.transactions',
+    //     'route'      => 'admin.sales.transactions.index',
+    //     'sort'       => 5,
+    //     'icon'       => '',
+    // ],
 
     /**
      * Catalog.

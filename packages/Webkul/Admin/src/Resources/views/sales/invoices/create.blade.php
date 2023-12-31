@@ -3,9 +3,9 @@
     <div
         class="inline-flex gap-x-2 items-center justify-between w-full max-w-max px-1 py-1.5 text-gray-600 dark:text-gray-300 font-semibold text-center cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
     >
-        <span class="icon-sales text-2xl"></span> 
+        <span class="icon-sales text-2xl"></span>
 
-        @lang('admin::app.sales.invoices.create.invoice')     
+        @lang('admin::app.sales.invoices.create.invoice')
     </div>
 </v-create-invoices>
 
@@ -20,13 +20,13 @@
                         class="icon-sales text-2xl"
                         role="presentation"
                         tabindex="0"
-                    ></span> 
-            
-                    @lang('admin::app.sales.invoices.create.invoice')     
+                    ></span>
+
+                    @lang('admin::app.sales.invoices.create.invoice')
             </div>
 
             <!-- Invoice Create drawer -->
-            <x-admin::form  
+            <x-admin::form
                 method="POST"
                 :action="route('admin.sales.invoices.store', $order->id)"
             >
@@ -36,21 +36,21 @@
                         <div class="grid gap-3 h-8">
                             <div class="flex justify-between items-center">
                                 <p class="text-xl font-medium dark:text-white">
-                                    @lang('admin::app.sales.invoices.create.new-invoice')         
+                                    @lang('admin::app.sales.invoices.create.new-invoice')
                                 </p>
-    
+
                                 @if (bouncer()->hasPermission('sales.invoices.create'))
                                     <button
                                         type="submit"
                                         class="mr-11 primary-button"
                                     >
-                                        @lang('admin::app.sales.invoices.create.create-invoice')        
+                                        @lang('admin::app.sales.invoices.create.create-invoice')
                                     </button>
                                 @endif
                             </div>
                         </div>
                     </x-slot:header>
-    
+
                     <!-- Drawer Content -->
                     <x-slot:content class="!p-0">
                         <div class="grid p-4 !pt-0">
@@ -66,18 +66,18 @@
                                             @else
                                                 <div class="w-full h-[60px] max-w-[60px] max-h-[60px] relative border border-dashed border-gray-300 dark:border-gray-800 rounded dark:invert dark:mix-blend-exclusion">
                                                     <img src="{{ bagisto_asset('images/product-placeholders/front.svg') }}">
-                                                    
-                                                    <p class="absolute w-full bottom-1.5 text-[6px] text-gray-400 text-center font-semibold"> 
+
+                                                    <p class="absolute w-full bottom-1.5 text-[6px] text-gray-400 text-center font-semibold">
                                                         @lang('admin::app.sales.invoices.create.product-image')
                                                     </p>
                                                 </div>
                                             @endif
-            
+
                                             <div class="grid gap-1.5 place-content-start">
                                                 <p class="text-base text-gray-800 dark:text-white font-semibold">
                                                     {{ $item->name }}
                                                 </p>
-            
+
                                                 <div class="flex flex-col gap-1.5 place-items-start">
                                                     <p class="text-gray-600 dark:text-gray-300">
                                                         @lang('admin::app.sales.invoices.create.amount-per-unit', [
@@ -85,7 +85,7 @@
                                                             'qty'    => $item->qty_ordered,
                                                         ])
                                                     </p>
-            
+
                                                     @if (isset($item->additional['attributes']))
                                                         <p class="text-gray-600 dark:text-gray-300">
                                                             @foreach ($item->additional['attributes'] as $attribute)
@@ -93,7 +93,7 @@
                                                             @endforeach
                                                         </p>
                                                     @endif
-            
+
                                                     <p class="text-gray-600 dark:text-gray-300">
                                                         @lang('admin::app.sales.invoices.create.sku', ['sku' => $item->sku])
                                                     </p>
@@ -106,19 +106,19 @@
                                             <x-admin::form.control-group.label class="required">
                                                 @lang('admin::app.sales.invoices.create.qty-to-invoiced')
                                             </x-admin::form.control-group.label>
-        
+
                                             <x-admin::form.control-group.control
                                                 type="text"
                                                 :name="'invoice[items][' . $item->id . ']'"
                                                 :id="'invoice[items][' . $item->id . ']'"
                                                 :value="$item->qty_to_invoice"
-                                                rules="required|numeric|min:0" 
+                                                rules="required|numeric|min:0"
                                                 class="!w-[100px]"
                                                 label="Qty to invoiced"
                                                 placeholder="Qty to invoiced"
                                             >
                                             </x-admin::form.control-group.control>
-        
+
                                             <x-admin::form.control-group.error
                                                 :control-name="'invoice[items][' . $item->id . ']'"
                                             >
@@ -129,7 +129,7 @@
                             @endforeach
 
                             <!-- Create Transaction Button -->
-                            <x-admin::form.control-group class="flex gap-2.5 w-max !mb-0 p-1.5 cursor-pointer select-none">
+                            <x-admin::form.control-group class="flex gap-2.5 w-max !mb-0 p-1.5 cursor-pointer select-none hidden">
                                 <x-admin::form.control-group.control
                                     type="checkbox"
                                     name="can_create_transaction"

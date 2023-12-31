@@ -15,12 +15,12 @@ import { createApp } from "vue/dist/vue.esm-bundler";
 import { configure, defineRule, Field, Form, ErrorMessage } from "vee-validate";
 import { localize } from "@vee-validate/i18n";
 import en from "@vee-validate/i18n/dist/locale/en.json";
-import * as AllRules from '@vee-validate/rules';
+import * as AllRules from "@vee-validate/rules";
 
 /**
  * Registration of all global validators.
  */
-Object.keys(AllRules).forEach(rule => {
+Object.keys(AllRules).forEach((rule) => {
     defineRule(rule, AllRules[rule]);
 });
 
@@ -33,11 +33,11 @@ Object.keys(AllRules).forEach(rule => {
  * someone wants to customize it, they can override this rule.
  */
 defineRule("phone_uae", (value) => {
-    if (! value || ! value.length) {
+    if (!value || !value.length) {
         return true;
     }
 
-    if (! /^\d{8,12}$/.test(value)) {
+    if (!/^\d{6,15}$/.test(value)) {
         return false;
     }
 
@@ -45,11 +45,11 @@ defineRule("phone_uae", (value) => {
 });
 
 defineRule("phone", (value) => {
-    if (! value || ! value.length) {
+    if (!value || !value.length) {
         return true;
     }
 
-    if (! /^\+?\d+$/.test(value)) {
+    if (!/^\+?\d+$/.test(value)) {
         return false;
     }
 
@@ -57,19 +57,23 @@ defineRule("phone", (value) => {
 });
 
 defineRule("address", (value) => {
-    if (! value || ! value.length) {
+    if (!value || !value.length) {
         return true;
     }
 
-    if (! /^[a-zA-Z0-9\s'\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\u0590-\u05FF\u3040-\u309F\u30A0-\u30FF\u0400-\u04FF\u0D80-\u0DFF\u3400-\u4DBF\u2000-\u2A6D\u00C0-\u017F\u0980-\u09FF\u0900-\u097F\u4E00-\u9FFF,\(\)-]{1,60}$/iu.test(value)) {
+    if (
+        !/^[a-zA-Z0-9\s'\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\u0590-\u05FF\u3040-\u309F\u30A0-\u30FF\u0400-\u04FF\u0D80-\u0DFF\u3400-\u4DBF\u2000-\u2A6D\u00C0-\u017F\u0980-\u09FF\u0900-\u097F\u4E00-\u9FFF,\(\)-]{1,60}$/iu.test(
+            value
+        )
+    ) {
         return false;
     }
 
     return true;
 });
 
-defineRule("decimal", (value, { decimals = '*', separator = '.' } = {}) => {
-    if (value === null || value === undefined || value === '') {
+defineRule("decimal", (value, { decimals = "*", separator = "." } = {}) => {
+    if (value === null || value === undefined || value === "") {
         return true;
     }
 
@@ -77,8 +81,10 @@ defineRule("decimal", (value, { decimals = '*', separator = '.' } = {}) => {
         return /^-?\d*$/.test(value);
     }
 
-    const regexPart = decimals === '*' ? '+' : `{1,${decimals}}`;
-    const regex = new RegExp(`^[-+]?\\d*(\\${separator}\\d${regexPart})?([eE]{1}[-]?\\d+)?$`);
+    const regexPart = decimals === "*" ? "+" : `{1,${decimals}}`;
+    const regex = new RegExp(
+        `^[-+]?\\d*(\\${separator}\\d${regexPart})?([eE]{1}[-]?\\d+)?$`
+    );
 
     return regex.test(value);
 });
@@ -139,39 +145,49 @@ window.app = createApp({
         onInvalidSubmit() {},
 
         lazyImages() {
-            var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            var lazyImages = [].slice.call(
+                document.querySelectorAll("img.lazy")
+            );
 
-            let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(function(entry) {
+            let lazyImageObserver = new IntersectionObserver(function (
+                entries,
+                observer
+            ) {
+                entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         let lazyImage = entry.target;
 
                         lazyImage.src = lazyImage.dataset.src;
 
-                        lazyImage.classList.remove('lazy');
+                        lazyImage.classList.remove("lazy");
 
                         lazyImageObserver.unobserve(lazyImage);
                     }
                 });
             });
 
-            lazyImages.forEach(function(lazyImage) {
+            lazyImages.forEach(function (lazyImage) {
                 lazyImageObserver.observe(lazyImage);
             });
         },
 
         animateBoxes() {
-            let animateBoxes = document.querySelectorAll('.scroll-trigger');
+            let animateBoxes = document.querySelectorAll(".scroll-trigger");
 
-            if (! animateBoxes.length) {
+            if (!animateBoxes.length) {
                 return;
             }
 
             animateBoxes.forEach((animateBox) => {
-                let animateBoxObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
+                let animateBoxObserver = new IntersectionObserver(function (
+                    entries,
+                    observer
+                ) {
+                    entries.forEach(function (entry) {
                         if (entry.isIntersecting) {
-                            animateBox.classList.remove('scroll-trigger--offscreen');
+                            animateBox.classList.remove(
+                                "scroll-trigger--offscreen"
+                            );
 
                             animateBoxObserver.unobserve(animateBox);
                         }
@@ -180,7 +196,7 @@ window.app = createApp({
 
                 animateBoxObserver.observe(animateBox);
             });
-        }
+        },
     },
 });
 
@@ -194,7 +210,7 @@ import Shop from "./plugins/shop";
 [Axios, Emitter, Shop].forEach((plugin) => app.use(plugin));
 
 import Flatpickr from "flatpickr";
-import 'flatpickr/dist/flatpickr.css';
+import "flatpickr/dist/flatpickr.css";
 window.Flatpickr = Flatpickr;
 
 /**

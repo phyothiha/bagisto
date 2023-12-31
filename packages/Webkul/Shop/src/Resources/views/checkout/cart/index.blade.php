@@ -25,7 +25,7 @@
                     aria-label="@lang('shop::app.checkout.cart.index.bagisto')"
                 >
                     <img
-                        src="{{ bagisto_asset('images/logo.svg') }}"
+                        src="{{ bagisto_asset('images/logo.png') }}"
                         alt="ME Myanmar Foods & Products"
                         width="55"
                     >

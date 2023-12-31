@@ -22,9 +22,9 @@
                     @lang('shop::app.checkout.onepage.summary.cart-summary')
                 </h1>
 
-                <div class="grid mt-[40px] border-b-[1px] border-[#E9E9E9] max-sm:mt-[20px]">
+                <div class="grid mt-10 border-b border-[#E9E9E9] max-sm:mt-5">
                     <div
-                        class="flex gap-x-[15px] pb-[20px]"
+                        class="flex gap-x-4 pb-5"
                         v-for="item in cart.items"
                     >
                         <img
@@ -37,7 +37,7 @@
 
                         <div>
                             <p
-                                class="text-[16px] text-navyBlue max-sm:text-[14px] max-sm:font-medium"
+                                class="text-base text-navyBlue max-sm:text-sm max-sm:font-medium"
                                 v-text="item.name"
                             >
                             </p>
@@ -49,21 +49,21 @@
                     </div>
                 </div>
 
-                <div class="grid gap-[15px] mt-[25px] mb-[30px]">
-                    <div class="flex justify-between text-right">
-                        <p class="text-[16px] max-sm:text-[14px] max-sm:font-normal">
+                <div class="grid gap-4 mt-6 mb-8">
+                    <div class="flex text-right justify-between">
+                        <p class="text-base max-sm:text-sm max-sm:font-normal">
                             @lang('shop::app.checkout.onepage.summary.sub-total')
                         </p>
 
                         <p
-                            class="text-[16px] font-medium max-sm:text-[14px]"
+                            class="text-base font-medium max-sm:text-sm"
                             v-text="cart.base_sub_total"
                         >
                         </p>
                     </div>
 
                     <div
-                        class="flex justify-between text-right"
+                        class="flex text-right justify-between"
                         v-for="(amount, index) in cart.base_tax_amounts"
                         v-if="parseFloat(cart.base_tax_total)"
                     >
@@ -72,14 +72,14 @@
                         </p>
 
                         <p
-                            class="text-[16px] font-medium max-sm:text-[14px]"
+                            class="text-base font-medium max-sm:text-sm"
                             v-text="amount"
                         >
                         </p>
                     </div>
 
                     <div
-                        class="flex justify-between text-right"
+                        class="flex text-right justify-between"
                         v-if="cart.selected_shipping_rate"
                     >
                         <p class="text-base">
@@ -101,7 +101,7 @@
                         </p>
 
                         <p
-                            class="text-[16px] font-medium"
+                            class="text-base font-medium"
                             v-text="cart.formatted_base_discount_amount"
                         >
                         </p>
@@ -109,13 +109,13 @@
 
                     @include('shop::checkout.cart.coupon')
 
-                    <div class="flex justify-between text-right">
-                        <p class="text-[18px] font-semibold">
+                    <div class="flex text-right justify-between">
+                        <p class="text-lg font-semibold">
                             @lang('shop::app.checkout.onepage.summary.grand-total')
                         </p>
 
                         <p
-                            class="text-[18px] font-semibold"
+                            class="text-lg font-semibold"
                             v-text="cart.base_grand_total"
                         >
                         </p>
@@ -201,12 +201,12 @@
                                 window.location.href = '{{ route('shop.checkout.onepage.success') }}';
                             }
 
-                            this.$refs.placeOrder.isLoading = false;
+                            // this.$refs.placeOrder.isLoading = false;
 
                         })
                         .catch(error => {
-                            this.$refs.placeOrder.isLoading = false;
-                        });
+                            // this.$refs.placeOrder.isLoading = false;
+                        })
                 },
             },
         });

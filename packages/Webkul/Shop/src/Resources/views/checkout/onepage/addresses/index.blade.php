@@ -121,6 +121,11 @@
                     if (this.isCustomer) {
                         this.$axios.get("{{ route('api.shop.customers.account.addresses.index') }}")
                             .then(response => {
+
+                                this.forms.billing.address.first_name = "{{ auth()?->user()?->first_name }}"
+                                this.forms.billing.address.last_name = "{{ auth()?->user()?->last_name }}"
+                                this.forms.billing.address.email = "{{ auth()?->user()?->email }}"
+
                                 this.addresses = response.data.data.map((address, index, row) => {
                                     if (address.default_address) {
                                         // assign

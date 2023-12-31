@@ -1,15 +1,15 @@
 <div>
 
-        <x-shop::accordion>
-            <x-slot:header>
-                <div class="flex items-center justify-between">
-                    <h2 class="text-[26px] font-medium max-sm:text-[20px]">
+    <x-shop::accordion class="!border-b-0">
+        <x-slot:header class="!p-0">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-medium max-sm:text-xl">
                         @lang('shop::app.checkout.onepage.addresses.billing.billing-address')
                     </h2>
                 </div>
             </x-slot:header>
 
-            <x-slot:content>
+            <x-slot:content class="!p-0 mt-8">
 
                 <!-- Billing address form -->
                 <x-shop::form
@@ -17,7 +17,7 @@
                     as="div"
                 >
                     <form @submit="handleSubmit($event, store)">
-                        <x-shop::form.control-group>
+                        {{-- <x-shop::form.control-group>
                             <x-shop::form.control-group.label>
                                 @lang('shop::app.checkout.onepage.addresses.billing.company-name')
                             </x-shop::form.control-group.label>
@@ -37,9 +37,9 @@
                             </x-shop::form.control-group.error>
                         </x-shop::form.control-group>
 
-                        {!! view_render_event('bagisto.shop.checkout.onepage.billing_address.company_name.after') !!}
+                        {!! view_render_event('bagisto.shop.checkout.onepage.billing_address.company_name.after') !!} --}}
 
-                        <div class="grid grid-cols-2 gap-x-[20px]">
+                        <div class="grid grid-cols-2 gap-x-5">
                             <x-shop::form.control-group>
                                 <x-shop::form.control-group.label class="!mt-0 required">
                                     @lang('shop::app.checkout.onepage.addresses.billing.first-name')
@@ -148,7 +148,7 @@
 
                         {!! view_render_event('bagisto.shop.checkout.onepage.billing_address.address1.after') !!}
 
-                        <div class="grid grid-cols-2 gap-x-[20px]">
+                        <div class="grid grid-cols-2 gap-x-5">
                             <x-shop::form.control-group class="!mb-4">
                                 <x-shop::form.control-group.label class="{{ core()->isCountryRequired() ? 'required' : '' }} !mt-[0px]">
                                     @lang('shop::app.checkout.onepage.addresses.billing.country')

@@ -47,7 +47,7 @@
                     @csrf
                 </form>
 
-                <div 
+                <div
                     class="inline-flex gap-x-2 items-center justify-between w-full max-w-max px-1 py-1.5 text-gray-600 dark:text-gray-300 font-semibold text-center cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
                     @click="$emitter.emit('open-confirm-modal', {
                         message: '@lang('shop::app.customers.account.orders.view.cancel-confirm-msg')',
@@ -66,7 +66,7 @@
                     <a
                         href="javascript:void(0);"
                     >
-                        @lang('admin::app.sales.orders.view.cancel')    
+                        @lang('admin::app.sales.orders.view.cancel')
                     </a>
                 </div>
             @endif
@@ -124,13 +124,13 @@
                                     @else
                                         <div class="w-full h-[60px] max-w-[60px] max-h-[60px] relative border border-dashed border-gray-300 dark:border-gray-800 rounded dark:invert dark:mix-blend-exclusion">
                                             <img src="{{ bagisto_asset('images/product-placeholders/front.svg') }}">
-                                            
-                                            <p class="absolute w-full bottom-1.5 text-[6px] text-gray-400 text-center font-semibold"> 
-                                                @lang('admin::app.sales.invoices.view.product-image') 
+
+                                            <p class="absolute w-full bottom-1.5 text-[6px] text-gray-400 text-center font-semibold">
+                                                @lang('admin::app.sales.invoices.view.product-image')
                                             </p>
                                         </div>
                                     @endif
-                    
+
                                     <div class="grid gap-1.5 place-content-start">
                                         <p class="text-base text-gray-800 dark:text-white font-semibold">
                                             {{ $item->name }}
@@ -183,7 +183,7 @@
                                             @lang('admin::app.sales.orders.view.price', ['price' => core()->formatBasePrice($item->base_price)])
                                         </p>
 
-                                        <p class="text-gray-600 dark:text-gray-300">
+                                        <p class="text-gray-600 dark:text-gray-300 hidden">
                                             {{ $item->tax_percent }}%
                                             @lang('admin::app.sales.orders.view.tax', ['tax' => core()->formatBasePrice($item->base_tax_amount)])
                                         </p>
@@ -209,7 +209,7 @@
                                 @lang('admin::app.sales.orders.view.summary-sub-total')
                             </p>
 
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <p class="text-gray-600 dark:text-gray-300 hidden">
                                 @lang('admin::app.sales.orders.view.summary-tax')
                             </p>
 
@@ -274,9 +274,9 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <!-- Customer's comment form -->
-                <div class="bg-white dark:bg-gray-900 rounded box-shadow">
+                <div class="bg-white dark:bg-gray-900 rounded box-shadow hidden">
                     <p class="p-4 pb-0 text-base text-gray-800 dark:text-white font-semibold">
                         @lang('admin::app.sales.orders.view.comments')
                     </p>
@@ -287,7 +287,7 @@
                                 <x-admin::form.control-group>
                                     <x-admin::form.control-group.control
                                         type="textarea"
-                                        name="comment" 
+                                        name="comment"
                                         id="comment"
                                         rules="required"
                                         :label="trans('admin::app.sales.orders.view.comments')"
@@ -322,12 +322,12 @@
                                         tabindex="0"
                                     >
                                     </span>
-                        
+
                                     <p class="flex gap-x-1 items-center cursor-pointer text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 font-semibold">
                                         @lang('admin::app.sales.orders.view.notify-customer')
                                     </p>
                                 </label>
-                                
+
                                 <button
                                     type="submit"
                                     class="secondary-button"
@@ -337,7 +337,7 @@
                                 </button>
                             </div>
                         </div>
-                    </x-admin::form> 
+                    </x-admin::form>
 
                     <span class="block w-full border-b dark:border-gray-800"></span>
 
@@ -349,9 +349,9 @@
                             </p>
 
                             <!-- Notes List Title and Time -->
-                            <p class="flex gap-2 text-gray-600 dark:text-gray-300 items-center">  
+                            <p class="flex gap-2 text-gray-600 dark:text-gray-300 items-center">
                                 @if ($comment->customer_notified)
-                                    <span class="h-fit text-2xl rounded-full icon-done text-blue-600 bg-blue-100"></span> 
+                                    <span class="h-fit text-2xl rounded-full icon-done text-blue-600 bg-blue-100"></span>
 
                                     @lang('admin::app.sales.orders.view.customer-notified', ['date' => core()->formatDate($comment->created_at, 'Y-m-d H:i:s a')])
                                 @else
@@ -401,7 +401,7 @@
                                 {!! view_render_event('sales.order.customer_group.after', ['order' => $order]) !!}
                             </div>
                         </div>
-                        
+
                         <!-- Billing Address -->
                         @if ($order->billing_address)
                             <span class="block w-full border-b dark:border-gray-800"></span>
@@ -435,7 +435,7 @@
                             {!! view_render_event('sales.order.shipping_address.after', ['order' => $order]) !!}
                         @endif
                     </x-slot:content>
-                </x-admin::accordion> 
+                </x-admin::accordion>
 
                 <!-- Order Information -->
                 <x-admin::accordion>
@@ -460,7 +460,7 @@
                                     @lang('admin::app.sales.orders.view.channel')
                                 </p>
                             </div>
-                    
+
                             <div class="flex flex-col gap-y-1.5">
                                 {!! view_render_event('sales.order.created_at.before', ['order' => $order]) !!}
 
@@ -470,12 +470,12 @@
                                 </p>
 
                                 {!! view_render_event('sales.order.created_at.after', ['order' => $order]) !!}
-                            
+
                                 <!-- Order Status -->
                                 <p class="text-gray-600 dark:text-gray-300">
                                     {{$order->status_label}}
                                 </p>
-                            
+
                                 {!! view_render_event('sales.order.status_label.after', ['order' => $order]) !!}
 
                                 <!-- Order Channel -->
@@ -487,7 +487,7 @@
                             </div>
                         </div>
                     </x-slot:content>
-                </x-admin::accordion> 
+                </x-admin::accordion>
 
                 <!-- Payment and Shipping Information-->
                 <x-admin::accordion>
@@ -558,7 +558,7 @@
                             {!! view_render_event('sales.order.shipping-method.after', ['order' => $order]) !!}
                         @endif
                     </x-slot:content>
-                </x-admin::accordion> 
+                </x-admin::accordion>
 
                 <!-- Invoice Information-->
                 <x-admin::accordion>
@@ -601,16 +601,16 @@
                             @if ($index < count($order->invoices) - 1)
                                 <span class="block w-full mb-4 mt-4 border-b dark:border-gray-800"></span>
                             @endif
-                        @empty 
+                        @empty
                             <p class="text-gray-600 dark:text-gray-300">
                                 @lang('admin::app.sales.orders.view.no-invoice-found')
                             </p>
                         @endforelse
                     </x-slot:content>
-                </x-admin::accordion> 
+                </x-admin::accordion>
 
                 <!-- Shipment Information-->
-                <x-admin::accordion>
+                <x-admin::accordion class="hidden">
                     <x-slot:header>
                         <p class="text-gray-600 dark:text-gray-300 text-base  p-2.5 font-semibold">
                             @lang('admin::app.sales.orders.view.shipments') ({{ count($order->shipments) }})
@@ -641,13 +641,13 @@
                                     </a>
                                 </div>
                             </div>
-                        @empty 
+                        @empty
                             <p class="text-gray-600 dark:text-gray-300">
                                 @lang('admin::app.sales.orders.view.no-shipment-found')
                             </p>
                         @endforelse
                     </x-slot:content>
-                </x-admin::accordion> 
+                </x-admin::accordion>
 
                 <!-- Refund Information-->
                 <x-admin::accordion>
@@ -682,8 +682,8 @@
                                     </p>
 
                                     <p class="text-gray-600 dark:text-gray-300">
-                                        @lang('admin::app.sales.orders.view.refunded') 
-                                        
+                                        @lang('admin::app.sales.orders.view.refunded')
+
                                         <span class="text-gray-800 font-semibold dark:text-white">
                                             {{ core()->formatBasePrice($refund->base_grand_total) }}
                                         </span>
@@ -699,13 +699,13 @@
                                     </a>
                                 </div>
                             </div>
-                        @empty 
+                        @empty
                             <p class="text-gray-600 dark:text-gray-300">
                                 @lang('admin::app.sales.orders.view.no-refund-found')
                             </p>
                         @endforelse
                     </x-slot:content>
-                </x-admin::accordion> 
+                </x-admin::accordion>
             </div>
 
             {!! view_render_event('sales.order.tabs.after', ['order' => $order]) !!}

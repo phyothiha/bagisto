@@ -37,7 +37,7 @@
                     </p>
                 </div>
 
-                <p class="text-base">
+                {{-- <p class="text-base">
                     @lang('shop::app.checkout.cart.mini-cart.offer-on-orders')
                 </p> --}}
             </x-slot:header>
