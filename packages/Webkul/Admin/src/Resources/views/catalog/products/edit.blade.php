@@ -137,6 +137,11 @@
                 {!! view_render_event('bagisto.admin.catalog.product.edit.form.column_' . $column . '.before', ['product' => $product]) !!}
 
                 <div class="flex flex-col gap-2 @if ($column == 1) flex-1 max-xl:flex-auto @elseif ($column == 2) w-[360px] max-w-full max-sm:w-full @endif">
+                    @if ($column == 1)
+                        <!-- Images View Blade File -->
+                        @include('admin::catalog.products.edit.images')
+                    @endif
+
                     @foreach ($groups as $group)
                         @php
                             $customAttributes = $product->getEditableAttributes($group);
@@ -158,9 +163,12 @@
                                 @foreach ($customAttributes as $attribute)
                                     {!! view_render_event('bagisto.admin.catalog.product.edit.form.' . $group->code . '.controls.before', ['product' => $product]) !!}
 
-                                    <x-admin::form.control-group>
+                                    <x-admin::form.control-group
+                                        :class="
+                                            (in_array($attribute->code, ['url_key', 'visible_individually', 'status', 'guest_checkout']) ? 'hidden' : '')
+                                        ">
                                         <x-admin::form.control-group.label>
-                                            {!! $attribute->admin_name . ($attribute->is_required ? '<span class="required"></span>' : '') !!}
+                                            {!! $attribute->admin_name . ($attribute->is_required ? '<span class="required text-red-500"></span>' : '') !!}
 
                                             @if (
                                                 $attribute->value_per_channel
@@ -171,11 +179,11 @@
                                                 </span>
                                             @endif
 
-                                            @if ($attribute->value_per_locale)
+                                            {{-- @if ($attribute->value_per_locale)
                                                 <span class="px-1 py-0.5 bg-gray-100 border border-gray-200 rounded text-[10px] text-gray-600 font-semibold leading-normal">
                                                     {{ $currentLocale->name }}
                                                 </span>
-                                            @endif
+                                            @endif --}}
                                         </x-admin::form.control-group.label>
 
                                         @include ('admin::catalog.products.edit.controls', [
@@ -203,10 +211,10 @@
 
                     @if ($column == 1)
                         <!-- Images View Blade File -->
-                        @include('admin::catalog.products.edit.images')
+                        {{-- @include('admin::catalog.products.edit.images') --}}
 
                         <!-- Videos View Blade File -->
-                        @include('admin::catalog.products.edit.videos')
+                        {{-- @include('admin::catalog.products.edit.videos') --}}
 
                         <!-- Product Type View Blade File -->
                         @includeIf('admin::catalog.products.edit.types.' . $product->type)

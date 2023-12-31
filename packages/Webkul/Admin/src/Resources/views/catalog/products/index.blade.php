@@ -43,7 +43,7 @@
                 <div class="row grid grid-cols-[2fr_1fr_1fr] grid-rows-1 items-center px-4 py-2.5 border-b dark:border-gray-800">
                     <div
                         class="flex gap-2.5 items-center select-none"
-                        v-for="(columnGroup, index) in [['name', 'sku', 'attribute_family'], ['base_image', 'price', 'quantity', 'product_id'], ['status', 'category_name', 'type']]"
+                        v-for="(columnGroup, index) in [['name', 'sku'], ['base_image', 'price'], ['status', 'category_name']]"
                     >
                         @if ($hasPermission)
                             <label
@@ -145,11 +145,11 @@
                                 @{{ "@lang('admin::app.catalog.products.index.datagrid.sku-value')".replace(':sku', record.sku) }}
                             </p>
 
-                            <p
+                            {{-- <p
                                 class="text-gray-600 dark:text-gray-300"
                             >
                                 @{{ "@lang('admin::app.catalog.products.index.datagrid.attribute-family-value')".replace(':attribute_family', record.attribute_family) }}
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
 
@@ -204,19 +204,19 @@
                                     </span>
                                 </p>
 
-                                <p
+                                {{-- <p
                                     class="text-gray-600 dark:text-gray-300"
                                     v-else
                                 >
                                     <span class="text-red-600">
                                         @lang('admin::app.catalog.products.index.datagrid.out-of-stock')
                                     </span>
-                                </p>
+                                </p> --}}
                             </div>
 
-                            <p class="text-gray-600 dark:text-gray-300">
+                            {{-- <p class="text-gray-600 dark:text-gray-300">
                                 @{{ "@lang('admin::app.catalog.products.index.datagrid.id-value')".replace(':id', record.product_id) }}
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
 
@@ -233,18 +233,18 @@
                             >
                             </p>
 
-                            <p
+                            {{-- <p
                                 class="text-gray-600 dark:text-gray-300"
                                 v-text="record.type"
                             >
-                            </p>
+                            </p> --}}
                         </div>
 
                         <div class="flex gap-1.5 items-center">
                             <a :href=`{{ route('admin.catalog.products.copy', '') }}/${record.product_id}`>
                                 <span class="icon-copy text-2xl ltr:ml-1 rtl:mr-1 p-1.5 rounded-md cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800"></span>
                             </a>
-                            
+
                             <a :href=`{{ route('admin.catalog.products.edit', '') }}/${record.product_id}`>
                                 <span class="icon-sort-right text-2xl ltr:ml-1 rtl:mr-1 p-1.5 rounded-md cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800"></span>
                             </a>
@@ -316,6 +316,7 @@
                                             name="type"
                                             rules="required"
                                             :label="trans('admin::app.catalog.products.index.create.type')"
+                                            value="virtual"
                                         >
                                             @foreach(config('product_types') as $key => $type)
                                                 <option value="{{ $key }}">
@@ -338,6 +339,7 @@
                                             name="attribute_family_id"
                                             rules="required"
                                             :label="trans('admin::app.catalog.products.index.create.family')"
+                                            value="1"
                                         >
                                             @foreach($families as $family)
                                                 <option value="{{ $family->id }}">

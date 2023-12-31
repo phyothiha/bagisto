@@ -63,6 +63,8 @@ class ProductRepository extends Repository
     {
         $product = $this->findOrFail($id);
 
+        $data['url_key'] = $data['sku'];
+
         $product = $product->getTypeInstance()->update($data, $id, $attribute);
 
         $product->refresh();

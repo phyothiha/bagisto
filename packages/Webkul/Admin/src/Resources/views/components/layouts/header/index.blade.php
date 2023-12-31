@@ -15,7 +15,6 @@
         <a href="{{ route('admin.dashboard.index') }}">
             @if (core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode()))
                 <img
-                    class="w-[110px] h-10"
                     src="{{ Storage::url(core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode())) }}"
                     alt="ME Myanmar Foods & Products"
                     width="40"
@@ -148,7 +147,6 @@
         <div class="flex items-center justify-between">
             @if (core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode()))
                 <img
-                    class="w-[110px] h-10"
                     src="{{ Storage::url(core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode())) }}"
                     alt="ME Myanmar Foods & Products"
                     width="40"

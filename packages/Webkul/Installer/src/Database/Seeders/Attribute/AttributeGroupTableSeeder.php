@@ -42,15 +42,17 @@ class AttributeGroupTableSeeder extends Seeder
                 'is_user_defined'     => 0,
                 'position'            => 2,
                 'attribute_family_id' => 1,
-            ], [
-                'id'                  => 3,
-                'code'                => 'meta_description',
-                'name'                => trans('installer::app.seeders.attribute.attribute-groups.meta-description', [], $defaultLocale),
-                'column'              => 1,
-                'is_user_defined'     => 0,
-                'position'            => 3,
-                'attribute_family_id' => 1,
-            ], [
+            ],
+            // [
+            //     'id'                  => 3,
+            //     'code'                => 'meta_description',
+            //     'name'                => trans('installer::app.seeders.attribute.attribute-groups.meta-description', [], $defaultLocale),
+            //     'column'              => 1,
+            //     'is_user_defined'     => 0,
+            //     'position'            => 3,
+            //     'attribute_family_id' => 1,
+            // ],
+            [
                 'id'                  => 4,
                 'code'                => 'price',
                 'name'                => trans('installer::app.seeders.attribute.attribute-groups.price', [], $defaultLocale),
@@ -74,15 +76,16 @@ class AttributeGroupTableSeeder extends Seeder
                 'is_user_defined'     => 0,
                 'position'            => 3,
                 'attribute_family_id' => 1,
-            ], [
-                'id'                  => 7,
-                'code'                => 'inventories',
-                'name'                => trans('installer::app.seeders.attribute.attribute-groups.inventories', [], $defaultLocale),
-                'column'              => 2,
-                'is_user_defined'     => 0,
-                'position'            => 4,
-                'attribute_family_id' => 1,
             ],
+            // [
+            //     'id'                  => 7,
+            //     'code'                => 'inventories',
+            //     'name'                => trans('installer::app.seeders.attribute.attribute-groups.inventories', [], $defaultLocale),
+            //     'column'              => 2,
+            //     'is_user_defined'     => 0,
+            //     'position'            => 4,
+            //     'attribute_family_id' => 1,
+            // ],
         ]);
 
         DB::table('attribute_group_mappings')->insert([
