@@ -44,7 +44,7 @@
                 href="{{ route('admin.sales.invoices.print', $invoice->id) }}"
                 class="inline-flex gap-x-2 items-center justify-between w-full max-w-max px-1 py-1.5 text-gray-600 dark:text-gray-300 font-semibold text-center cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
             >
-                <span class="icon-printer text-2xl"></span> 
+                <span class="icon-printer text-2xl"></span>
 
                 @lang('admin::app.sales.invoices.view.print')
             </a>
@@ -77,7 +77,7 @@
                                 <x-admin::form.control-group.label class="required">
                                     @lang('admin::app.sales.invoices.view.email')
                                 </x-admin::form.control-group.label>
-    
+
                                 <x-admin::form.control-group.control
                                     type="email"
                                     name="email"
@@ -87,18 +87,18 @@
                                     :label="trans('admin::app.sales.invoices.view.email')"
                                 >
                                 </x-admin::form.control-group.control>
-    
+
                                 <x-admin::form.control-group.error
                                     control-name="email"
                                 >
                                 </x-admin::form.control-group.error>
                             </x-admin::form.control-group>
                         </x-slot:content>
-        
+
                         <!-- Modal Footer -->
                         <x-slot:footer>
                             <div class="flex gap-x-2.5 items-center">
-                                <button 
+                                <button
                                     type="submit"
                                     class="primary-button"
                                 >
@@ -139,13 +139,13 @@
                                 @else
                                     <div class="w-full h-[60px] max-w-[60px] max-h-[60px] relative border border-dashed border-gray-300 dark:border-gray-800 rounded dark:invert dark:mix-blend-exclusion">
                                         <img src="{{ bagisto_asset('images/product-placeholders/front.svg') }}">
-                                        
-                                        <p class="absolute w-full bottom-1.5 text-[6px] text-gray-400 text-center font-semibold"> 
-                                            @lang('admin::app.sales.invoices.view.product-image') 
+
+                                        <p class="absolute w-full bottom-1.5 text-[6px] text-gray-400 text-center font-semibold">
+                                            @lang('admin::app.sales.invoices.view.product-image')
                                         </p>
                                     </div>
                                 @endif
-                                
+
                                 <div class="grid gap-1.5 place-content-start">
                                     <!-- Item Name -->
                                     <p class="text-base text-gray-800 dark:text-white font-semibold">
@@ -195,7 +195,7 @@
                                     </p>
 
                                     <!-- Item Tax Amount -->
-                                    <p class="text-gray-600 dark:text-gray-300">
+                                    <p class="text-gray-600 dark:text-gray-300 hidden">
                                         @lang('admin::app.sales.invoices.view.tax', ['tax' => core()->formatBasePrice($item->base_tax_amount)])
                                     </p>
 
@@ -224,21 +224,21 @@
                         </p>
 
                         <p class="text-gray-600 dark:text-gray-300">
-                            @lang('admin::app.sales.invoices.view.shipping-and-handling')                    
+                            @lang('admin::app.sales.invoices.view.shipping-and-handling')
                         </p>
 
-                        <p class="text-gray-600 dark:text-gray-300">
-                            @lang('admin::app.sales.invoices.view.summary-tax')    
+                        <p class="text-gray-600 dark:text-gray-300 hidden">
+                            @lang('admin::app.sales.invoices.view.summary-tax')
                         </p>
 
                         @if ($invoice->base_discount_amount > 0)
                             <p class="text-gray-600 dark:text-gray-300">
-                                @lang('admin::app.sales.invoices.view.summary-discount')    
+                                @lang('admin::app.sales.invoices.view.summary-discount')
                             </p>
                         @endif
 
                         <p class="text-base text-gray-800 dark:text-white font-semibold">
-                            @lang('admin::app.sales.invoices.view.grand-total')   
+                            @lang('admin::app.sales.invoices.view.grand-total')
                         </p>
                     </div>
 
@@ -264,7 +264,7 @@
                                 {{ core()->formatBasePrice($invoice->base_discount_amount) }}
                             </p>
                         @endif
-                        
+
                         <!-- Grand Total -->
                         <p class="text-base text-gray-800 dark:text-white font-semibold">
                             {{ core()->formatBasePrice($invoice->base_grand_total) }}
@@ -333,13 +333,13 @@
                         @endif
                     @endif
                 </x-slot:content>
-            </x-admin::accordion> 
-            
+            </x-admin::accordion>
+
             <!-- component 2 -->
             <x-admin::accordion>
                 <x-slot:header>
                     <p class="text-gray-600 dark:text-gray-300 text-base  p-2.5 font-semibold">
-                        @lang('admin::app.sales.invoices.view.order-information') 
+                        @lang('admin::app.sales.invoices.view.order-information')
                     </p>
                 </x-slot:header>
 
@@ -348,8 +348,8 @@
                         <div class="flex flex-col gap-y-1.5">
                             @foreach (['order-id', 'order-date', 'order-status', 'invoice-status', 'channel'] as $item)
                                 <p class="text-gray-600 dark:text-gray-300">
-                                    @lang('admin::app.sales.invoices.view.' . $item) 
-                                </p>    
+                                    @lang('admin::app.sales.invoices.view.' . $item)
+                                </p>
                             @endforeach
                         </div>
 

@@ -112,7 +112,7 @@ class ThemeCustomizationTableSeeder extends Seeder
                     'type'       => 'product_carousel',
                     'name'       => trans('installer::app.seeders.shop.theme-customizations.all-products.name', [], $defaultLocale),
                     'sort_order' => 9,
-                    'status'     => 1,
+                    'status'     => 0,
                     'channel_id' => 1,
                     'created_at' => $now,
                     'updated_at' => $now,
