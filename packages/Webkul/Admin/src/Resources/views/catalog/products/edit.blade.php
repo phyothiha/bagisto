@@ -165,7 +165,7 @@
 
                                     <x-admin::form.control-group
                                         :class="
-                                            (in_array($attribute->code, ['url_key', 'visible_individually', 'status', 'guest_checkout']) ? 'hidden' : '')
+                                            (in_array($attribute->code, ['url_key', 'visible_individually', 'guest_checkout']) ? 'hidden' : '')
                                         ">
                                         <x-admin::form.control-group.label>
                                             {!! $attribute->admin_name . ($attribute->is_required ? '<span class="required text-red-500"></span>' : '') !!}
