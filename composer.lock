@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e6e0223ab3b43a8bb7b6fc5b70bd609",
+    "content-hash": "2ddd7d2a7b2c4387c26aa942c0290e42",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -6723,6 +6723,61 @@
                 "source": "https://github.com/pusher/pusher-http-php/tree/7.2.4"
             },
             "time": "2023-12-15T10:58:53+00:00"
+        },
+        {
+            "name": "rabbit-converter/rabbit-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rabbit-Converter/Rabbit-PHP.git",
+                "reference": "ea8de6422949e0d4de11b073bac4037647dd6760"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rabbit-Converter/Rabbit-PHP/zipball/ea8de6422949e0d4de11b073bac4037647dd6760",
+                "reference": "ea8de6422949e0d4de11b073bac4037647dd6760",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Rabbit.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Saturngod",
+                    "email": "me@saturngod.net"
+                },
+                {
+                    "name": "Nyan Lynn Htut",
+                    "email": "nyanlynnhtut@hexcores.com"
+                }
+            ],
+            "description": "Another Zawgyi <=> Unicode Converter",
+            "homepage": "http://saturngod.github.io/Rabbit",
+            "keywords": [
+                "converter",
+                "myanmar-font",
+                "unicode",
+                "zawgyi"
+            ],
+            "support": {
+                "issues": "https://github.com/Rabbit-Converter/Rabbit-PHP/issues",
+                "source": "https://github.com/Rabbit-Converter/Rabbit-PHP/tree/master"
+            },
+            "time": "2020-05-15T05:57:32+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -13727,6 +13782,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "rabbit-converter/rabbit-php": 20,
         "bagisto/laravel-datafaker": 20
     },
     "prefer-stable": true,

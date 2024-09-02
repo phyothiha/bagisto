@@ -16,6 +16,13 @@
                 font-family: 'Noto Sans';
                 src: url({{ asset('vendor/webkul/ui/assets/fonts/Noto/NotoSans-Regular.ttf') }}) format('truetype');
             }
+
+            @font-face {
+                font-family: "Zawgyi-One";
+                font-style: normal;
+                font-weight: 400;
+                src: url({{ storage_path("fonts/Zawgyi-One.ttf") }}) format("truetype");
+            }
         </style>
 
         @php
@@ -26,7 +33,8 @@
         <!-- main css -->
         <style type="text/css">
             * {
-                font-family: '{{ $mainFontFamily }}';
+                /* font-family: '{{ $mainFontFamily }}'; */
+                font-family: "Zawgyi-One";
             }
 
             body, th, td, h5 {
@@ -343,7 +351,8 @@
                                     <td class="text-center">{{ $item->getTypeInstance()->getOrderedItem($item)->sku }}</td>
 
                                     <td class="text-center">
-                                        {{ $item->name }}
+                                        {{-- {{ $item->name }} --}}
+                                        {{ Rabbit::uni2zg($item->name) }}
 
                                         @if (isset($item->additional['attributes']))
                                             <div class="item-options">

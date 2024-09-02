@@ -4100,5 +4100,61 @@
       "code":"PY-12",
       "default_name":"\u00d1eembuc\u00fa",
       "country_id":176
+   },
+   {
+      "id": 587,
+      "country_id": 241,
+      "country_code": "AE",
+      "code": "Dubai",
+      "default_name": "Dubai"
+   },
+   {
+      "id": 588,
+      "country_id": 241,
+      "country_code": "AE",
+      "code": "Sharjah",
+      "default_name": "Sharjah"
+   },
+   {
+      "id": 589,
+      "country_id": 241,
+      "country_code": "AE",
+      "code": "Ajman",
+      "default_name": "Ajman"
+   },
+   {
+      "id": 590,
+      "country_id": 241,
+      "country_code": "AE",
+      "code": "Al Ain",
+      "default_name": "Al Ain"
+   },
+   {
+      "id": 591,
+      "country_id": 241,
+      "country_code": "AE",
+      "code": "Ras Al Khaimah",
+      "default_name": "Ras Al Khaimah"
+   },
+   {
+      "id": 592,
+      "country_id": 241,
+      "country_code": "AE",
+      "code": "Fujairah",
+      "default_name": "Fujairah"
+   },
+   {
+      "id": 593,
+      "country_id": 241,
+      "country_code": "AE",
+      "code": "Umm Al Quwain",
+      "default_name": "Umm Al Quwain"
+   },
+   {
+      "id": 594,
+      "country_id": 241,
+      "country_code": "AE",
+      "code": "Abu Dhabi",
+      "default_name": "Abu Dhabi"
    }
 ]
